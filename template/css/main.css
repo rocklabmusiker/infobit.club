@@ -1,0 +1,312 @@
+
+/* .wrapper {
+	max-width: 1300px;
+	width: 100%;
+	margin: 0 auto;
+	padding: 0 15px;
+} */
+html {
+	position: relative;
+}
+
+.error_message {
+	font-size: 13px;
+	color: #fff;
+	background-color: #dc3545;
+	display: inline-block;
+	padding: 5px 15px;
+	-webkit-border-radius: 4px;
+	        border-radius: 4px;
+}
+
+.info_message {
+	font-size: 13px;
+	color: #fff;
+	background-color: #d39e00;
+	display: inline-block;
+	padding: 5px 15px;
+	-webkit-border-radius: 4px;
+	        border-radius: 4px;
+}
+
+.form_require {
+	color: #dc3545;
+	font-size: 16px;
+}
+
+.kasse_alert-success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    position: absolute;
+    top: 140px;
+    left: 15px;
+    transition: all .4s ease;
+    z-index: 100;
+}
+
+
+/*========= Errors=========*/
+.error_true {
+    position: absolute;
+    top: 72px;
+    left: -1000px;
+    z-index: 100;
+}
+
+.error_false {
+    position: absolute;
+    top: 72px;
+    left: -1000px;
+    z-index: 100;
+}
+
+/*========= login =========*/
+
+.login {
+	padding-top: 16%;
+}
+
+.login h1 {
+	text-align: center;
+	color: #c1c1c1;
+	font-size: 35px;
+	padding-bottom: 50px;
+
+}
+
+@media only screen and (max-width: 968px) {
+	.login {
+		padding-top: 20%;
+	}
+
+	.login h1 {
+		font-size: 25px;
+		padding-bottom: 30px;
+	}
+}
+
+.anfrage {
+	padding-top: 10%;
+}
+
+.anfrage h1 {
+    text-align: center;
+    color: #c1c1c1;
+    font-size: 35px;
+    padding-bottom: 50px;
+}
+
+
+
+.konto_erstellen {
+	padding-top: 10%;
+}
+
+.konto_erstellen h1 {
+    text-align: center;
+    color: #c1c1c1;
+    font-size: 35px;
+    padding-bottom: 50px;
+}
+
+
+
+/*========= header-nav =========*/
+
+
+.nav-link {
+	color: #fff;
+}
+
+.seller-menu-top {
+	padding-top: 20px;
+}
+
+.seller-menu-top .nav-link {
+	color: #343a40;
+}
+
+.nav-admin .nav-link {
+	padding: 0;
+}
+
+.container-nav-menu {
+	background-color: #343a40;
+}
+
+.nav-menu {
+	padding: 10px 0;
+}
+
+.nav-pills.nav-menu .nav-link.active {
+    color: #fff;
+    background-color: #dc3545;
+    -webkit-border-radius: 0;
+            border-radius: 0;
+}
+
+.nav-pills.nav-menu .nav-link {
+	-webkit-transition: all .4s ease;
+	   -moz-transition: all .4s ease;
+	    -ms-transition: all .4s ease;
+	     -o-transition: all .4s ease;
+	        transition: all .4s ease;
+}
+
+.nav-pills.nav-menu .nav-link:hover {
+	color: #dc3545;
+}
+
+.nav-pills.nav-menu .nav-link.active:hover {
+	color: #fff;
+}
+
+.seller-trenner {
+	margin: 30px 0;
+	padding: 10px 0;
+	background-color: #e9ecef;
+}
+
+.navbar-toggler {
+    border-radius: 0;
+}
+
+.navbar-toggler-icon {
+	margin-bottom: 10px;
+}
+
+.navbar-toggler-icon i {
+	color: #FFF;
+}
+
+.container-nav-menu .collapse {
+	margin: 0 0px 0 -5px !important;
+}
+
+.container-nav-menu .navbar-nav {
+	padding: 10px 0 !important;
+}
+
+.container-nav-menu .navbar-nav .nav-item a {
+	padding: 5px 10px;
+}
+
+
+
+/*========= Home =========*/
+
+.fas.fa-user-graduate {
+    margin-left: 10px;
+    transition: all .4s ease;
+}
+
+
+
+.fas.fa-user-graduate:hover {
+    color:#dc3545;
+}
+
+
+
+/*========= Personal Profil =========*/
+.personalProfil .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #dc3545;
+    border-radius: 0;
+    transition: all .4s ease;
+}
+
+.personalProfil .nav-pills .nav-link.active, .nav-pills .show > .nav-link:hover {
+    color: #fff;
+}
+
+.personalProfil .nav-pills .nav-link:hover {
+    color: #fff;
+    background-color: #dc3545;
+    border-radius: 0;
+}
+
+.personalProfil .card-header {
+    padding: 5px 10px;
+}
+
+.personalProfil .card-body {
+    padding: 0;
+}
+
+.personalProfil .personenBild {
+	margin:0;
+	padding: 0;
+}
+
+.personalProfil .personenBild img {
+	max-width: 200px;
+	width: 100%;
+	height: auto;
+}
+
+/*========= ihkWirtTest =========*/
+.form_mehrere_antworten input{
+	display: inline-block;
+}
+
+
+.ihkWirtTest .jumbotron {
+    padding: 2.5rem 2rem;
+}
+
+.ihkWirtTest_ergebnis .ihkWirtTest_titel {
+    box-shadow: 0px 0px 5px rgba(200,200,200,0.5);
+    border-radius: 5px;
+    padding: 0 0 8px 0;
+}
+
+.ihkWirtTest_ergebnis .ihkWirtTest_card {
+	box-shadow: 0px 0px 10px rgb(50, 50, 50);
+}
+
+.ihkWirtTest_ergebnis .ihkWirtTest_card p {
+	font-size: 40px;
+}
+
+
+
+
+.ihkWirtTest_ergebnis .ihkWirtTest_card {
+	max-width: 350px; 
+	width: 100%;
+}
+
+
+/*========= Timer =========*/
+.ihkWirtTest_timer {
+    float: right !important;
+    margin: -17px 0px 0 0px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #dc3545;
+}
+
+
+
+/*========= Pagiantion =========*/
+.pagination .page-item.active .page-link {
+    background-color: #343a40;
+    border-color: #343a40;
+    
+}
+
+.pagination .page-link {
+    color: #343a40;
+}
+
+.pagination .page-link:hover {
+    color: #343a40;
+}
+
+.pagination .page-link:focus {
+    box-shadow: none;
+}
+
+
