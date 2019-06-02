@@ -11,21 +11,8 @@
 
 </head>
 <body>
-	
-	<p id="response"></p>
-		<!-- Error messages -->
-	<?php if(isset($error) && $error == true): ?>
-		<div class="error_true alert alert-danger text-center d-inline-block rounded-0" role="alert">
-			<?php if(isset($message_text) && $message_text != ''){echo $message_text;} ?>
-		</div>
-	<?php endif; ?>
-
-	<?php if(isset($error) && $error == false): ?>
-		<div class="error_false alert alert-success text-center d-inline-block rounded-0" role="alert">
-			<?php if(isset($message_text) && $message_text != ''){echo $message_text;} ?>
-		</div>
-	<?php endif; ?>
-
+	<!-- Error messages -->
+	<p id="response" class="error_true alert alert-danger text-center rounded-0" role="alert" style="display: none;"></p>
 
 	<div class="container-fluid konto_erstellen">
 		<h1>PASSWORD ZURÜCKSETZEN</h1>
@@ -39,6 +26,9 @@
 				  </div>
 					<input type="button" class="btn btn-dark btn_reset_password" value="Passwort zurücksetzen">
 				</form>
+				<div class="form-row mt-3">
+					<a href="/" class="text-danger mb-1" style="text-decoration: none;"><i class="fas fa-angle-double-left pr-2 text-danger" style="position: relative; top:2px;"></i>zurück</a>
+				</div>
 			</div>
 			<div class="col-md-4"></div>
 		</div>
@@ -54,19 +44,19 @@
 		$(".error_true").animate({left: "0"}, 1000);
 		setTimeout(function(){
 			$(".error_true").animate({left: "-1000px"}, 1000);
-		}, 5000);
+		}, 8000);
 
 		$(".error_false").animate({left: "0"}, 1000);
 		setTimeout(function(){
 			$(".error_false").animate({left: "-1000px"}, 1000);
-		}, 5000);
+		}, 8000);
 	</script>
 
 
 
 
-	
 
-	
+
+
 </body>
 </html>

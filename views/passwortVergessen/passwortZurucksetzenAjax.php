@@ -41,7 +41,7 @@ if(isset($_POST['email'])) {
 				$mail->isHTML(true);
 				$mail->Body = "
 					Hi,<br><br>
-					Um das Passwort wiederherzustellen, klicke auf den Link:<br>
+					Du hast 10 min. um das Passwort wiederherzustellen, bitte, klicke auf den Link:<br>
 					<a href='
 					https://infobit.club/passwortVergessen/passwortWiederherstellen/0?email=$user_email&token=$user_token
 					'>https://infobit.club/passwortVergessen/passwortWiederherstellen/0?email=$user_email&token=$user_token</a><br><br>
@@ -51,13 +51,13 @@ if(isset($_POST['email'])) {
 				";
 
 				if($mail->send()){
-					exit(json_encode(array("status" => 1, "msg" => "Bitte überprüfen Sie ihre Email-Postfach!")));
+					echo 1; // Bitte überprüfen Sie ihre Email-Postfach!
 				} else {
-					exit(json_encode(array("status" => 1, "msg" => "Es hat nicht geklappt! Bitte, versuhen Sie es wieder!")));
+					echo 2; // Es hat nicht geklappt! Bitte, versuhen Sie es wieder!
 				}
 
 		} else {
-			exit(json_encode(array("status" => 0, "msg" => "Diese Email-Adresse kennen wir nicht!")));
+			echo 3; // Diese Email-Adresse kennen wir nicht!
 
 		}
 	}

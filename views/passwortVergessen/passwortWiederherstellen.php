@@ -12,6 +12,19 @@
 </head>
 <body>
 
+	<!-- Error messages -->
+	<?php if(isset($error) && $error == true): ?>
+		<div class="error_true alert alert-danger text-center d-inline-block rounded-0" role="alert">
+			<?php if(isset($message_text) && $message_text != ''){echo $message_text;} ?>
+		</div>
+	<?php endif; ?>
+
+	<?php if(isset($error) && $error == false): ?>
+		<div class="error_false alert alert-success text-center d-inline-block rounded-0" role="alert">
+			<?php if(isset($message_text) && $message_text != ''){echo $message_text;} ?>
+		</div>
+	<?php endif; ?>
+
 	<div class="container-fluid konto_erstellen">
 		<h1>PASSWORD WIEDERHERSTELLEN</h1>
 		<div class="row">
@@ -47,6 +60,20 @@
 
 	<script src="/template/js/jquery-3.3.1.min.js"></script>
 	<script src="/template/js/bootstrap.min.js"></script>
+
+
+		<!-- errors messages -->
+<script>
+	$(".error_true").animate({left: "0"}, 1000);
+	setTimeout(function(){
+		$(".error_true").animate({left: "-1000px"}, 1000);
+	}, 5000);
+
+	$(".error_false").animate({left: "0"}, 1000);
+	setTimeout(function(){
+		$(".error_false").animate({left: "-1000px"}, 1000);
+	}, 5000);
+</script>
 
 
 	<!-- überprüfe neue Passworts auf die gleichheit-->

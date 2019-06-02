@@ -10,17 +10,31 @@
 					$.ajax({
 							url: 'views/passwortVergessen/passwortZurucksetzenAjax.php',
 							method: 'POST',
-							dataType: 'json',
+							dataType: 'text',
 							data: {
 								email: email.val()
 							},
 							success: function(data){
-								if(!data.success){
-									$("#response").html(data.msg);
-									$("#response").html(data.error);
+								if(data == 1){
+									$("#response").removeClass('alert-danger');
+									$("#response").html('Bitte überprüfen Sie ihre Email-Postfach!').css('display', 'block').addClass('alert-success');
+									setTimeout(function(){
+										location.replace("/")
+									},3000);
 
-								} else {
-									$("#response").html(data.msg);
+								} else if(data == 2){
+									$("#response").html('Es hat nicht geklappt! Bitte, versuhen Sie es wieder!').css('display', 'block');
+									setTimeout(function(){
+										location.reload();
+									},2000);
+
+								}
+								else if(data == 3){
+									$("#response").html('Diese Email-Adresse kennen wir nicht!').css('display', 'block');
+									setTimeout(function(){
+										location.reload();
+									},2000);
+
 								}
 							}
 
@@ -32,4 +46,3 @@
 
 			});
 		});
-
