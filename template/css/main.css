@@ -64,7 +64,7 @@ html {
 /*========= login =========*/
 
 .login {
-	padding-top: 16%;
+	padding-top: 12%;
 }
 
 .login h1 {
@@ -274,7 +274,7 @@ html {
 
 
 .ihkWirtTest_ergebnis .ihkWirtTest_card {
-	max-width: 350px; 
+	max-width: 350px;
 	width: 100%;
 }
 
@@ -294,7 +294,7 @@ html {
 .pagination .page-item.active .page-link {
     background-color: #343a40;
     border-color: #343a40;
-    
+
 }
 
 .pagination .page-link {
@@ -308,5 +308,3 @@ html {
 .pagination .page-link:focus {
     box-shadow: none;
 }
-
-

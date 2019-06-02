@@ -1,12 +1,12 @@
-<?php 
+<?php
 
 return [
 
 
 	'wbsZwischen' => 'wbsZwischen/index',
-	
+
 	'ihkWirtTest/([0-9]+)' => 'ihkWirt/test/$1', // actionIndex in IhkFachController
-	'ihkWirt' => 'ihkWirt/index', 
+	'ihkWirt' => 'ihkWirt/index',
 
 	'ihkFachTest/([0-9]+)' => 'ihkFach/test/$1', // actionIndex in IhkFachController
 	'ihkFach' => 'ihkFach/index', // actionIndex in IhkFachController
@@ -15,6 +15,7 @@ return [
 	'personalProfil' => 'personalProfil/index',
 
 	'logout' => 'logout/logout', // actionLogout in LogoutController
+	'passwortVergessen/passwortWiederherstellen/([0-9]+)' => 'passwortWiederherstellen/index/$1',
 	'neue_anfrage' => 'neueAnfrage/index',
 	'passwort_vergessen' => 'passwortVergessen/index',
 	'konto_erstellen' => 'kontoErstellen/index',

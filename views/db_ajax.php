@@ -1,11 +1,11 @@
-<?php 
+<?php
 
 
 	$params = [
-		'host' => 'localhost',
-		'dbname' => 'Lernportal',
-		'user' => 'root',
-		'password' => '',
+		'host' => 'db5000092882.hosting-data.io',
+		'dbname' => 'dbs87526',
+		'user' => 'dbu76741',
+		'password' => '123Allesistdabei!data',
 	];
 
 	try {
@@ -13,7 +13,5 @@
 		$db = new PDO($dsn, $params['user'], $params['password']);
 		// $db->exec("set names utf8"); // устанавливает кодировку для базы данных
 	} catch(PDOException $e) {
-		die('Ошибка соединения базы данных для ajax');
+		die('Datenbankverbindung fehlgeschlagen für ajax');
 	}
-
-

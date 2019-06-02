@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 
 class User
@@ -50,11 +50,14 @@ class User
 			$result->execute();
 
 			if($result->rowCount() > 0){
-						
+
 				return true;
 			}
-			
+
 		}
 	}
+
+
+
 
 }// end User

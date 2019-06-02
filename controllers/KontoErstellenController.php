@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 
 
@@ -25,15 +25,15 @@ class KontoErstellenController
 
 					$empfaenger = "danielwagnerpost@gmail.com"; // email
 					$betreff = "Anfrage zu dem Zugang zum Learnspace";
-					$from = "Von: Vorname: " .$user_name . "Email: " . $user_email;
-					$text = "Bitte um den Zugang zum Learnspace 38.1";
+					$from = "Name: " .$userData['user_name'] . ", Email: " . $userData['user_email'];
+					$text = "Bitte um den Zugang zum Learnspace 38.1" . "\n" . $from;
 					mail($empfaenger, $betreff, $text, $from);
 
 					header('Location: neue_anfrage');
 
 				}
 			} else {
-				$error = true; 
+				$error = true;
 				$message_text = 'Hat nicht geklappt. Alle Textfelder müssen ausgefüllt sein!';
 			}
 

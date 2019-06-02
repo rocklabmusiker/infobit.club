@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 
 
@@ -14,7 +14,7 @@ class LoginController
 
 			$loginEmail = $_POST['loginEmail'];
 			$loginPassword = $_POST['loginPassword'];
-					
+
 
 			$userData = Login::checkLoginData($loginEmail, $loginPassword);
 
@@ -30,18 +30,18 @@ class LoginController
 					header('Location: home');
 				} else {
 					header('Location: neue_anfrage');
-					// email zu mir senden 
+					// email zu mir senden
 
 					$empfaenger = "danielwagnerpost@gmail.com"; // email
 					$betreff = "Anfrage zu dem Zugang zum Learnspace";
-					$from = "Von: Vorname: " .$userData['user_name'] . "Email: " . $userData['user_email'];
-					$text = "Bitte um den Zugang zum Learnspace 38.1";
+					$from = "Name: " .$userData['user_name'] . ", Email: " . $userData['user_email'];
+					$text = "Bitte um den Zugang zum Learnspace 38.1" . "\n" . $from;
 					mail($empfaenger, $betreff, $text, $from);
 
-					
+
 				}
-						
-				
+
+
 			}
 		}
 
