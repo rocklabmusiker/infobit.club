@@ -22,11 +22,11 @@ class PasswortWiederherstellenController
 
             if($result){
               $error = false;
-              $message_text = 'Super! Ihr Passwort wurde geändert!';
+              $message_text = 'Super! Dein Passwort wurde geändert!';
               header('Refresh: 3; URL=/');
             } else {
               $error = true;
-              $message_text = 'Es hat nicht geklappt! Bitte, versuhen Sie es wieder!';
+              $message_text = 'Es hat nicht geklappt! Bitte, versuche es wieder!';
             }
           }
       }

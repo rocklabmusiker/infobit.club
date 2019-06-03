@@ -308,3 +308,85 @@ html {
 .pagination .page-link:focus {
     box-shadow: none;
 }
+
+
+/*========= Admin =========*/
+
+
+
+/*========= header-nav =========*/
+
+
+.admin_menu .nav-link {
+	color: #fff;
+}
+
+.admin_menu .seller-menu-top {
+	padding-top: 20px;
+}
+
+.admin_menu .seller-menu-top .nav-link {
+	color: #343a40;
+}
+
+.admin_menu .nav-admin .nav-link {
+	padding: 0;
+}
+
+
+.admin_menu .nav-menu {
+	padding: 10px 0;
+}
+
+.admin_menu .nav-pills.nav-menu .nav-link.active {
+    color: #fff;
+    background-color: #dc3545;
+    -webkit-border-radius: 0;
+            border-radius: 0;
+}
+
+.admin_menu .nav-pills.nav-menu .nav-link {
+	-webkit-transition: all .4s ease;
+	   -moz-transition: all .4s ease;
+	    -ms-transition: all .4s ease;
+	     -o-transition: all .4s ease;
+	        transition: all .4s ease;
+}
+
+.admin_menu .nav-pills.nav-menu .nav-link:hover {
+	color: #343a40;
+}
+
+.admin_menu .nav-pills.nav-menu .nav-link.active:hover {
+	color: #fff;
+}
+
+.admin_menu .seller-trenner {
+	margin: 30px 0;
+	padding: 10px 0;
+	background-color: #e9ecef;
+}
+
+.admin_menu .navbar-toggler {
+    border-radius: 0;
+}
+
+.admin_menu .navbar-toggler-icon {
+	margin-bottom: 10px;
+}
+
+.admin_menu .navbar-toggler-icon i {
+	color: #FFF;
+}
+
+.container-nav-menu .collapse {
+	margin: 0 0px 0 -5px !important;
+}
+
+.container-nav-menu .navbar-nav {
+	padding: 10px 0 !important;
+}
+
+.container-nav-menu .navbar-nav .nav-item a {
+	padding: 5px 10px;
+}

@@ -3,14 +3,11 @@
 		<div class="col-md-6">
 			<ul class="nav nav-admin">
 			  <li class="nav-item">
-			    <a class="nav-link" href="/admin/adminHome">Admin</a>
+			    <a class="nav-link" href="/home">Benutzer</a>
 			  </li>
 		</div>
 		<div class="col-md-6">
 			<ul class="nav justify-content-end nav-logout">
-			  <li class="nav-item">
-			    <a class="nav-link" href="/personalProfil">Ich grüße dich, <?php echo GetName::getNameFromSession($_SESSION['user_id'])['user_name']; ?><i class="fas fa-user-graduate"></i></a>
-			  </li>
 			  <li class="nav-item">
 			    <a class="nav-link" href="/logout">Logout</a>
 			  </li>
@@ -18,7 +15,7 @@
 		</div>
 	</div>
 </div>
-<div class="container-nav-menu">
+<div class="container-nav-menu bg-info admin_menu">
 	<div class="container">
 		<nav class="navbar nav-pills navbar-expand-lg nav-menu ">
 		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

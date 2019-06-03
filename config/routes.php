@@ -1,7 +1,7 @@
 <?php
 
 return [
-
+	'admin/adminHome' => 'adminHome/index',
 
 	'wbsZwischen' => 'wbsZwischen/index',
 

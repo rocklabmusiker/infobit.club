@@ -17,13 +17,13 @@
 							success: function(data){
 								if(data == 1){
 									$("#response").removeClass('alert-danger');
-									$("#response").html('Bitte überprüfen Sie ihre Email-Postfach!').css('display', 'block').addClass('alert-success');
+									$("#response").html('Bitte überprüfe deine Email-Postfach!').css('display', 'block').addClass('alert-success');
 									setTimeout(function(){
 										location.replace("/")
 									},3000);
 
 								} else if(data == 2){
-									$("#response").html('Es hat nicht geklappt! Bitte, versuhen Sie es wieder!').css('display', 'block');
+									$("#response").html('Es hat nicht geklappt! Bitte, versuche es wieder!').css('display', 'block');
 									setTimeout(function(){
 										location.reload();
 									},2000);
