@@ -29,31 +29,28 @@
 		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 		    <ul class="navbar-nav p-2 mx-auto">
 		      <li class="nav-item px-2">
-		        <a class="nav-link <?php if($_SERVER['REQUEST_URI'] == '/home') echo 'active'; ?>" href="/home">Home</a>
+		        <a class="nav-link <?php if($_SERVER['REQUEST_URI'] == '/admin/adminHome') echo 'active'; ?>" href="/admin/adminHome">Home</a>
 		      </li>
 		      <li class="nav-item px-2">
 		         <a class="nav-link
 		        <?php
-		         	if(	$_SERVER['REQUEST_URI'] == '/ihkFach' ||
-		         		strpos($_SERVER['REQUEST_URI'], 'ihkFAchTest') === 1 ) echo 'active';
+		         	if(	$_SERVER['REQUEST_URI'] == '/admin/adminIhkFach') echo 'active';
 		         ?>"
-		         href="/ihkFach">IHK-Fachqualifikation</a>
+		         href="/admin/adminIhkFach">IHK-Fachqualifikation</a>
 		      </li>
 
 		      <li class="nav-item px-2">
-		        <a class="nav-link <?php if($_SERVER['REQUEST_URI'] == '/ihkWirt' ||
-		        strpos($_SERVER['REQUEST_URI'], 'ihkWirtTest') === 1 ) echo 'active'; ?>"
-		        href="/ihkWirt">IHK-Wirtschaft</a>
+		        <a class="nav-link <?php if($_SERVER['REQUEST_URI'] == '/admin/adminIhkWirt') echo 'active'; ?>"
+		        href="/admin/adminIhkWirt">IHK-Wirtschaft</a>
 		      </li>
 
 		      <li class="nav-item px-2">
-		        <a class="nav-link <?php if($_SERVER['REQUEST_URI'] == '/wbsZwischen') echo 'active'; ?>" href="/wbsZwischen">WBS-Zwischenprüfung</a>
+		        <a class="nav-link <?php if($_SERVER['REQUEST_URI'] == '/admin/adminWbsZwischen') echo 'active'; ?>" href="/admin/adminWbsZwischen">WBS-Zwischenprüfung</a>
 		      </li>
 
 		      <li class="nav-item px-2">
-		        <a class="nav-link" href="#">Statistik</a>
+		        <a class="nav-link" href="#">Benutzer</a>
 		      </li>
-
 
 		    </ul>
 		  </div>

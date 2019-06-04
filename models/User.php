@@ -87,6 +87,30 @@ class User
 		}
 	}
 
+	public static function updateAllowedUser($user_id, $user_allowed){
+
+		$user_id = trim(stripslashes(htmlspecialchars($user_id)));
+		$user_allowed = trim(stripslashes(htmlspecialchars($user_allowed)));
+
+		$db = Db::getConnection();
+
+		$sql = "UPDATE user SET user_allowed = :user_allowed WHERE user_id = :user_id";
+
+		if($result = $db->prepare($sql)){
+			$result->bindParam(':user_allowed', $user_allowed);
+			$result->bindParam(':user_id', $user_id);
+
+			$result->execute();
+
+			if($result->rowCount() > 0){
+				return true;
+			}else{
+				return false;
+			}
+
+		}
+	}
+
 
 
 }// end User
