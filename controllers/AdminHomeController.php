@@ -16,31 +16,30 @@ class AdminHomeController
     if(isset($_POST['update_allowed']) && isset($_POST['user_id'])){
       $user_id = $_POST['user_id'];
       $user_email = $_POST['user_email'];
+      $user_name = User::getUserDaten($user_id)['user_name'];
       $this->userAllowed = 'ja';
 
       $userAllowedDone = User::updateAllowedUser($user_id, $this->userAllowed);
 
       if($userAllowedDone){
-        $error = false;
-        $message_text = 'Der Benutzer wurde zugelassen!';
+
         // email an den benutzer
 
         $empfaenger = $user_email;
-        $betreff = '"zulassung@infobit.club", "infobit.club-Zulassung"';
+        $betreff = "infobit.club-Zulassung";
         $nachricht = "
-					Hi,<br><br>
-					Herzlich Willkommen zum 38.1 Lernportal. <br><br>
+					Hi $user_name, Herzlich Willkommen zum 38.1 Lernportal.
 
-					Mit freundlichen Grüßen<br>
+					Mit freundlichen Grüßen
 					infobit.club
 				";
 
-        // $email_send = mail($empfaenger, $betreff, $nachricht);
+        $email_send = mail($empfaenger, $betreff, $nachricht);
 
-        /*if($email_send){
+        if($email_send){
           $error = false;
           $message_text = 'Der Benutzer wurde zugelassen!';
-        }*/
+        }
         header('Refresh: 3');
 
       }else {

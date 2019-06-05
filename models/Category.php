@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 
 class Category
@@ -24,6 +24,29 @@ class Category
 
 			if($result->rowCount() > 0) {
 				return $cat_daten;
+			} else {
+				return false;
+			}
+		}
+	}
+
+	public static function getLastCategory() {
+
+		$db = Db::getConnection();
+		$sql = "SELECT * FROM category ORDER BY cat_id DESC LIMIT 1";
+
+		if($result = $db->query($sql)) {
+			$result->execute();
+
+			$last_cat = [];
+			while($row = $result->fetch()) {
+				$last_cat['cat_id'] = $row['cat_id'];
+				$last_cat['cat_titel'] = $row['cat_titel'];
+				$last_cat['cat_theme'] = $row['cat_theme'];
+			}
+
+			if($result->rowCount() > 0) {
+				return $last_cat;
 			} else {
 				return false;
 			}
