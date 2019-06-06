@@ -15,6 +15,7 @@
   </div>
 <?php endif; ?>
 
+<p class="error_true alert alert-danger text-center rounded-0 response" role="alert" style="opacity: 0;"></p>
 
 <div class="container">
   <div class="jumbotron jumbotron-fluid py-2 mt-4">

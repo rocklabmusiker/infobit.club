@@ -1,7 +1,7 @@
 <?php
 
 
-class AdminIhkWirtController
+class AdminFragenEinlegenController
 {
 
   public function actionIndex(){
@@ -51,7 +51,7 @@ class AdminIhkWirtController
 
 
 
-    require_once(ROOT . '/views/admin/adminIhkWirt/adminIhkWirt.php');
+    require_once(ROOT . '/views/admin/adminFragenEinlegen/adminFragenEinlegen.php');
     return true;
   }
 }

@@ -1,5 +1,5 @@
 <?php
-session_start(); 
+session_start();
 
 require_once('../db_ajax.php');
 
@@ -29,26 +29,34 @@ if(isset($_POST['cat_id'])) {
 			$fragen_antworten = $row['richtige_antwort'];
 			$array_richtige_antworten = explode(',', $fragen_antworten);
 
-			for ($i=0; $i < count($array_richtige_antworten); $i++) { 
+			for ($i=0; $i < count($array_richtige_antworten); $i++) {
 
 				if($array_richtige_antworten[$i] == 1){
 					$antwort_1 = $row['antwort_1'];
-				} 
+				}
 				if($array_richtige_antworten[$i] == 2){
 					$antwort_2 = $row['antwort_2'];
 				}
 				if($array_richtige_antworten[$i] == 3){
 					$antwort_3 = $row['antwort_3'];
-				} 
+				}
 				if($array_richtige_antworten[$i] == 4){
 					$antwort_4 = $row['antwort_4'];
-				} 
+				}
 				if($array_richtige_antworten[$i] == 5){
 					$antwort_5 = $row['antwort_5'];
 				}
 				if($array_richtige_antworten[$i] == 6){
 					$antwort_6 = $row['antwort_6'];
-				} 
+				}
+
+			}
+
+			$frage_bild_check = $row['frage_bild'];
+			$bild = '';
+			if($frage_bild_check != ''){
+				$bild = '<hr class="my-4"><img src="/template/images/testImages/'.$row['frage_bild'] .'" alt="'.$row['frage_bild'] .'">';
+
 
 			}
 
@@ -62,36 +70,37 @@ if(isset($_POST['cat_id'])) {
 			$session_antworten = $_SESSION['session_user_fragen'][$row['frage_id']]['user_antworten'];
 			$array_user_antworten = explode(',', $session_antworten);
 
-			for ($i=0; $i < count($array_user_antworten); $i++) { 
+			for ($i=0; $i < count($array_user_antworten); $i++) {
 
 				if($array_user_antworten[$i] == 1){
 					$user_antwort_1 = $row['antwort_1'];
-				} 
+				}
 				if($array_user_antworten[$i] == 2){
 					$user_antwort_2 = $row['antwort_2'];
 				}
 				if($array_user_antworten[$i] == 3){
 					$user_antwort_3 = $row['antwort_3'];
-				} 
+				}
 				if($array_user_antworten[$i] == 4){
 					$user_antwort_4 = $row['antwort_4'];
-				} 
+				}
 				if($array_user_antworten[$i] == 5){
 					$user_antwort_5 = $row['antwort_5'];
 				}
 				if($array_user_antworten[$i] == 6){
 					$user_antwort_6 = $row['antwort_6'];
-				} 
+				}
 
 			}
 
-			
+
 
 			$output .= '<div class="jumbotron mb-0">
 							<h1 class="display-4"> Frage Nr. '.$row['frage_id'].'</h1>
-  							<p>'.$row['frage_titel'].'</p>
-  							<hr class="my-4">
-  							<p>'.$row['frage_info'].'</p>
+							<p>'.$row['frage_titel'].'</p>'
+							. $bild .
+							'<hr class="my-4">
+							<p>'.$row['frage_info'].'</p>
 						</div>
 
 
@@ -152,21 +161,16 @@ if(isset($_POST['cat_id'])) {
 						</tr>
 					</table>';
 		}
-			
-			
+
+
 	}
 
-		
+
 	if($result->rowCount() > 0) {
 		echo $output;
 	} else {
 		echo false;
 	}
 
-		
+
 }
-
-
-
-
-		

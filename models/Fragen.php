@@ -124,7 +124,7 @@ class Fragen
 
 
 
-  $upload_folder = "template/images/testImages/" ; //Das Upload-Verzeichnis
+  $upload_folder = "template/images/testImages/"; //Das Upload-Verzeichnis
 
 
   //Pfad zum Upload
@@ -143,6 +143,7 @@ class Fragen
 	move_uploaded_file($_FILES['frage_bild']['tmp_name'], $new_path);
 	$db = Db::getConnection();
 
+	$bild = $filename.'.'.$extension;
 	$sql = "INSERT INTO fragen (frage_titel, frage_info, frage_cat_id, frage_bild, antwort_1, antwort_2, antwort_3, antwort_4, antwort_5, antwort_6, richtige_antwort)
   VALUES (:frage_titel, :frage_info, :frage_cat_id, :frage_bild, :antwort_1, :antwort_2, :antwort_3, :antwort_4, :antwort_5, :antwort_6, :richtige_antwort)";
 
@@ -150,7 +151,7 @@ class Fragen
 		$result->bindParam(':frage_titel', $frage_titel);
 		$result->bindParam(':frage_info', $frage_info);
     $result->bindParam(':frage_cat_id', $frage_cat_id);
-    $result->bindParam(':frage_bild', $filename);
+    $result->bindParam(':frage_bild', $bild);
     $result->bindParam(':antwort_1', $antwort_1);
     $result->bindParam(':antwort_2', $antwort_2);
     $result->bindParam(':antwort_3', $antwort_3);

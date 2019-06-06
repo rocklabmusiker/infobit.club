@@ -33,6 +33,25 @@ class User
 		}
 	}
 
+	public static function checkUserEmailIfExists($user_email) {
+
+		$user_email = trim(stripslashes(htmlspecialchars($user_email)));
+
+		$db = Db::getConnection();
+		$sql = "SELECT user_email FROM user WHERE user_email = :user_email LIMIT 1";
+
+		if($result = $db->prepare($sql)) {
+			$result->bindParam(':user_email', $user_email);
+			$result->execute();
+
+			if($result->rowCount() > 0) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+	}
+
 
 	public static function updateUserDaten($user_id, $user_name, $user_lastname, $user_email){
 
@@ -98,6 +117,27 @@ class User
 
 		if($result = $db->prepare($sql)){
 			$result->bindParam(':user_allowed', $user_allowed);
+			$result->bindParam(':user_id', $user_id);
+
+			$result->execute();
+
+			if($result->rowCount() > 0){
+				return true;
+			}else{
+				return false;
+			}
+
+		}
+	}
+
+	public static function newUserNotAllowedAndDelete($user_id){
+
+		$user_id = trim(stripslashes(htmlspecialchars($user_id)));
+		$db = Db::getConnection();
+
+		$sql = "DELETE FROM user WHERE user_id = :user_id";
+
+		if($result = $db->prepare($sql)){
 			$result->bindParam(':user_id', $user_id);
 
 			$result->execute();

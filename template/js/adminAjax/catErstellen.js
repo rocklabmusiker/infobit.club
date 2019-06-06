@@ -17,7 +17,7 @@ $(".set_new_cat").on("click", function(){
 
         if(data) {
           $(".response").removeClass('alert-danger');
-          $(".response").html('Alles super').css({'opacity':1, 'left':0}).addClass('alert-success');
+          $(".response").html('Alles super. Die Kategorie wurde erstellt!').css({'opacity':1, 'left':0}).addClass('alert-success');
           $(".cat_titel").val('');
           $(".cat_theme").val('');
           setTimeout(function(){

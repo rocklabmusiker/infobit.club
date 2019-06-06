@@ -1,7 +1,7 @@
 <?php
 
 return [
-	'admin/adminIhkWirt' => 'adminIhkWirt/index',
+	'admin/adminFragenEinlegen' => 'adminFragenEinlegen/index',
 	'admin/adminHome' => 'adminHome/index',
 
 	'wbsZwischen' => 'wbsZwischen/index',

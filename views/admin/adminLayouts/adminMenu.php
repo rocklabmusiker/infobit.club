@@ -32,20 +32,8 @@
 		        <a class="nav-link <?php if($_SERVER['REQUEST_URI'] == '/admin/adminHome') echo 'active'; ?>" href="/admin/adminHome">Home</a>
 		      </li>
 		      <li class="nav-item px-2">
-		         <a class="nav-link
-		        <?php
-		         	if(	$_SERVER['REQUEST_URI'] == '/admin/adminIhkFach') echo 'active';
-		         ?>"
-		         href="/admin/adminIhkFach">IHK-Fachqualifikation</a>
-		      </li>
-
-		      <li class="nav-item px-2">
-		        <a class="nav-link <?php if($_SERVER['REQUEST_URI'] == '/admin/adminIhkWirt') echo 'active'; ?>"
-		        href="/admin/adminIhkWirt">IHK-Wirtschaft</a>
-		      </li>
-
-		      <li class="nav-item px-2">
-		        <a class="nav-link <?php if($_SERVER['REQUEST_URI'] == '/admin/adminWbsZwischen') echo 'active'; ?>" href="/admin/adminWbsZwischen">WBS-Zwischenprüfung</a>
+		        <a class="nav-link <?php if($_SERVER['REQUEST_URI'] == '/admin/adminFragenEinlegen') echo 'active'; ?>"
+		        href="/admin/adminFragenEinlegen">Fragen einlegen</a>
 		      </li>
 
 		      <li class="nav-item px-2">

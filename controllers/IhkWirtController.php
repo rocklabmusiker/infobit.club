@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 
 class IhkWirtController
@@ -16,12 +16,27 @@ class IhkWirtController
 		$_SESSION['timestamp_timer'] = 0;
 
 		$this->ihk_wirt_abschluss = 'ihk_wirt_abschluss';
-		
+
 		if(Category::getCategoryDaten($this->ihk_wirt_abschluss)){
 
 			$cat_ihk_wirt_abschluss = Category::getCategoryDaten($this->ihk_wirt_abschluss);
 			$frage_num = 0;
-		} 
+		}
+
+		// anzahl der Testdurchläufe
+
+		if(UserHistory::getGemachtesTestsAnzahl($this->ihk_wirt_abschluss)){
+			$test_durchlauf = UserHistory::getGemachtesTestsAnzahl($this->ihk_wirt_abschluss);
+		} else {
+			$test_durchlauf = 0;
+		}
+
+		// letzte Note bekommen
+		if(UserHistory::getLetzteNote($this->ihk_wirt_abschluss)){
+			$letzte_note = UserHistory::getLetzteNote($this->ihk_wirt_abschluss);
+		} else {
+			$letzte_note = '';
+		}
 
 
 		require_once(ROOT . '/views/ihkWirt/ihkWirt.php');
@@ -41,7 +56,7 @@ class IhkWirtController
 		// выводим вопрос по категории
 		if(Fragen::getFragen($cat_id, $frage_num)){
 			$frage = Fragen::getFragen($cat_id, $frage_num);
-			
+
 
 			// вытаскиваем правильный ответ для определения кол-ва ответов, чтобы поставить checkbox oder radiobox
 			$antworten_anzahl = $frage['richtige_antwort'];
@@ -55,7 +70,7 @@ class IhkWirtController
 
 				// узнаём сколько ответов в вопросе
 				if(strpos($antworten_anzahl, ',') === 1){
-					
+
 					$einzelne_antwort = explode(',', $antworten_anzahl);
 					$einzelne_antwort_gesamtzahl = count($einzelne_antwort);
 					$checked_box = 0;
@@ -67,7 +82,7 @@ class IhkWirtController
 
 			} // ende if $antworten_anzahl
 
-			
+
 		} // ende Fragen::getFragen
 
 
@@ -78,7 +93,7 @@ class IhkWirtController
 		}
 
 		// выводим кол-во пунктов
-		
+
 		$gesamtprozentzahl = Fragen::rechnenErgebnissen($cat_id);
 		// var_dump($gesamtpunktzahl);
 
@@ -105,7 +120,7 @@ class IhkWirtController
 		}else {
 			$erreichte_note = 6;
 		}
-		
+
 
 		require_once(ROOT . '/views/ihkWirt/ihkWirtTest.php');
 		return true;
