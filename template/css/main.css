@@ -246,41 +246,47 @@ html {
 	height: auto;
 }
 
-/*========= ihkWirtTest =========*/
+/*========= ihkWirtTest, ihkZwischen =========*/
 .form_mehrere_antworten input{
 	display: inline-block;
 }
 
 
-.ihkWirtTest .jumbotron {
+.ihkWirtTest .jumbotron,
+.ihkZwischenTest .jumbotron {
     padding: 2.5rem 2rem;
 }
 
-.ihkWirtTest_ergebnis .ihkWirtTest_titel {
+.ihkWirtTest_ergebnis .ihkWirtTest_titel,
+.ihkZwischenTest_ergebnis .ihkZwischenTest_titel {
     box-shadow: 0px 0px 5px rgba(200,200,200,0.5);
     border-radius: 5px;
     padding: 0 0 8px 0;
 }
 
-.ihkWirtTest_ergebnis .ihkWirtTest_card {
+.ihkWirtTest_ergebnis .ihkWirtTest_card,
+.ihkZwischenTest_ergebnis .ihkZwischenTest_card {
 	box-shadow: 0px 0px 10px rgb(50, 50, 50);
 }
 
-.ihkWirtTest_ergebnis .ihkWirtTest_card p {
+.ihkWirtTest_ergebnis .ihkWirtTest_card p,
+.ihkZwischenTest_ergebnis .ihkZwischenTest_card p  {
 	font-size: 40px;
 }
 
 
 
 
-.ihkWirtTest_ergebnis .ihkWirtTest_card {
+.ihkWirtTest_ergebnis .ihkWirtTest_card,
+.ihkZwischenTest_ergebnis .ihkZwischenTest_card {
 	max-width: 350px;
 	width: 100%;
 }
 
 
 /*========= Timer =========*/
-.ihkWirtTest_timer {
+.ihkWirtTest_timer,
+.ihkZwischenTest_timer{
     float: right !important;
     margin: -17px 0px 0 0px;
     font-size: 20px;

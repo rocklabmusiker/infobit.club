@@ -19,7 +19,7 @@
 		<?php if((int)$fragen_anzahl[0] - 1 >= $frage_num): ?> <!--fragen_anzahl beginnt mit 1 und frage_num mit 0-->
 
 			<div class="seller-trenner">
-				<div class="float-right ihkWirtTest_timer"></div>
+				<div class="float-right ihkWirtTest_timer" data-seconds=""></div>
 			</div>
 
 			<div class="row justify-content-center">
@@ -207,6 +207,7 @@
 				<?php endif; ?>
 
 			<div class="col-md-8 mt-3 mb-5">
+				<button type="button" class="btn btn-danger btn-block ihkWirt_antwort_speichern" style="display:block;">Antwort speichern</button>
 				<a href="/ihkWirtTest/<?php echo $cat_id; ?>?cat_id=<?php echo $cat_id; ?>&frage_num=<?php echo $frage_num += 1; ?>" class="btn btn-dark btn-block btn_ihk_wirt_test" >Weiter</a>
 			</div>
 			<!-- onclick="return false" -->
@@ -313,6 +314,8 @@
 <script src="/template/js/ajax/ihkWirtTest.js"></script>
 <script src="/template/js/ajax/ihkWirtTestShowResult.js"></script>
 
+
+<script src="/template/js/timer.jquery.min.js"></script>
 <script>
 
 	var	secondsFromSession = $(".ihkWirtTest").attr("data-time");
@@ -321,4 +324,6 @@
 	 	seconds: secondsFromSession
 	});
 
+	var secondsFromTimer = $('.ihkZwischenTest_timer').data('seconds');
+	$('.ihkZwischenTest_timer').attr("data-seconds", secondsFromTimer);
 </script>

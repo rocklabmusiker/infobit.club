@@ -6,10 +6,10 @@
 
 
 
-<div 	class="container ihkWirtTest"
+<div 	class="container ihkZwischenTest"
 			data-user-id="<?php echo $_SESSION['user_id']; ?>"
-			data-time="<?php echo $_SESSION['timestamp_timer']; ?>"
-			data-cat-theme="<?php echo $_SESSION['cat_theme']; ?>">
+			data-time="<?php echo $_SESSION['timestamp_timer_ihk_zwischen']; ?>"
+			data-cat-theme="<?php echo $_SESSION['cat_theme_ihk_zwischen']; ?>">
 
 
 
@@ -19,15 +19,15 @@
 		<?php if((int)$fragen_anzahl[0] - 1 >= $frage_num): ?> <!--fragen_anzahl beginnt mit 1 und frage_num mit 0-->
 
 			<div class="seller-trenner">
-				<div class="float-right ihkWirtTest_timer"></div>
+				<div class="float-right ihkZwischenTest_timer" ></div>
 			</div>
 
 			<div class="row justify-content-center">
 				<?php if(isset($frage)): ?>
 
-					<?php $_SESSION['cat_theme'] = $frage['frage_cat_theme']; ?>
+					<?php $_SESSION['cat_theme_ihk_zwischen'] = $frage['frage_cat_theme']; ?>
 
-						<div class="col-md-8 ihkWirtTest_frage_id" data-frage-id="<?php echo $frage['frage_id']; ?>">
+						<div class="col-md-8 ihkZwischenTest_frage_id" data-frage-id="<?php echo $frage['frage_id']; ?>">
 							<!--mehreren Anterten-->
 							<?php if($mehrere_antworten): ?>
 
@@ -206,8 +206,11 @@
 						</div>
 				<?php endif; ?>
 
-			<div class="col-md-8 mt-3 mb-5">
-				<a href="/ihkWirtTest/<?php echo $cat_id; ?>?cat_id=<?php echo $cat_id; ?>&frage_num=<?php echo $frage_num += 1; ?>" class="btn btn-dark btn-block btn_ihk_wirt_test" >Weiter</a>
+			<div class="col-md-8 mt-3 mb-5 ihkZwischen_buttons">
+				<button type="button" class="btn btn-danger ihkZwischen_antwort_speichern" style="display:block;">Antwort speichern</button>
+				<a href="/ihkZwischenTest/<?php echo $cat_id; ?>?cat_id=<?php echo $cat_id; ?>&frage_num=<?php echo $frage_num += 1; ?>" class="btn btn-dark btn-block btn_ihkZwischen_test" style="display:none;">Weiter</a>
+
+
 			</div>
 			<!-- onclick="return false" -->
 
@@ -216,14 +219,14 @@
 
 				<div class="seller-trenner"></div>
 
-				<div class="row ihkWirtTest_ergebnis">
+				<div class="row ihkZwischenTest_ergebnis">
 					<div class="col-md-12">
 							<div class="jumbotron bg-dark">
-							  <h1 class="display-3 text-center text-white ihkWirtTest_titel">ERGEBNIS</h1>
+							  <h1 class="display-3 text-center text-white ihkZwischenTest_titel">ERGEBNIS</h1>
 							  <hr class="my-4">
 								<div class="row">
 										<div class="col-md-3">
-											<div class="card ihkWirtTest_card">
+											<div class="card ihkZwischenTest_card">
 												<span class="d-block m-auto pt-4">
 													<i class="fas fa-book-open fa-5x text-danger"></i>
 												</span>
@@ -237,7 +240,7 @@
 										</div>
 
 										<div class="col-md-3">
-											<div class="card ihkWirtTest_card">
+											<div class="card ihkZwischenTest_card">
 												<span class="d-block m-auto pt-4">
 													<i class="fas fa-star fa-5x text-danger"></i>
 												</span>
@@ -246,7 +249,7 @@
 
 											  <div class="card-body">
 											  	<?php if(isset($gesamtprozentzahl)): ?>
-											    	<p class="card-text display-3 text-center pt-0 mt-0 ihkWirtTest_gesamtprozentzahl" style="margin-top:3px;" data-gesamtprozentzahl="<?php echo $gesamtprozentzahl; ?>">
+											    	<p class="card-text display-3 text-center pt-0 mt-0 ihkZwischenTest_gesamtprozentzahl" style="margin-top:3px;" data-gesamtprozentzahl="<?php echo $gesamtprozentzahl; ?>">
 											    	<?php echo $gesamtprozentzahl; ?>
 											    	<span class="text-danger">%</span>
 											    <?php endif; ?>
@@ -256,7 +259,7 @@
 										</div>
 
 										<div class="col-md-3">
-											<div class="card ihkWirtTest_card">
+											<div class="card ihkZwischenTest_card">
 												<span class="d-block m-auto pt-4">
 													<i class="fas fa-stopwatch fa-5x text-danger"></i>
 												</span>
@@ -265,9 +268,9 @@
 
 											  <div class="card-body">
 											  	<?php $dt = new DateTime;
-																$dt->setTime(0, 0, $_SESSION['timestamp_timer']);
+																$dt->setTime(0, 0, $_SESSION['timestamp_timer_ihk_zwischen']);
 													?>
-											    <p class="card-text display-3 text-center pt-0 mt-0 ihkWirtTest_vergangene_zeit" style="margin-top:3px;" data-vergangene-zeit="<?php echo $dt->format('H:i:s'); ?>">
+											    <p class="card-text display-3 text-center pt-0 mt-0 ihkZwischenTest_vergangene_zeit" style="margin-top:3px;" data-vergangene-zeit="<?php echo $dt->format('H:i:s'); ?>">
 											    	<?php echo $dt->format('H:i:s'); ?>
 											    </p>
 											  </div>
@@ -275,7 +278,7 @@
 										</div>
 
 										<div class="col-md-3">
-											<div class="card ihkWirtTest_card">
+											<div class="card ihkZwischenTest_card">
 												<span class="d-block m-auto pt-4">
 													<i class="fas fa-user-graduate fa-5x text-danger"></i>
 												</span>
@@ -283,7 +286,7 @@
 												<hr class="mt-2 mb-0">
 
 											  <div class="card-body">
-											    <p class="card-text display-3 text-center pt-0 mt-0 ihkWirtTest_erreichte_note" data-erreichte-note="<?php echo $erreichte_note; ?>">
+											    <p class="card-text display-3 text-center pt-0 mt-0 ihkZwischenTest_erreichte_note" data-erreichte-note="<?php echo $erreichte_note; ?>">
 											    	<?php echo $erreichte_note; ?>
 											    </p>
 											  </div>
@@ -293,12 +296,12 @@
 								</div>
 
 								<hr class="my-4">
-								<button class="btn btn-danger btn-lg ihkWirtTest_ergebnisse_einsehen_button" data-cat-id="<?php echo $_GET['cat_id']; ?>">Ergebnisse ansehen und speichern</button>
-								<a href="/home" class="btn btn-light btn-lg ihkWirtTest_test_beenden" style="display: none;">Test beenden</a>
+								<button class="btn btn-danger btn-lg ihkZwischenTest_ergebnisse_einsehen_button" data-cat-id="<?php echo $_GET['cat_id']; ?>">Ergebnisse ansehen und speichern</button>
+								<a href="/home" class="btn btn-light btn-lg ihkZwischenTest_test_beenden" style="display: none;">Test beenden</a>
 							</div>
 					</div>
 					<!--ajax content ergebnisse-->
-					<div class="ihkWirtTest_ergebnisse_einsehen_content"></div>
+					<div class="ihkZwischenTest_ergebnisse_einsehen_content"></div>
 				</div>
 		<?php endif; ?>
 	<?php endif; ?> <!--$fragen_anzahl-->
@@ -310,13 +313,14 @@
 
 <?php include_once(ROOT . '/views/layouts/footer.php'); ?>
 
-<script src="/template/js/ajax/ihkWirtTest.js"></script>
-<script src="/template/js/ajax/ihkWirtTestShowResult.js"></script>
+<script src="/template/js/ajax/ihkZwischenTest.js"></script>
+<script src="/template/js/ajax/ihkZwischenTestShowResult.js"></script>
 
+<script src="/template/js/timer.jquery.min.js"></script>
 <script>
 
-	var	secondsFromSession = $(".ihkWirtTest").attr("data-time");
-	$('.ihkWirtTest_timer').timer({
+	var	secondsFromSession = $(".ihkZwischenTest").attr("data-time");
+	$('.ihkZwischenTest_timer').timer({
 	 	format: '%H:%M:%S',
 	 	seconds: secondsFromSession
 	});

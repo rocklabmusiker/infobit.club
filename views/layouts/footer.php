@@ -10,7 +10,7 @@
 	<!-- валидаци и работа с полями, например цена и скидка -->
 	<!-- <script src="/template/js/checkFieldsAndValidation.js"></script> -->
 	<!-- общие функции для базы данных -->
-	<script src="/template/js/timer.jquery.min.js"></script>
+
 
 	<!-- errors messages -->
 	<script>
@@ -26,7 +26,7 @@
 	</script>
 
 
-	
+
 
 </body>
 </html>

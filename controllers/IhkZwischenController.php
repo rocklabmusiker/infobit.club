@@ -11,9 +11,9 @@ class IhkZwischenController
 
   public function actionIndex(){
 
-    $_SESSION['session_user_fragen'] = [];
-    $_SESSION['timestamp_timer'] = 0;
-    $_SESSION['cat_theme'] = '';
+    $_SESSION['session_user_fragen_ihk_zwischen'] = [];
+    $_SESSION['timestamp_timer_ihk_zwischen'] = 0;
+    $_SESSION['cat_theme_ihk_zwischen'] = '';
 
     $this->ihk_zwischen_abschluss = 'ihk_zwischen_abschluss';
 
@@ -94,7 +94,10 @@ class IhkZwischenController
 
 		// выводим кол-во пунктов
 
-		$gesamtprozentzahl = Fragen::rechnenErgebnissen($cat_id);
+      $session_user_antworten = $_SESSION['session_user_fragen_ihk_zwischen'];
+  		$gesamtprozentzahl = Fragen::rechnenErgebnissen($cat_id, $session_user_antworten);
+
+
 		// var_dump($gesamtpunktzahl);
 
 		$erreichte_note = 0;

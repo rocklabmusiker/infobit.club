@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require_once('../db_ajax.php');
+// require_once('../db_ajax.php');
 
 if(isset($_POST['frage_id'])) {
 
@@ -11,8 +11,8 @@ if(isset($_POST['frage_id'])) {
 	$secondsFromTimer = $_POST['secondsFromTimer'] + 3;
 
 
-	$_SESSION['session_user_fragen'][$frage_id] = ['user_antworten' => $user_antworten];
-	$_SESSION['timestamp_timer'] = $secondsFromTimer;
+	$_SESSION['session_user_fragen_ihk_zwischen'][$frage_id] = ['user_antworten' => $user_antworten];
+	$_SESSION['timestamp_timer_ihk_zwischen'] = $secondsFromTimer;
 
 
 

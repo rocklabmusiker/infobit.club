@@ -49,10 +49,10 @@ $(document).ready(function () {
 
 /*==============Ergebnis zählen SESSION======================*/
 
-$(".ihkWirtTest .ihkWirt_antwort_speichern").on("click", function() {
+$(".ihkZwischenTest .ihkZwischen_antwort_speichern").on("click", function() {
 
     // сначало нужно получить айди вопроса
-    var frage_id = $(".ihkWirtTest_frage_id").attr("data-frage-id");
+    var frage_id = $(".ihkZwischenTest_frage_id").attr("data-frage-id");
 
 	// дальше получаем все ответы и помещаем их в один массив
 	var alle_antworten = [];
@@ -148,26 +148,27 @@ $(".ihkWirtTest .ihkWirt_antwort_speichern").on("click", function() {
 
 
     // timer
-    var user_id = $(".ihkWirtTest").attr("data-user-id");
-    var secondsFromTimer = $('.ihkWirtTest_timer').data('seconds');
+    var user_id = $(".ihkZwischenTest").attr("data-user-id");
+    // data('seconds') bekommt man die sekunden, kommt vom Plug-in
+    var secondsFromTimer = $('.ihkZwischenTest_timer').data('seconds');
 
 
     $.ajax({
 
-    	url: "/views/ihkWirt/ihkWirtTestAjax.php",
-  		method: "POST",
-  		dataType:"text",
-  		data:{  'user_id': user_id,
-                  'frage_id':frage_id,
-                  'user_antworten':user_antworten,
-                  'secondsFromTimer': secondsFromTimer},
-      success: function(data){
-        $(".ihkWirt_antwort_speichern").css("display", "none");
-        setTimeout(function(){
-          $(".btn_ihk_ihkWirt_test").css("display", "block");
-        }, 100);
-        
-      }
+    url: "/views/ihkZwischen/ihkZwischenTestAjax.php",
+		method: "POST",
+		dataType:"text",
+		data:{  'user_id': user_id,
+                'frage_id':frage_id,
+                'user_antworten':user_antworten,
+                'secondsFromTimer': secondsFromTimer},
+       success: function(data){
+            $(".ihkZwischen_antwort_speichern").css("display", "none");
+            setTimeout(function(){
+              $(".btn_ihkZwischen_test").css("display", "block");
+            }, 100);
+
+        }
 
     });
 

@@ -38,7 +38,7 @@
 		         <a class="nav-link
 		        <?php
 		         	if(	$_SERVER['REQUEST_URI'] == '/ihkFach' ||
-		         		strpos($_SERVER['REQUEST_URI'], 'ihkFAchTest') === 1 ) echo 'active';
+		         		strpos($_SERVER['REQUEST_URI'], 'ihkFachTest') === 1 ) echo 'active';
 		         ?>"
 		         href="/ihkFach">IHK-Fachqualifikation</a>
 		      </li>
@@ -50,11 +50,13 @@
 		      </li>
 
 					<li class="nav-item px-2">
-		        <a class="nav-link <?php if($_SERVER['REQUEST_URI'] == '/ihkZwischen') echo 'active'; ?>" href="/ihkZwischen">IHK-Zwischenprüfung</a>
+		        <a class="nav-link <?php if($_SERVER['REQUEST_URI'] == '/ihkZwischen' ||
+							strpos($_SERVER['REQUEST_URI'], 'ihkZwischenTest') === 1) echo 'active'; ?>" href="/ihkZwischen">IHK-Zwischenprüfung</a>
 		      </li>
 
 		      <li class="nav-item px-2">
-		        <a class="nav-link <?php if($_SERVER['REQUEST_URI'] == '/wbsZwischen') echo 'active'; ?>" href="/wbsZwischen">WBS-Zwischenprüfung</a>
+		        <a class="nav-link <?php if($_SERVER['REQUEST_URI'] == '/wbsZwischen' ||
+							strpos($_SERVER['REQUEST_URI'], 'wbsZwischenTest') === 1) echo 'active'; ?>" href="/wbsZwischen">WBS-Zwischenprüfung</a>
 		      </li>
 
 		      <li class="nav-item px-2">

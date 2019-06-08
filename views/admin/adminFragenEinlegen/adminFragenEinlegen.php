@@ -26,17 +26,17 @@
       <form method="post">
         <div class="form-group">
           <label for="exampleInputEmail1">Kategorie Titel</label>
-          <input type="text" name="cat_titel" class="form-control cat_titel" >
+          <input type="text" name="cat_titel" class="form-control" >
         </div>
         <div class="form-group">
           <label for="cat_theme">Kategorie Theme</label>
-          <input type="text" name="cat_theme" class="form-control cat_theme">
+          <input type="text" name="cat_theme" class="form-control">
         </div>
         <span class="badge badge-warning p-2 mb-4">
           ihk_wirt_abschluss -> ihk_fach_abschluss -> ihk_zwischen_abschluss -> wbs_zwischen_abschluss
         </span>
         <div class="form-group">
-          <input type="submit" name="neue_cat_erstellen" value="Kategorie erstellen" class="btn btn-dark set_new_cat">
+          <input type="submit" name="neue_cat_erstellen" value="Kategorie erstellen" class="btn btn-dark">
         </div>
       </form>
     </div>
@@ -119,7 +119,7 @@
           </span>
           <div class="input-group">
             <div class="custom-file">
-              <input type="file" name="frage_bild" class="custom-file-input frage_bild" id="fileInput" aria-describedby="inputGroupFileAddon04" value="suchen">
+              <input type="file" name="frage_bild" class="custom-file-input frage_bild" id="fileInput" value="suchen">
               <label class="custom-file-label" for="fileInput"></label>
             </div>
           </div>

@@ -18,12 +18,15 @@ class AdminFragenEinlegenController
 
 
       if(Category::neueCatEinlegen($cat_titel, $cat_theme)){
-        $cat_eingelegt = Category::neueCatEinlegen($cat_titel, $cat_theme);
+
         $error = false;
         $message_text = 'Super! Die Kategorie wurde erstellt!';
+        header('Refresh: 3');
+
       } else{
         $error = true;
         $message_text = 'Fehler! Die Kategorie wurde nicht erstellt!';
+        header('Refresh: 3');
       }
     }
 
@@ -40,28 +43,39 @@ class AdminFragenEinlegenController
       $antwort_5 = $_POST['antwort_5'];
       $antwort_6 = $_POST['antwort_6'];
 
-      if(isset($_FILES['frage_bild']) && $_FILES['frage_bild'] != ''){
-        $filename = pathinfo($_FILES['frage_bild']['name'], PATHINFO_FILENAME);
-  			$extension = strtolower(pathinfo($_FILES['frage_bild']['name'], PATHINFO_EXTENSION));
-        $frage_mit_bild = Fragen::frageEinsetzenMitBild($frage_titel, $frage_info, $frage_cat_id, $frage_cat_theme, $antwort_1, $antwort_2, $antwort_3, $antwort_4, $antwort_5, $antwort_6, $richtige_antwort,  $filename, $extension);
-        if($frage_mit_bild){
-          $error = false;
-  				$message_text = 'Super! Die Frage wurde eingesetzt!';
-        } else {
-          $error = true;
-  				$message_text = 'Fehler. Es hat nicht geklappt!';
+      if(isset($_FILES['frage_bild'])){
+
+        if($_FILES['frage_bild'] != '' && $_FILES['frage_bild']['name'] != ''){
+          $filename = pathinfo($_FILES['frage_bild']['name'], PATHINFO_FILENAME);
+    			$extension = strtolower(pathinfo($_FILES['frage_bild']['name'], PATHINFO_EXTENSION));
+          $frage_mit_bild = Fragen::frageEinsetzenMitBild($frage_titel, $frage_info, $frage_cat_id, $frage_cat_theme, $antwort_1, $antwort_2, $antwort_3, $antwort_4, $antwort_5, $antwort_6, $richtige_antwort,  $filename, $extension);
+          if($frage_mit_bild){
+
+            $error = false;
+    				$message_text = 'Super! Die Frage wurde eingesetzt!';
+            header('Refresh: 2');
+          } else {
+            $error = true;
+    				$message_text = 'Fehler. Es hat nicht geklappt!';
+            header('Refresh: 2');
+          }
+        } else{
+          $frage_ohne_bild = Fragen::frageEinsetzenOhneBild($frage_titel, $frage_info, $frage_cat_id, $frage_cat_theme, $antwort_1, $antwort_2, $antwort_3, $antwort_4, $antwort_5, $antwort_6, $richtige_antwort);
+          if($frage_ohne_bild){
+            $error = false;
+    				$message_text = 'Super! Die Frage wurde eingesetzt!';
+            header('Refresh: 2');
+          } else {
+            $error = true;
+    				$message_text = 'Fehler. Es hat nicht geklappt!';
+            header('Refresh: 2');
+          }
         }
 
-      } else{
-        $frage_ohne_bild = Fragen::frageEinsetzenOhneBild($frage_titel, $frage_info, $frage_cat_id, $frage_cat_theme, $antwort_1, $antwort_2, $antwort_3, $antwort_4, $antwort_5, $antwort_6, $richtige_antwort);
-        if($frage_ohne_bild){
-          $error = false;
-  				$message_text = 'Super! Die Frage wurde eingesetzt!';
-        } else {
-          $error = true;
-  				$message_text = 'Fehler. Es hat nicht geklappt!';
-        }
       }
+
+
+
 
     }
 

@@ -96,7 +96,10 @@ class IhkWirtController
 
 		// выводим кол-во пунктов
 
-		$gesamtprozentzahl = Fragen::rechnenErgebnissen($cat_id);
+			$session_user_antworten = $_SESSION['session_user_fragen'];
+			$gesamtprozentzahl = Fragen::rechnenErgebnissen($cat_id, $session_user_antworten);
+
+
 		// var_dump($gesamtpunktzahl);
 
 		$erreichte_note = 0;

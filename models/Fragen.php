@@ -42,7 +42,7 @@ class Fragen
 	}
 
 
-	public static function rechnenErgebnissen($cat_id) {
+	public static function rechnenErgebnissen($cat_id, $session_user_antworten) {
 
 		$db = Db::getConnection();
 		/*$sql = "SELECT fragen.richtige_antwort, session_storage.session_antworten FROM fragen, session_storage WHERE fragen.frage_id = session_storage.session_frage_id && session_storage.session_user_id = :user_id";*/
@@ -63,9 +63,9 @@ class Fragen
 				$session_antworten = '';
 
 
-				if(isset($_SESSION['session_user_fragen'][$row['frage_id']])) {
+				if(isset($session_user_antworten[$row['frage_id']])) {
 
-					$session_antworten = $_SESSION['session_user_fragen'][$row['frage_id']]['user_antworten'];
+					$session_antworten = $session_user_antworten[$row['frage_id']]['user_antworten'];
 
 					$array_user_antworten = explode(',', $session_antworten);
 
@@ -168,15 +168,17 @@ public static function frageEinsetzenOhneBild($frage_titel, $frage_info, $frage_
 
 
 	$db = Db::getConnection();
+	$frage_bild = '';
 
-	$sql = "INSERT INTO fragen (frage_titel, frage_info, frage_cat_id, frage_cat_theme, antwort_1, antwort_2, antwort_3, antwort_4, antwort_5, antwort_6, richtige_antwort)
-  VALUES (:frage_titel, :frage_info, :frage_cat_id, :frage_cat_theme, :antwort_1, :antwort_2, :antwort_3, :antwort_4, :antwort_5, :antwort_6, :richtige_antwort)";
+	$sql = "INSERT INTO fragen (frage_titel, frage_info, frage_cat_id, frage_cat_theme, frage_bild, antwort_1, antwort_2, antwort_3, antwort_4, antwort_5, antwort_6, richtige_antwort)
+  VALUES (:frage_titel, :frage_info, :frage_cat_id, :frage_cat_theme, :frage_bild, :antwort_1, :antwort_2, :antwort_3, :antwort_4, :antwort_5, :antwort_6, :richtige_antwort)";
 
 	if($result = $db->prepare($sql)){
 		$result->bindParam(':frage_titel', $frage_titel);
 		$result->bindParam(':frage_info', $frage_info);
     $result->bindParam(':frage_cat_id', $frage_cat_id);
 		$result->bindParam(':frage_cat_theme', $frage_cat_theme);
+		$result->bindParam(':frage_bild', $frage_bild);
     $result->bindParam(':antwort_1', $antwort_1);
     $result->bindParam(':antwort_2', $antwort_2);
     $result->bindParam(':antwort_3', $antwort_3);
