@@ -27,14 +27,19 @@ class KontoErstellenController
 
 						$insertUserDaten = KontoErstellen::insertNewUserDaten($user_name, $user_email, $user_password);
 
+						$user_name_post = $user_name;
+						$user_email_post = $user_email;
 						$empfaenger = "danielwagnerpost@gmail.com"; // email
 						$betreff = "Anfrage zu dem Zugang zum Learnspace";
-						$from = "Name: " .$user_name . ", Email: " . $user_email;
+						$from = "Name: " .$user_name_post  . ", Email: " . $user_email_post;
 						$text = "Bitte um den Zugang zum Learnspace 38.1" . "\n" . $from;
-						mail($empfaenger, $betreff, $text, $from);
+						$email_send = mail($empfaenger, $betreff, $text, $from);
 
+						if($email_send){
+							echo '<script> location.replace("neue_anfrage"); </script>';
+						}
 						// header('Location: neue_anfrage');
-						echo '<script> location.replace("neue_anfrage"); </script>';
+
 
 					}
 

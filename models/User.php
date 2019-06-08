@@ -4,6 +4,37 @@
 class User
 {
 
+	public static function getAllUsers() {
+
+		$db = Db::getConnection();
+		$sql = "SELECT * FROM user";
+
+		if($result = $db->prepare($sql)) {
+			$result->bindParam(':user_id', $user_id);
+			$result->execute();
+
+			$user_daten = [];
+			$i = 0;
+			while($row = $result->fetch()) {
+				$user_daten[$i]['user_id'] = $row['user_id'];
+				$user_daten[$i]['user_name'] = $row['user_name'];
+				$user_daten[$i]['user_lastname'] = $row['user_lastname'];
+				$user_daten[$i]['user_email'] = $row['user_email'];
+				$user_daten[$i]['user_foto'] = $row['user_foto'];
+				$user_daten[$i]['user_password'] = $row['user_password'];
+				$user_daten[$i]['user_status'] = $row['user_status'];
+				$user_daten[$i]['user_allowed'] = $row['user_allowed'];
+				$i++;
+			}
+
+			if($result->rowCount() > 0) {
+				return $user_daten;
+			} else {
+				return false;
+			}
+		}
+	}
+
 	public static function getUserDaten($user_id) {
 
 		$db = Db::getConnection();
@@ -143,14 +174,25 @@ class User
 			$result->execute();
 
 			if($result->rowCount() > 0){
-				return true;
+
+				$sql = "DELETE FROM user_history WHERE user_id = :user_id";
+
+				if($row = $db->prepare($sql)){
+
+					$row->bindParam(':user_id', $user_id);
+					$row->execute();
+
+					if($row->rowCount() > 0){
+						return true;
+					}
+				}
+
 			}else{
 				return false;
 			}
 
 		}
 	}
-
 
 
 }// end User

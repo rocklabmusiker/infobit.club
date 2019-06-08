@@ -109,22 +109,11 @@ class Fragen
 		}
 	}
 
-	public static function frageEinsetzenMitBild($frage_titel, $frage_info, $frage_cat_id, $antwort_1, $antwort_2, $antwort_3, $antwort_4, $antwort_5, $antwort_6, $richtige_antwort,  $filename, $extension){
 
-	$frage_titel = trim(stripcslashes(htmlspecialchars($frage_titel)));
-  $frage_info = trim(stripcslashes(htmlspecialchars($frage_info)));
-  $frage_cat_id = trim(stripcslashes(htmlspecialchars($frage_cat_id)));
-  $antwort_1 = trim(stripcslashes(htmlspecialchars($antwort_1)));
-  $antwort_2 = trim(stripcslashes(htmlspecialchars($antwort_2)));
-  $antwort_3 = trim(stripcslashes(htmlspecialchars($antwort_3)));
-  $antwort_4 = trim(stripcslashes(htmlspecialchars($antwort_4)));
-  $antwort_5 = trim(stripcslashes(htmlspecialchars($antwort_5)));
-  $antwort_6 = trim(stripcslashes(htmlspecialchars($antwort_6)));
-  $richtige_antwort = trim(stripcslashes(htmlspecialchars($richtige_antwort)));
+public static function frageEinsetzenMitBild($frage_titel, $frage_info, $frage_cat_id, $frage_cat_theme, $antwort_1, $antwort_2, $antwort_3, $antwort_4, $antwort_5, $antwort_6, $richtige_antwort,  $filename, $extension){
 
 
-
-  $upload_folder = "template/images/testImages/"; //Das Upload-Verzeichnis
+  $upload_folder = "template/images/testImages/" ; //Das Upload-Verzeichnis
 
 
   //Pfad zum Upload
@@ -144,13 +133,14 @@ class Fragen
 	$db = Db::getConnection();
 
 	$bild = $filename.'.'.$extension;
-	$sql = "INSERT INTO fragen (frage_titel, frage_info, frage_cat_id, frage_bild, antwort_1, antwort_2, antwort_3, antwort_4, antwort_5, antwort_6, richtige_antwort)
-  VALUES (:frage_titel, :frage_info, :frage_cat_id, :frage_bild, :antwort_1, :antwort_2, :antwort_3, :antwort_4, :antwort_5, :antwort_6, :richtige_antwort)";
+	$sql = "INSERT INTO fragen (frage_titel, frage_info, frage_cat_id, frage_cat_theme, frage_bild, antwort_1, antwort_2, antwort_3, antwort_4, antwort_5, antwort_6, richtige_antwort)
+  VALUES (:frage_titel, :frage_info, :frage_cat_id, :frage_cat_theme, :frage_bild, :antwort_1, :antwort_2, :antwort_3, :antwort_4, :antwort_5, :antwort_6, :richtige_antwort)";
 
 	if($result = $db->prepare($sql)){
 		$result->bindParam(':frage_titel', $frage_titel);
 		$result->bindParam(':frage_info', $frage_info);
     $result->bindParam(':frage_cat_id', $frage_cat_id);
+		$result->bindParam(':frage_cat_theme', $frage_cat_theme);
     $result->bindParam(':frage_bild', $bild);
     $result->bindParam(':antwort_1', $antwort_1);
     $result->bindParam(':antwort_2', $antwort_2);
@@ -174,29 +164,19 @@ class Fragen
 }
 
 
-public static function frageEinsetzenOhneBild($frage_titel, $frage_info, $frage_cat_id, $antwort_1, $antwort_2, $antwort_3, $antwort_4, $antwort_5, $antwort_6, $richtige_antwort){
-
-	$frage_titel = trim(stripcslashes(htmlspecialchars($frage_titel)));
-  $frage_info = trim(stripcslashes(htmlspecialchars($frage_info)));
-  $frage_cat_id = trim(stripcslashes(htmlspecialchars($frage_cat_id)));
-  $antwort_1 = trim(stripcslashes(htmlspecialchars($antwort_1)));
-  $antwort_2 = trim(stripcslashes(htmlspecialchars($antwort_2)));
-  $antwort_3 = trim(stripcslashes(htmlspecialchars($antwort_3)));
-  $antwort_4 = trim(stripcslashes(htmlspecialchars($antwort_4)));
-  $antwort_5 = trim(stripcslashes(htmlspecialchars($antwort_5)));
-  $antwort_6 = trim(stripcslashes(htmlspecialchars($antwort_6)));
-  $richtige_antwort = trim(stripcslashes(htmlspecialchars($richtige_antwort)));
+public static function frageEinsetzenOhneBild($frage_titel, $frage_info, $frage_cat_id, $frage_cat_theme, $antwort_1, $antwort_2, $antwort_3, $antwort_4, $antwort_5, $antwort_6, $richtige_antwort){
 
 
 	$db = Db::getConnection();
 
-	$sql = "INSERT INTO fragen (frage_titel, frage_info, frage_cat_id, antwort_1, antwort_2, antwort_3, antwort_4, antwort_5, antwort_6, richtige_antwort)
-  VALUES (:frage_titel, :frage_info, :frage_cat_id, :antwort_1, :antwort_2, :antwort_3, :antwort_4, :antwort_5, :antwort_6, :richtige_antwort)";
+	$sql = "INSERT INTO fragen (frage_titel, frage_info, frage_cat_id, frage_cat_theme, antwort_1, antwort_2, antwort_3, antwort_4, antwort_5, antwort_6, richtige_antwort)
+  VALUES (:frage_titel, :frage_info, :frage_cat_id, :frage_cat_theme, :antwort_1, :antwort_2, :antwort_3, :antwort_4, :antwort_5, :antwort_6, :richtige_antwort)";
 
 	if($result = $db->prepare($sql)){
 		$result->bindParam(':frage_titel', $frage_titel);
 		$result->bindParam(':frage_info', $frage_info);
     $result->bindParam(':frage_cat_id', $frage_cat_id);
+		$result->bindParam(':frage_cat_theme', $frage_cat_theme);
     $result->bindParam(':antwort_1', $antwort_1);
     $result->bindParam(':antwort_2', $antwort_2);
     $result->bindParam(':antwort_3', $antwort_3);
@@ -217,8 +197,6 @@ public static function frageEinsetzenOhneBild($frage_titel, $frage_info, $frage_
 		}
 	}
 }
-
-
 
 
 } // end class Fragen

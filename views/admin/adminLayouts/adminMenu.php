@@ -36,8 +36,9 @@
 		        href="/admin/adminFragenEinlegen">Fragen einlegen</a>
 		      </li>
 
-		      <li class="nav-item px-2">
-		        <a class="nav-link" href="#">Benutzer</a>
+					<li class="nav-item px-2">
+		        <a class="nav-link <?php if($_SERVER['REQUEST_URI'] == '/admin/adminBenutzer') echo 'active'; ?>"
+		        href="/admin/adminBenutzer">Benutzer</a>
 		      </li>
 
 		    </ul>

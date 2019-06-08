@@ -1,10 +1,16 @@
 <?php
 
 return [
+	'admin/adminBenutzer' => 'adminBenutzer/index',
 	'admin/adminFragenEinlegen' => 'adminFragenEinlegen/index',
 	'admin/adminHome' => 'adminHome/index',
 
+	'statistik' => 'statistik/index',
+
 	'wbsZwischen' => 'wbsZwischen/index',
+
+	'ihkZwischenTest/([0-9]+)' => 'ihkZwischen/test/$1',
+	'ihkZwischen' => 'ihkZwischen/index',
 
 	'ihkWirtTest/([0-9]+)' => 'ihkWirt/test/$1', // actionIndex in IhkFachController
 	'ihkWirt' => 'ihkWirt/index',

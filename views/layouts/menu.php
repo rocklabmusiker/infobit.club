@@ -49,12 +49,16 @@
 		        href="/ihkWirt">IHK-Wirtschaft</a>
 		      </li>
 
+					<li class="nav-item px-2">
+		        <a class="nav-link <?php if($_SERVER['REQUEST_URI'] == '/ihkZwischen') echo 'active'; ?>" href="/ihkZwischen">IHK-Zwischenprüfung</a>
+		      </li>
+
 		      <li class="nav-item px-2">
 		        <a class="nav-link <?php if($_SERVER['REQUEST_URI'] == '/wbsZwischen') echo 'active'; ?>" href="/wbsZwischen">WBS-Zwischenprüfung</a>
 		      </li>
 
 		      <li class="nav-item px-2">
-		        <a class="nav-link" href="#">Statistik</a>
+		        <a class="nav-link <?php if($_SERVER['REQUEST_URI'] == '/statistik') echo 'active'; ?>" href="/statistik">Statistik</a>
 		      </li>
 
 

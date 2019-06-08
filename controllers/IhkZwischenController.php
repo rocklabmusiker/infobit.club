@@ -1,53 +1,51 @@
 <?php
 
 
-class IhkWirtController
+class IhkZwischenController
 {
+  private $ihk_zwischen_abschluss;
+  public $mehrere_antworten;
+  public $antworten_anzahl;
+  public $einzelne_antwort_gesamtzahl;
+  public $checked_box;
 
-	private $ihk_wirt_abschluss;
-	public $mehrere_antworten;
-	public $antworten_anzahl;
-	public $einzelne_antwort_gesamtzahl;
-	public $checked_box;
+  public function actionIndex(){
 
-	public function actionIndex(){
+    $_SESSION['session_user_fragen'] = [];
+    $_SESSION['timestamp_timer'] = 0;
+    $_SESSION['cat_theme'] = '';
 
-		$_SESSION['session_user_fragen'] = [];
-		$_SESSION['timestamp_timer'] = 0;
-		$_SESSION['cat_theme'] = '';
+    $this->ihk_zwischen_abschluss = 'ihk_zwischen_abschluss';
 
-		$this->ihk_wirt_abschluss = 'ihk_wirt_abschluss';
+    if(Category::getCategoryDaten($this->ihk_zwischen_abschluss)){
 
-		if(Category::getCategoryDaten($this->ihk_wirt_abschluss)){
+      $cat_ihk_zwischen_abschluss = Category::getCategoryDaten($this->ihk_zwischen_abschluss);
+      $frage_num = 0;
+    }
 
-			$cat_ihk_wirt_abschluss = Category::getCategoryDaten($this->ihk_wirt_abschluss);
-			$frage_num = 0;
-		}
+    // anzahl der Testdurchläufe
+    $user_id = $_SESSION['user_id'];
 
-		// anzahl der Testdurchläufe
-		$user_id = $_SESSION['user_id'];
+    if(UserHistory::getGemachtesTestsAnzahl($this->ihk_zwischen_abschluss, $user_id)){
+      $test_durchlauf = UserHistory::getGemachtesTestsAnzahl($this->ihk_zwischen_abschluss, $user_id);
+    } else {
+      $test_durchlauf = 0;
+    }
 
-		if(UserHistory::getGemachtesTestsAnzahl($this->ihk_wirt_abschluss, $user_id)){
-			$test_durchlauf = UserHistory::getGemachtesTestsAnzahl($this->ihk_wirt_abschluss, $user_id);
-		} else {
-			$test_durchlauf = 0;
-		}
-
-		// letzte Note bekommen
-		if(UserHistory::getLetzteNote($this->ihk_wirt_abschluss, $user_id)){
-			$letzte_note = UserHistory::getLetzteNote($this->ihk_wirt_abschluss, $user_id);
-		} else {
-			$letzte_note = '';
-		}
-
-
-		require_once(ROOT . '/views/ihkWirt/ihkWirt.php');
-		return true;
-	}
+    // letzte Note bekommen
+    if(UserHistory::getLetzteNote($this->ihk_zwischen_abschluss, $user_id)){
+      $letzte_note = UserHistory::getLetzteNote($this->ihk_zwischen_abschluss, $user_id);
+    } else {
+      $letzte_note = '';
+    }
 
 
+    require_once(ROOT . '/views/ihkZwischen/ihkZwischen.php');
+    return true;
+  }
 
-	public function actionTest($cat_id){
+
+  public function actionTest($cat_id){
 
 		if(isset($_GET['cat_id']))
 		{
@@ -124,11 +122,10 @@ class IhkWirtController
 		}
 
 
-		require_once(ROOT . '/views/ihkWirt/ihkWirtTest.php');
+		require_once(ROOT . '/views/ihkZwischen/ihkZwischenTest.php');
 		return true;
 	}
+
+
+
 }
-
-
-
- ?>

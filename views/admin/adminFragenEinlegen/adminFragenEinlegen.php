@@ -2,6 +2,7 @@
 
 <?php include_once(ROOT . '/views/admin/adminLayouts/adminMenu.php'); ?>
 
+
 <!-- Error messages -->
 <?php if(isset($error) && $error == true): ?>
   <div class="error_true alert alert-danger text-center d-inline-block rounded-0" role="alert">
@@ -15,26 +16,28 @@
   </div>
 <?php endif; ?>
 
-<p class="error_true alert alert-danger text-center rounded-0 response" role="alert" style="opacity: 0;"></p>
 
 <div class="container">
   <div class="jumbotron jumbotron-fluid py-2 mt-4">
-    <div class="container">
       <h4 class="display-3 text-center" style="font-size: 30px;">Neue Kategorie erstellen</h4>
-    </div>
   </div>
 	<div class="row">
     <div class="col-md-12">
-      <form>
+      <form method="post">
         <div class="form-group">
           <label for="exampleInputEmail1">Kategorie Titel</label>
-          <input type="text" class="form-control cat_titel" >
+          <input type="text" name="cat_titel" class="form-control cat_titel" >
         </div>
         <div class="form-group">
           <label for="cat_theme">Kategorie Theme</label>
-          <input type="text" class="form-control cat_theme">
+          <input type="text" name="cat_theme" class="form-control cat_theme">
         </div>
-        <input type="button" value="Kategorie erstellen" class="btn btn-dark set_new_cat">
+        <span class="badge badge-warning p-2 mb-4">
+          ihk_wirt_abschluss -> ihk_fach_abschluss -> ihk_zwischen_abschluss -> wbs_zwischen_abschluss
+        </span>
+        <div class="form-group">
+          <input type="submit" name="neue_cat_erstellen" value="Kategorie erstellen" class="btn btn-dark set_new_cat">
+        </div>
       </form>
     </div>
 	</div>
@@ -56,7 +59,7 @@
             </div>
             <div class="form-group col-md-4">
               <label for="cat_theme">Kategorie Theme</label>
-              <input type="text" class="form-control cat_theme" value="<?php echo $last_cat['cat_theme']; ?>">
+              <input type="text" name="frage_cat_theme" class="form-control cat_theme" value="<?php echo $last_cat['cat_theme']; ?>">
             </div>
             <div class="form-group col-md-2">
               <label for="cat_id">Kategorie ID</label>
@@ -143,5 +146,3 @@
   });
 
 </script>
-
-<script src="/template/js/adminAjax/catErstellen.js"></script>

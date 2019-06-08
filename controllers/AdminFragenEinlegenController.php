@@ -12,8 +12,24 @@ class AdminFragenEinlegenController
       $last_cat = Category::getLastCategory();
     }
 
+    if(isset($_POST['neue_cat_erstellen'])){
+      $cat_titel = $_POST['cat_titel'];
+      $cat_theme = $_POST['cat_theme'];
+
+
+      if(Category::neueCatEinlegen($cat_titel, $cat_theme)){
+        $cat_eingelegt = Category::neueCatEinlegen($cat_titel, $cat_theme);
+        $error = false;
+        $message_text = 'Super! Die Kategorie wurde erstellt!';
+      } else{
+        $error = true;
+        $message_text = 'Fehler! Die Kategorie wurde nicht erstellt!';
+      }
+    }
+
     if(isset($_POST['frage_speichern'])){
       $frage_cat_id = $_POST['frage_cat_id'];
+      $frage_cat_theme = $_POST['frage_cat_theme'];
       $frage_titel = $_POST['frage_titel'];
       $richtige_antwort = $_POST['richtige_antwort'];
       $frage_info = $_POST['frage_info'];
@@ -27,7 +43,7 @@ class AdminFragenEinlegenController
       if(isset($_FILES['frage_bild']) && $_FILES['frage_bild'] != ''){
         $filename = pathinfo($_FILES['frage_bild']['name'], PATHINFO_FILENAME);
   			$extension = strtolower(pathinfo($_FILES['frage_bild']['name'], PATHINFO_EXTENSION));
-        $frage_mit_bild = Fragen::frageEinsetzenMitBild($frage_titel, $frage_info, $frage_cat_id, $antwort_1, $antwort_2, $antwort_3, $antwort_4, $antwort_5, $antwort_6, $richtige_antwort,  $filename, $extension);
+        $frage_mit_bild = Fragen::frageEinsetzenMitBild($frage_titel, $frage_info, $frage_cat_id, $frage_cat_theme, $antwort_1, $antwort_2, $antwort_3, $antwort_4, $antwort_5, $antwort_6, $richtige_antwort,  $filename, $extension);
         if($frage_mit_bild){
           $error = false;
   				$message_text = 'Super! Die Frage wurde eingesetzt!';
@@ -37,7 +53,7 @@ class AdminFragenEinlegenController
         }
 
       } else{
-        $frage_ohne_bild = Fragen::frageEinsetzenOhneBild($frage_titel, $frage_info, $frage_cat_id, $antwort_1, $antwort_2, $antwort_3, $antwort_4, $antwort_5, $antwort_6, $richtige_antwort);
+        $frage_ohne_bild = Fragen::frageEinsetzenOhneBild($frage_titel, $frage_info, $frage_cat_id, $frage_cat_theme, $antwort_1, $antwort_2, $antwort_3, $antwort_4, $antwort_5, $antwort_6, $richtige_antwort);
         if($frage_ohne_bild){
           $error = false;
   				$message_text = 'Super! Die Frage wurde eingesetzt!';

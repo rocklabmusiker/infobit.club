@@ -92,20 +92,41 @@ if(isset($_POST['cat_id'])) {
 				}
 
 			}
+			$antwort_richtig_border = '#dc3545';
+			$antwort_richtig_table = 'table-danger';
+			$antwort_prozentzahl = 0;
+			$antwort_prozentzahl_color = '#dc3545';
+
+			if($antwort_1 == $user_antwort_1
+			&& $antwort_2 == $user_antwort_2
+			&& $antwort_3 == $user_antwort_3
+			&& $antwort_4 == $user_antwort_4
+			&& $antwort_5 == $user_antwort_5
+			&& $antwort_6 == $user_antwort_6){
+				$antwort_richtig_border = '#28a745';
+				$antwort_richtig_table = 'table-success';
+				$antwort_prozentzahl = 3.33;
+				$antwort_prozentzahl_color = '#28a745';
+			}
 
 
 
-			$output .= '<div class="jumbotron mb-0">
+			$output .= '<div class="ihkWirtTest_ergebnisse_content mt-3 " style="border: 2px solid ' .$antwort_richtig_border.' !important;">
+						<div class="jumbotron mb-0">
 							<h1 class="display-4"> Frage Nr. '.$row['frage_id'].'</h1>
-							<p>'.$row['frage_titel'].'</p>'
-							. $bild .
-							'<hr class="my-4">
-							<p>'.$row['frage_info'].'</p>
+  							<p>'.$row['frage_titel'].'</p>'
+								. $bild .
+								'<hr class="my-4">
+  							<p style="font-weight: 600; font-size:20px;">
+									Für diese Aufgabe hast du
+										<span class="" style="font-size:30px; color: '.$antwort_prozentzahl_color.'"> '.$antwort_prozentzahl.'% </span>
+									bekommen!
+								</p>
 						</div>
 
 
-						<table class="table mb-5">
-						<thead class="thead-dark">
+						<table class="table mb-5 '.$antwort_richtig_table.'">
+						<thead class="">
 							<tr>
 						      <th scope="col"></th>
 						      <th scope="col">Antwort 1</th>
@@ -117,7 +138,7 @@ if(isset($_POST['cat_id'])) {
 						    </tr>
 						</thead>
 						<tr>
-							<th class="text-dark">Richtige Antwort(en)</th>
+							<th class="text-dark bg-light">Richtige Antwort(en)</th>
 							<th class="bg-light text-success">'
 							. $antwort_1.
 							'</th>
@@ -159,7 +180,8 @@ if(isset($_POST['cat_id'])) {
 							. $user_antwort_6.
 							'</th>
 						</tr>
-					</table>';
+					</table>
+				</div>';
 		}
 
 

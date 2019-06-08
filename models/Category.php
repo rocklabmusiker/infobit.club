@@ -53,4 +53,28 @@ class Category
 		}
 	}
 
+	public static function neueCatEinlegen($cat_titel, $cat_theme){
+
+		$db = Db::getConnection();
+
+		$cat_titel = trim(stripcslashes(htmlspecialchars($cat_titel)));
+		$cat_theme = trim(stripcslashes(htmlspecialchars($cat_theme)));
+
+		$sql = "INSERT INTO category (cat_titel, cat_theme) VALUES (:cat_titel, :cat_theme)";
+
+		if($result = $db->prepare($sql)){
+
+			$result->bindParam(':cat_titel', $cat_titel);
+			$result->bindParam(':cat_theme', $cat_theme);
+			$result->execute();
+
+			if($result->rowCount() > 0) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+
+	}
+
 }// end Cat
