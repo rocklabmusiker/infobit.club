@@ -132,12 +132,12 @@ if(isset($_POST['cat_id'])) {
 						<thead class="">
 							<tr>
 						      <th scope="col"></th>
-						      <th scope="col">Antwort 1</th>
-						      <th scope="col">Antwort 2</th>
-						      <th scope="col">Antwort 3</th>
-						      <th scope="col">Antwort 4</th>
-						      <th scope="col">Antwort 5</th>
-						      <th scope="col">Antwort 6</th>
+						      <th scope="col">Antwort-1</th>
+						      <th scope="col">Antwort-2</th>
+						      <th scope="col">Antwort-3</th>
+						      <th scope="col">Antwort-4</th>
+						      <th scope="col">Antwort-5</th>
+						      <th scope="col">Antwort-6</th>
 						    </tr>
 						</thead>
 						<tr>

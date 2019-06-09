@@ -7,7 +7,8 @@
 <div class="container">
 
 	<div class="seller-trenner py-2">
-		<h5 class="text-center">Jeder Test enthält insgesamt 30 Fragen!</h5>
+		<h5 class="text-center">Jeder Test enthält 30 Aufgaben!</h5>
+		<h6 class="text-center">Die Prüfungszeit bei IHK beträgt 60 Minuten!</h6>
 	</div>
 
 

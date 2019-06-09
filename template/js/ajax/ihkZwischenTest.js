@@ -150,8 +150,9 @@ $(".ihkZwischenTest .ihkZwischen_antwort_speichern").on("click", function() {
     // timer
     var user_id = $(".ihkZwischenTest").attr("data-user-id");
     // data('seconds') bekommt man die sekunden, kommt vom Plug-in
-    var secondsFromTimer = $('.ihkZwischenTest_timer').data('seconds');
-
+    // var secondsFromTimer = $('.ihkZwischenTest_timer').data('seconds');
+    var secondsFromTimer = $(".ihkZwischenTest").attr("data-time");
+    console.log(secondsFromTimer);
 
     $.ajax({
 
@@ -163,10 +164,9 @@ $(".ihkZwischenTest .ihkZwischen_antwort_speichern").on("click", function() {
                 'user_antworten':user_antworten,
                 'secondsFromTimer': secondsFromTimer},
        success: function(data){
-            $(".ihkZwischen_antwort_speichern").css("display", "none");
-            setTimeout(function(){
-              $(".btn_ihkZwischen_test").css("display", "block");
-            }, 100);
+
+            var link = $(".ihkZwischen_antwort_speichern").attr("data-link");
+            location.replace(link);
 
         }
 

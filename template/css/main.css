@@ -207,6 +207,29 @@ html {
     color:#dc3545;
 }
 
+.home i.fa-external-link-alt.text-danger {
+	transition: all .4s ease;
+	position: relative;
+}
+
+.home i.fa-external-link-alt.text-danger:hover {
+	color: #343a40 !important;
+	top: -2px;
+	right: -2px;
+}
+
+.home i.fa-external-link-alt.text-dark {
+	transition: all .4s ease;
+	position: relative;
+}
+
+.home i.fa-external-link-alt.text-dark:hover {
+	color: #dc3545 !important;
+	top: -2px;
+	right: -2px;
+}
+
+
 
 
 /*========= Personal Profil =========*/
@@ -291,9 +314,32 @@ html {
     margin: -17px 0px 0 0px;
     font-size: 20px;
     font-weight: 600;
-    color: #dc3545;
+    color: #343a40;
 }
 
+span.float-right.d-inline-block {
+
+    margin: -16px 0 0 0;
+    position: relative;
+    top: 32px;
+    right: -77px;
+}
+
+.timer_pause {
+    border: 1px solid #343a40;
+    padding: 0px 5px 3px 5px;
+    background: #343a40;
+    color: #fff;
+		cursor: pointer;
+		transition: all .4s ease;
+}
+
+.timer_pause:hover {
+    border: 1px solid #343a40;
+    padding: 0px 5px 3px 5px;
+    background: #fff;
+    color: #343a40;
+}
 
 
 /*========= Pagiantion =========*/

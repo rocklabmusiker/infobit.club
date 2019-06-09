@@ -12,9 +12,8 @@ class IhkZwischenController
   public function actionIndex(){
 
     $_SESSION['session_user_fragen_ihk_zwischen'] = [];
-    $_SESSION['timestamp_timer_ihk_zwischen'] = 0;
+    $_SESSION['timestamp_timer_ihk_zwischen'] = time(true) * 1000;
     $_SESSION['cat_theme_ihk_zwischen'] = '';
-
     $this->ihk_zwischen_abschluss = 'ihk_zwischen_abschluss';
 
     if(Category::getCategoryDaten($this->ihk_zwischen_abschluss)){

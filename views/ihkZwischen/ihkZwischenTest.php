@@ -2,6 +2,7 @@
 
 <?php include_once(ROOT . '/views/layouts/header.php'); ?>
 
+
 <?php include_once(ROOT . '/views/layouts/menu.php'); ?>
 
 
@@ -19,7 +20,11 @@
 		<?php if((int)$fragen_anzahl[0] - 1 >= $frage_num): ?> <!--fragen_anzahl beginnt mit 1 und frage_num mit 0-->
 
 			<div class="seller-trenner">
-				<div class="float-right ihkZwischenTest_timer" ></div>
+				<div class="float-right ihkZwischenTest_timer d-inline-block" ></div>
+				<span class="float-right d-inline-block">
+					<button type="button" class="timer_pause" style="display:block;">Pause</button>
+					<button type="button" class="timer_start" style="display:none;">Start</button>
+				</span>
 			</div>
 
 			<div class="row justify-content-center">
@@ -207,8 +212,11 @@
 				<?php endif; ?>
 
 			<div class="col-md-8 mt-3 mb-5 ihkZwischen_buttons">
-				<button type="button" class="btn btn-danger ihkZwischen_antwort_speichern" style="display:block;">Antwort speichern</button>
-				<a href="/ihkZwischenTest/<?php echo $cat_id; ?>?cat_id=<?php echo $cat_id; ?>&frage_num=<?php echo $frage_num += 1; ?>" class="btn btn-dark btn-block btn_ihkZwischen_test" style="display:none;">Weiter</a>
+				<button type="button"
+								class="btn btn-danger ihkZwischen_antwort_speichern"
+								data-link="/ihkZwischenTest/<?php echo $cat_id; ?>?cat_id=<?php echo $cat_id; ?>&frage_num=<?php echo $frage_num += 1; ?>">Antwort speichern</button>
+				<!-- <a href="/ihkZwischenTest/<?php //echo $cat_id; ?>?cat_id=<?php //echo $cat_id; ?>&frage_num=<?php //echo $frage_num += 1; ?>"
+				class="btn btn-dark btn-block btn_ihkZwischen_test" style="display:none;">Weiter</a>-->
 
 
 			</div>
@@ -316,13 +324,90 @@
 <script src="/template/js/ajax/ihkZwischenTest.js"></script>
 <script src="/template/js/ajax/ihkZwischenTestShowResult.js"></script>
 
-<script src="/template/js/timer.jquery.min.js"></script>
 <script>
 
-	var	secondsFromSession = $(".ihkZwischenTest").attr("data-time");
-	$('.ihkZwischenTest_timer').timer({
-	 	format: '%H:%M:%S',
-	 	seconds: secondsFromSession
-	});
+		// Set a cookie
+	if(!$.cookie('timestamp_timer_ihk_zwischen')) {
+		var date = new Date();
+		var currentTimestamp = date.getTime();
+		$.cookie('timestamp_timer_ihk_zwischen', currentTimestamp);
+	}
+
+	//$.cookie('timestamp_timer_ihk_zwischen_pause', null);
+
+	var startTime = $.cookie('timestamp_timer_ihk_zwischen');
+	var clock = $('.ihkZwischenTest_timer');
+	var timerStop = false;
+	timerStart();
+
+	function timerStart() {
+
+		setInterval(function(){
+
+				if(timerStop == true){
+					return false;
+				}
+			 var date = new Date();
+
+			 var currentTimestamp = date.getTime();
+
+			 var different = (currentTimestamp - startTime) / 1000;
+
+			 var hour = Math.floor(different / 60 / 60);
+			 var minute = Math.floor(different / 60);
+			 var second = Math.floor((different - (minute * 60)));
+
+			 if (second < 10) {
+				 second = '0' + second;
+
+			 } if(hour < 10){
+					hour = '0' + hour;
+			 } if(minute < 10 ){
+					 minute = '0' + minute;
+			 }
+
+			clock.html(hour + ":" + minute + ":" + second);
+			// $(".ihkZwischenTest").attr("data-time", different * 1000);
+
+		 }, 1000);
+
+	}
+
+	$(".timer_pause").click(function(){
+		 $(this).css("display", "none");
+		 $(".timer_start").css("display", "block");
+			timerStop = true;
+			
+		 // Set a cookie
+		 if(!$.cookie('timestamp_timer_ihk_zwischen_pause')) {
+			 var date = new Date();
+			 var currentTimestamp = date.getTime();
+			 $.cookie('timestamp_timer_ihk_zwischen_pause', currentTimestamp);
+
+		 }
+	 });
+
+
+	 $(".timer_start").click(function(){
+
+		 $(this).css("display", "none");
+		 $(".timer_pause").css("display", "block");
+
+				var date = new Date();
+				startTime = date.getTime() - ($.cookie('timestamp_timer_ihk_zwischen_pause') - startTime);
+			 // Set a cookie
+			 // startTime = $.cookie('timestamp_timer_ihk_zwischen');
+			 	timerStop = false;
+				timerStart();
+
+	 });
+
+
+
+
+
+
+
+
 
 </script>

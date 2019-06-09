@@ -2,11 +2,23 @@
 
 return [
 	'admin/adminBenutzer' => 'adminBenutzer/index',
+	'admin/adminLinks' => 'adminLinks/index',
 	'admin/adminFragenEinlegen' => 'adminFragenEinlegen/index',
 	'admin/adminHome' => 'adminHome/index',
 
-	'statistik' => 'statistik/index',
 
+	'webentwicklung' => 'links/webentwicklung',
+	'netzwerk' => 'links/netzwerk',
+	'linuxWindows' => 'links/linuxWindows',
+	'sql' => 'links/sql',
+	'htmlCss' => 'links/htmlCss',
+	'cSharp' => 'links/cSharp',
+	'javascript' => 'links/javascript',
+	'php' => 'links/php',
+
+
+	'statistik' => 'statistik/index',
+	'wbsZwischenTest/([0-9]+)' => 'wbsZwischen/test/$1',
 	'wbsZwischen' => 'wbsZwischen/index',
 
 	'ihkZwischenTest/([0-9]+)' => 'ihkZwischen/test/$1',

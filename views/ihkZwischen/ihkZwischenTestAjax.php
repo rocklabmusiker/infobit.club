@@ -8,11 +8,11 @@ if(isset($_POST['frage_id'])) {
 	$user_id = trim(stripcslashes(htmlspecialchars($_POST['user_id'])));
 	$frage_id = trim(stripcslashes(htmlspecialchars($_POST['frage_id'])));
 	$user_antworten = trim(stripcslashes(htmlspecialchars($_POST['user_antworten'])));
-	$secondsFromTimer = $_POST['secondsFromTimer'] + 3;
+	$secondsFromTimer = $_POST['secondsFromTimer'];
 
 
 	$_SESSION['session_user_fragen_ihk_zwischen'][$frage_id] = ['user_antworten' => $user_antworten];
-	$_SESSION['timestamp_timer_ihk_zwischen'] = $secondsFromTimer;
+	$_SESSION['timestamp_timer_ihk_zwischen'] = (time(true) * 1000) - $secondsFromTimer;
 
 
 

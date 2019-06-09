@@ -1,6 +1,6 @@
 <?php if(!$_SESSION['user_status'] == 'user' || !$_SESSION['user_status'] == 'admin'){
 	echo '<script> location.replace("/"); </script>';
-}  
+}
 
 ?>
 
@@ -17,7 +17,3 @@
 
 </head>
 <body>
-	
-		
-		
-	

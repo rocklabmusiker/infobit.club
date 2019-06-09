@@ -164,9 +164,9 @@ $(".ihkWirtTest .ihkWirt_antwort_speichern").on("click", function() {
       success: function(data){
         $(".ihkWirt_antwort_speichern").css("display", "none");
         setTimeout(function(){
-          $(".btn_ihk_ihkWirt_test").css("display", "block");
+          $(".btn_ihk_wirt_test").css("display", "block");
         }, 100);
-        
+
       }
 
     });
