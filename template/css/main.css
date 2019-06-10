@@ -319,10 +319,8 @@ html {
 
 span.float-right.d-inline-block {
 
-    margin: -16px 0 0 0;
-    position: relative;
-    top: 32px;
-    right: -77px;
+    margin: -15px 0 0 10px;
+
 }
 
 .timer_pause {
@@ -339,6 +337,22 @@ span.float-right.d-inline-block {
     padding: 0px 5px 3px 5px;
     background: #fff;
     color: #343a40;
+}
+
+.timer_start {
+    border: 1px solid #dc3545;
+    padding: 0px 5px 3px 5px;
+    background: #dc3545;
+    color: #fff;
+		cursor: pointer;
+		transition: all .4s ease;
+}
+
+.timer_start:hover {
+    border: 1px solid #dc3545;
+    padding: 0px 5px 3px 5px;
+    background: #fff;
+    color: #dc3545;
 }
 
 

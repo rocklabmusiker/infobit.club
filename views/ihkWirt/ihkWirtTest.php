@@ -8,8 +8,7 @@
 
 <div 	class="container ihkWirtTest"
 			data-user-id="<?php echo $_SESSION['user_id']; ?>"
-			data-time="<?php echo $_SESSION['timestamp_timer']; ?>"
-			data-cat-theme="<?php echo $_SESSION['cat_theme']; ?>">
+			data-cat-theme="<?php echo $_SESSION['cat_theme_ihk_wirt']; ?>">
 
 
 
@@ -19,13 +18,17 @@
 		<?php if((int)$fragen_anzahl[0] - 1 >= $frage_num): ?> <!--fragen_anzahl beginnt mit 1 und frage_num mit 0-->
 
 			<div class="seller-trenner">
+				<span class="float-right d-inline-block">
+					<button type="button" class="timer_pause" style="display:block;">Pause</button>
+					<button type="button" class="timer_start" style="display:none;">Start</button>
+				</span>
 				<div class="float-right ihkWirtTest_timer" data-seconds=""></div>
 			</div>
 
 			<div class="row justify-content-center">
 				<?php if(isset($frage)): ?>
 
-					<?php $_SESSION['cat_theme'] = $frage['frage_cat_theme']; ?>
+					<?php $_SESSION['cat_theme_ihk_wirt'] = $frage['frage_cat_theme']; ?>
 
 						<div class="col-md-8 ihkWirtTest_frage_id" data-frage-id="<?php echo $frage['frage_id']; ?>">
 							<!--mehreren Anterten-->
@@ -207,8 +210,12 @@
 				<?php endif; ?>
 
 			<div class="col-md-8 mt-3 mb-5">
-				<button type="button" class="btn btn-danger btn-block ihkWirt_antwort_speichern" style="display:block;">Antwort speichern</button>
-				<a href="/ihkWirtTest/<?php echo $cat_id; ?>?cat_id=<?php echo $cat_id; ?>&frage_num=<?php echo $frage_num += 1; ?>" class="btn btn-dark btn-block btn_ihk_wirt_test" style="display:none;">Weiter</a>
+				<button type="button"
+								class="btn btn-danger btn-block ihkWirt_antwort_speichern"
+								data-link="/ihkWirtTest/<?php echo $cat_id; ?>?cat_id=<?php echo $cat_id; ?>&frage_num=<?php echo $frage_num += 1;?>">
+								Antwort speichern
+				</button>
+
 			</div>
 			<!-- onclick="return false" -->
 
@@ -265,11 +272,9 @@
 												<hr class="mt-2 mb-0">
 
 											  <div class="card-body">
-											  	<?php $dt = new DateTime;
-																$dt->setTime(0, 0, $_SESSION['timestamp_timer']);
-													?>
-											    <p class="card-text display-3 text-center pt-0 mt-0 ihkWirtTest_vergangene_zeit" style="margin-top:3px;" data-vergangene-zeit="<?php echo $dt->format('H:i:s'); ?>">
-											    	<?php echo $dt->format('H:i:s'); ?>
+											    <p 	class="card-text display-3 text-center pt-0 mt-0 ihkWirtTest_vergangene_zeit"
+															style="margin-top:3px;" data-vergangene-zeit="">
+
 											    </p>
 											  </div>
 											</div>
@@ -317,12 +322,122 @@
 
 <script>
 
-	var	secondsFromSession = $(".ihkWirtTest").attr("data-time");
-	$('.ihkWirtTest_timer').timer({
-	 	format: '%H:%M:%S',
-	 	seconds: secondsFromSession
-	});
+var clock = $('.ihkWirtTest_timer');
+var timerStop = false;
+var loopTimer = null;
 
-	// var secondsFromTimer = $('.ihkZwischenTest_timer').data('seconds');
-	// $('.ihkZwischenTest_timer').attr("data-seconds", secondsFromTimer);
+		// Set a cookie
+if(!$.cookie('timestamp_timer_ihk_wirt')) {
+		var date = new Date();
+		var currentTimestamp = date.getTime();
+		$.cookie('timestamp_timer_ihk_wirt', currentTimestamp);
+}
+
+var startTime = parseInt($.cookie('timestamp_timer_ihk_wirt'));
+
+if ($.cookie('timestamp_timer_ihk_wirt_pause')) {
+		var usedTime = parseInt($.cookie('timestamp_timer_ihk_wirt_pause'));
+} else {
+		usedTime  = 0;
+}
+
+timerStart();
+
+function timerStart() {
+
+		loopTimer = setInterval(function() {
+
+				if(timerStop == true){
+						clearInterval(loopTimer);
+						return;
+				}
+
+				usedTime += 1;
+				$.cookie('timestamp_timer_ihk_wirt_pause', usedTime);
+
+				var date = new Date();
+
+				var currentTimestamp = date.getTime();
+
+				startTime = currentTimestamp - (usedTime * 1000);
+
+				var different = (currentTimestamp - startTime) / 1000;
+
+				var hour = Math.floor((different / 60) / 60);
+				var minute = Math.floor(different / 60);
+				var second = Math.floor((different - (minute * 60)));
+
+				if (second < 10) {
+						second = '0' + second;
+
+				} if(hour < 10){
+						hour = '0' + hour;
+				} if(minute < 10 ){
+						 minute = '0' + minute;
+				}
+
+				clock.text(hour + ":" + minute + ":" + second);
+
+				}, 1000);
+}
+
+$(".timer_pause").click(function() {
+		$(this).css("display", "none");
+		$(".timer_start").css("display", "block");
+		timerStop = true;
+		// Set a cookie
+});
+
+$(".timer_start").click(function() {
+		$(this).css("display", "none");
+		$(".timer_pause").css("display", "block");
+
+
+		timerStop = false;
+
+		timerStart();
+
+});
+
+function getEndTime(){
+
+	//usedTime += 0;
+	$.cookie('timestamp_timer_ihk_wirt_pause');
+
+	var date = new Date();
+
+	var currentTimestamp = date.getTime();
+
+	startTime = currentTimestamp - (usedTime * 1000);
+
+	var different = (currentTimestamp - startTime) / 1000;
+
+	var hour = Math.floor((different / 60) / 60);
+	var minute = Math.floor(different / 60);
+	var second = Math.floor((different - (minute * 60)));
+
+	if (second < 10) {
+			second = '0' + second;
+
+	} if(hour < 10){
+			hour = '0' + hour;
+	} if(minute < 10 ){
+			 minute = '0' + minute;
+	}
+	var time = hour + ":" + minute + ":" + second;
+
+	$(".ihkWirtTest_vergangene_zeit").text(time);
+	$(".ihkWirtTest .ihkWirtTest_vergangene_zeit").attr("data-vergangene-zeit", time);
+
+}
+
+getEndTime();
+
+$(".ihkWirtTest_ergebnisse_einsehen_button").click(function(){
+	timerStop = true;
+	usedTime  = 0;
+	$.cookie('timestamp_timer_ihk_wirt_pause',usedTime);
+});
+
+
 </script>

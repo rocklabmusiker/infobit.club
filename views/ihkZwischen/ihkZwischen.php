@@ -46,3 +46,12 @@
 
 
 <?php include_once(ROOT . '/views/layouts/footer.php'); ?>
+
+<script>
+
+	$(document).ready(function(){
+		var usedTime  = 0;
+		$.cookie('timestamp_timer_ihk_zwischen_pause', usedTime, { path: '/ihkZwischenTest/' });
+	});
+
+</script>

@@ -67,7 +67,7 @@ if(isset($_POST['cat_id'])) {
 			$user_antwort_5 = '';
 			$user_antwort_6 = '';
 
-			$session_antworten = $_SESSION['session_user_fragen'][$row['frage_id']]['user_antworten'];
+			$session_antworten = $_SESSION['session_user_fragen_ihk_wirt'][$row['frage_id']]['user_antworten'];
 			$array_user_antworten = explode(',', $session_antworten);
 
 			for ($i=0; $i < count($array_user_antworten); $i++) {

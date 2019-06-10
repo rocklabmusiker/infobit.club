@@ -12,9 +12,8 @@ class IhkWirtController
 
 	public function actionIndex(){
 
-		$_SESSION['session_user_fragen'] = [];
-		$_SESSION['timestamp_timer'] = 0;
-		$_SESSION['cat_theme'] = '';
+		$_SESSION['session_user_fragen_ihk_wirt'] = [];
+		$_SESSION['cat_theme_ihk_wirt'] = '';
 
 		$this->ihk_wirt_abschluss = 'ihk_wirt_abschluss';
 

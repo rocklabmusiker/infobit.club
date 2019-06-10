@@ -149,7 +149,7 @@ $(".ihkWirtTest .ihkWirt_antwort_speichern").on("click", function() {
 
     // timer
     var user_id = $(".ihkWirtTest").attr("data-user-id");
-    var secondsFromTimer = $('.ihkWirtTest_timer').data('seconds');
+
 
 
     $.ajax({
@@ -158,14 +158,12 @@ $(".ihkWirtTest .ihkWirt_antwort_speichern").on("click", function() {
   		method: "POST",
   		dataType:"text",
   		data:{  'user_id': user_id,
-                  'frage_id':frage_id,
-                  'user_antworten':user_antworten,
-                  'secondsFromTimer': secondsFromTimer},
+              'frage_id': frage_id,
+              'user_antworten' : user_antworten},
       success: function(data){
-        $(".ihkWirt_antwort_speichern").css("display", "none");
-        setTimeout(function(){
-          $(".btn_ihk_wirt_test").css("display", "block");
-        }, 100);
+
+        var link = $(".ihkWirt_antwort_speichern").attr("data-link");
+        location.replace(link);
 
       }
 

@@ -3,7 +3,7 @@
 
 class StatistikController
 {
-  private $cat_theme;
+
 
 
   public function actionIndex(){
@@ -11,12 +11,12 @@ class StatistikController
     $user_id = $_SESSION['user_id'];
 
     // ihk_wirt_abschluss
-    if(UserHistory::getTestsInsgesamt($this->cat_theme, $user_id)){
-      $this->cat_theme = 'ihk_wirt_abschluss';
+    $cat_theme = 'ihk_wirt_abschluss';
+    if(UserHistory::getTestsInsgesamt($cat_theme, $user_id)){
 
-      $ihk_wirt_tests_insgesamt_gemacht = UserHistory::getTestsInsgesamt($this->cat_theme, $user_id);
+      $ihk_wirt_tests_insgesamt_gemacht = UserHistory::getTestsInsgesamt($cat_theme, $user_id);
 
-      $notenGesamtSumme_ihk_wirt = UserHistory::getNotenGesamtSumme($this->cat_theme, $user_id);
+      $notenGesamtSumme_ihk_wirt = UserHistory::getNotenGesamtSumme($cat_theme, $user_id);
       $ihk_wirt_durchschnittsnote = $notenGesamtSumme_ihk_wirt / $ihk_wirt_tests_insgesamt_gemacht;
 
     } else {
@@ -25,12 +25,13 @@ class StatistikController
     }
 
     // wbs_zwischen_abschluss
-    if(UserHistory::getTestsInsgesamt($this->cat_theme, $user_id)){
-      $this->cat_theme = 'wbs_zwischen_abschluss ';
+    $cat_theme = 'wbs_zwischen_abschluss ';
+    if(UserHistory::getTestsInsgesamt($cat_theme, $user_id)){
 
-      $wbs_zwischen_tests_insgesamt_gemacht = UserHistory::getTestsInsgesamt($this->cat_theme, $user_id);
 
-      $notenGesamtSumme_wbs_zwischen = UserHistory::getNotenGesamtSumme($this->cat_theme, $user_id);
+      $wbs_zwischen_tests_insgesamt_gemacht = UserHistory::getTestsInsgesamt($cat_theme, $user_id);
+
+      $notenGesamtSumme_wbs_zwischen = UserHistory::getNotenGesamtSumme($cat_theme, $user_id);
       $wbs_zwischen_durchschnittsnote = $notenGesamtSumme_wbs_zwischen / $wbs_zwischen_tests_insgesamt_gemacht;
 
     } else {
@@ -39,12 +40,13 @@ class StatistikController
     }
 
     // ihk_zwischen_abschluss
-    if(UserHistory::getTestsInsgesamt($this->cat_theme, $user_id)){
-      $this->cat_theme = 'ihk_zwischen_abschluss';
+    $cat_theme = 'ihk_zwischen_abschluss';
+    if(UserHistory::getTestsInsgesamt($cat_theme, $user_id)){
 
-      $ihk_wirt_tests_insgesamt_gemacht = UserHistory::getTestsInsgesamt($this->cat_theme, $user_id);
 
-      $notenGesamtSumme_ihk_zwischen = UserHistory::getNotenGesamtSumme($this->cat_theme, $user_id);
+      $ihk_wirt_tests_insgesamt_gemacht = UserHistory::getTestsInsgesamt($cat_theme, $user_id);
+
+      $notenGesamtSumme_ihk_zwischen = UserHistory::getNotenGesamtSumme($cat_theme, $user_id);
       $ihk_wirt_durchschnittsnote = $notenGesamtSumme_ihk_zwischen / $ihk_wirt_tests_insgesamt_gemacht ;
 
     } else {

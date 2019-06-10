@@ -14,6 +14,8 @@ $(".ihkFachTest .ihkFachTest_ergebnisse_einsehen_button").on("click", function()
     var vergangene_zeit = $(".ihkFachTest .ihkFachTest_vergangene_zeit").attr("data-vergangene-zeit");
     var erreichte_note = $(".ihkFachTest .ihkFachTest_erreichte_note").attr("data-erreichte-note");
 
+    var cat_theme = $(".ihkWirtTest").attr("data-cat-theme");
+
 
     $.ajax({
 
@@ -22,6 +24,7 @@ $(".ihkFachTest .ihkFachTest_ergebnisse_einsehen_button").on("click", function()
         dataType:"text",
         data:{  'user_id': user_id,
                 'cat_id': cat_id,
+                'cat_theme': cat_theme,
                 'gesamtprozentzahl':gesamtprozentzahl,
                 'erreichte_note': erreichte_note,
                 'vergangene_zeit': vergangene_zeit},
@@ -48,14 +51,14 @@ $(".ihkFachTest .ihkFachTest_ergebnisse_einsehen_button").on("click", function()
 
 
             }
-           
+
         }
 
     });
 
 
 
-    
+
 
 
 

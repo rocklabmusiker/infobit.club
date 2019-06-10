@@ -13,6 +13,7 @@ $(".ihkZwischenTest .ihkZwischenTest_ergebnisse_einsehen_button").on("click", fu
     // vergangene_zeit
     var vergangene_zeit = $(".ihkZwischenTest .ihkZwischenTest_vergangene_zeit").attr("data-vergangene-zeit");
     var erreichte_note = $(".ihkZwischenTest .ihkZwischenTest_erreichte_note").attr("data-erreichte-note");
+    var cat_theme = $(".ihkZwischenTest").attr("data-cat-theme");
 
 
     $.ajax({
@@ -22,6 +23,7 @@ $(".ihkZwischenTest .ihkZwischenTest_ergebnisse_einsehen_button").on("click", fu
         dataType:"text",
         data:{  'user_id': user_id,
                 'cat_id': cat_id,
+                'cat_theme' : cat_theme,
                 'gesamtprozentzahl':gesamtprozentzahl,
                 'erreichte_note': erreichte_note,
                 'vergangene_zeit': vergangene_zeit},
