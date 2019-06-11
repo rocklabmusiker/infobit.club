@@ -274,6 +274,10 @@ html {
 	display: inline-block;
 }
 
+img.test_img {
+	max-width: 665px;
+}
+
 
 .ihkWirtTest .jumbotron,
 .ihkZwischenTest .jumbotron {

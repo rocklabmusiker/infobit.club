@@ -95,7 +95,7 @@ class IhkWirtController
 
 		// выводим кол-во пунктов
 
-			$session_user_antworten = $_SESSION['session_user_fragen'];
+			$session_user_antworten = $_SESSION['session_user_fragen_ihk_wirt'];
 			$gesamtprozentzahl = Fragen::rechnenErgebnissen($cat_id, $session_user_antworten);
 
 

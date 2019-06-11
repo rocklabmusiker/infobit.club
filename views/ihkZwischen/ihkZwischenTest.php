@@ -127,6 +127,10 @@
 									<div class="jumbotron">
 									  <h3 class="display-6">Frage Nr. <?php echo $frage_num + 1; ?></h3>
 									  <p class="lead"><?php echo $frage['frage_titel']; ?></p>
+										<?php if($frage['frage_bild'] != ''): ?>
+											<hr class="my-4">
+											<img src="/template/images/testImages/<?php echo $frage['frage_bild']; ?>" alt="<?php echo $frage['frage_bild']; ?>" class="test_img">
+										<?php endif; ?>
 									  <hr class="my-4">
 
 									</div>
@@ -308,7 +312,7 @@
 							</div>
 					</div>
 					<!--ajax content ergebnisse-->
-					<div class="ihkZwischenTest_ergebnisse_einsehen_content"></div>
+					<div class="ihkZwischenTest_ergebnisse_einsehen_content px-3"></div>
 				</div>
 		<?php endif; ?>
 	<?php endif; ?> <!--$fragen_anzahl-->

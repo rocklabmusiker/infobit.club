@@ -43,7 +43,7 @@
 
           <div class="col-md-6">
             <label for="inlineFormCustomSelect2">Kategorie</label>
-            <select class="custom-select" id="inlineFormCustomSelect2" name="categorie">
+            <select class="custom-select" id="inlineFormCustomSelect2" name="category">
               <option selected>auswählen...</option>
               <option value="documentation">Documentation</option>
               <option value="buecher">Buecher</option>

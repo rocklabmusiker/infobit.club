@@ -111,7 +111,7 @@ if(isset($_POST['cat_id'])) {
 
 
 
-			$output .= '<div class="ihkWirtTest_ergebnisse_content mt-3 " style="border: 2px solid ' .$antwort_richtig_border.' !important;">
+			$output .= '<div class="ihkWirtTest_ergebnisse_content my-3 rounded" style="border: 2px solid ' .$antwort_richtig_border.' !important;">
 						<div class="jumbotron mb-0">
 							<h1 class="display-4"> Frage Nr. '.$row['frage_id'].'</h1>
   							<p>'.$row['frage_titel'].'</p>'
