@@ -6,17 +6,17 @@
 
 
 <div class="container">
-	<div class="container">
-		<div class="seller-trenner"></div>
-	</div>
+
+	<div class="seller-trenner"></div>
+
 	<div class="row">
-		<?php if(isset($cat_ihk_abschluss)): ?>
-			<?php foreach($cat_ihk_abschluss as $ihk_abschluss): ?>
+		<?php if(isset($cat)): ?>
+			<?php foreach($cat as $value): ?>
 				<div class="col-md-3">
 					<div class="card border-dark mb-3" style="max-width: 18rem;">
-					  <div class="card-header"><?php echo $ihk_abschluss['cat_titel']; ?></div>
+					  <div class="card-header"><?php echo $value['cat_titel']; ?></div>
 					  <div class="card-body text-dark">
-					  	<a href="ihkFachTest/<?php echo $ihk_abschluss['cat_id']; ?>?cat_id=<?php echo $ihk_abschluss['cat_id']; ?>&frage_num=<?php echo $frage_num; ?>" class="btn btn-dark btn-block">Zum Test <i class="fal fa-comment-alt-edit"></i></a>
+					  	<a href="ihkFachTest/<?php echo $value['cat_id']; ?>?cat_id=<?php echo $value['cat_id']; ?>&frage_num=<?php echo $frage_num; ?>" class="btn btn-dark btn-block">Zum Test <i class="fal fa-comment-alt-edit"></i></a>
 					  </div>
 					</div>
 				</div>

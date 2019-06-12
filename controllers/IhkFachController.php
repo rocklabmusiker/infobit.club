@@ -1,10 +1,10 @@
-<?php 
+<?php
 
 
 class IhkFachController
 {
 
-	private $ihk_abschluss;
+	private $ihk_fach_abschluss;
 	public $mehrere_antworten;
 	public $antworten_anzahl;
 	public $einzelne_antwort_gesamtzahl;
@@ -12,16 +12,16 @@ class IhkFachController
 
 	public function actionIndex(){
 
-		$_SESSION['session_user_fragen'] = [];
-		$_SESSION['timestamp_timer'] = 0;
+		$_SESSION['session_user_fragen_ihk_fach'] = [];
+		$_SESSION['cat_theme'] = '';
 
-		$this->ihk_abschluss = 'ihk_abschluss';
-		
-		if(Category::getCategoryDaten($this->ihk_abschluss)){
+		$this->ihk_fach_abschluss = 'ihk_fach_abschluss';
 
-			$cat_ihk_abschluss = Category::getCategoryDaten($this->ihk_abschluss);
+		if(Category::getCategoryDaten($this->ihk_fach_abschluss)){
+
+			$cat = Category::getCategoryDaten($this->ihk_fach_abschluss);
 			$frage_num = 0;
-		} 
+		}
 
 
 		require_once(ROOT . '/views/ihkFach/ihkFach.php');
@@ -38,48 +38,26 @@ class IhkFachController
 			$frage_num = $_GET['frage_num'];
 		}
 
+
+
 		// выводим вопрос по категории
-		if(Fragen::getFragen($cat_id, $frage_num)){
-			$frage = Fragen::getFragen($cat_id, $frage_num);
-			
+		if(SelfTest::getSelfTestFragen($cat_id, $frage_num)){
+			$frage = SelfTest::getSelfTestFragen($cat_id, $frage_num);
 
-			// вытаскиваем правильный ответ для определения кол-ва ответов, чтобы поставить checkbox oder radiobox
-			$antworten_anzahl = $frage['richtige_antwort'];
-			if($antworten_anzahl != ''){
-				// если есть запятая в ответах, значит их больше одного
-				if(strpos($antworten_anzahl, ',') === 1){
-					$mehrere_antworten = true;
-				} else {
-					$mehrere_antworten = false;
-				}
-
-				// узнаём сколько ответов в вопросе
-				if(strpos($antworten_anzahl, ',') === 1){
-					
-					$einzelne_antwort = explode(',', $antworten_anzahl);
-					$einzelne_antwort_gesamtzahl = count($einzelne_antwort);
-					$checked_box = 0;
-
-				} else {
-					$einzelne_antwort_gesamtzahl = 1;
-				}
-
-
-			} // ende if $antworten_anzahl
-
-			
 		} // ende Fragen::getFragen
 
 
-
 		// считаем все вопросы одной категории, отсчёт с 1
-		if(Fragen::countFragen($cat_id)){
-			$fragen_anzahl = Fragen::countFragen($cat_id);
+		if(SelfTest::countSelfTestFragen($cat_id)){
+			$fragen_anzahl = SelfTest::countSelfTestFragen($cat_id);
 		}
 
 		// выводим кол-во пунктов
-		
-		$gesamtprozentzahl = Fragen::rechnenErgebnissen($cat_id);
+
+		// $gesamtprozentzahl = Fragen::rechnenErgebnissen($cat_id);
+
+		// на время
+		$gesamtprozentzahl = 0;
 		// var_dump($gesamtpunktzahl);
 
 		$erreichte_note = 0;
@@ -105,7 +83,7 @@ class IhkFachController
 		}else {
 			$erreichte_note = 6;
 		}
-		
+
 
 		require_once(ROOT . '/views/ihkFach/ihkFachTest.php');
 		return true;
