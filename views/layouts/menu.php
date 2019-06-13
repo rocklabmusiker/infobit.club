@@ -3,7 +3,16 @@
 		<div class="col-md-6">
 			<ul class="nav nav-admin">
 			  <li class="nav-item">
-			    <a class="nav-link" href="/admin/adminHome">Admin</a>
+			    <a 	class="nav-link"
+							href="<?php if($_SESSION['user_status'] == 'admin') {
+														echo '/admin/adminHome';
+													} else
+														{ echo '/admin/adminFragenEinlegen';
+														} ?>
+									">
+						Admin
+					</a>
+
 			  </li>
 		</div>
 		<div class="col-md-6">

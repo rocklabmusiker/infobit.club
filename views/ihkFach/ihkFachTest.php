@@ -21,93 +21,49 @@
 
 					<?php $_SESSION['cat_theme'] = $frage['cat_theme']; ?>
 
-						<div class="col-md-12 self_test_frage_id" data-frage-id="<?php echo $frage['id']; ?>">
+						<div 	class="col-md-12 self_test_frage"
+									data-frage-id="<?php echo $frage['id']; ?>"
+									data-fragen-anzahl="<?php echo $frage['fragen_anzahl']; ?>">
 
-								<div class="jumbotron">
+								<div class="jumbotron frage_1">
 								  <h3 class="display-6">Frage Nr. <?php echo $frage_num + 1; ?></h3>
 								  <p class="lead"><?php echo $frage['titel']; ?></p>
 								  <hr class="my-4">
-								  <p class="lead text-nowrap bd-highlight bg-danger font-weight-normal" style="width: 11.5rem;"><?php  ?></p>
 								</div>
 
-								<!--Frage anzeigen-->
-								<button type="button" class="antwort_anzeigen_button btn btn-block btn-dark mb-4">Antwort anzeigen</button>
-								<div class="antwort_anzeigen" style="display:none;">
-									<form class="form_deine_antwort">
+								<!-- anzahl der unterfragen-->
 
-										<div class="jumbotron">
-											<h3 class="display-6">Antwort</h3>
+								<?php for($i = 1; $i <= $frage['fragen_anzahl']; $i++ ): ?>
 
-											<?php if($frage['frage_antwort_1'] != ''): ?>
-												<p class="lead antwort_1">
-													<?php echo $frage['frage_antwort_1']; ?>
-												</p>
-											<?php endif; ?>
+									<div class="frage_<?php echo $i; ?>">
+										<?php echo 'frage_' . $i; ?>
 
-											<?php if($frage['frage_antwort_2'] != ''): ?>
-												<p class="lead antwort_2">
-													<?php echo $frage['frage_antwort_2']; ?>
-												</p>
-											<?php endif; ?>
+										<button type="button"
+														class="button_antwort_<?php echo $i; ?> btn btn-block btn-dark mb-4">
+														antwort<?php echo $i; ?> anzeigen
+										</button>
 
-
-											<?php if($frage['frage_antwort_3'] != ''): ?>
-												<p class="lead antwort_3">
-													<?php echo $frage['frage_antwort_3']; ?>
-												</p>
-											<?php endif; ?>
-
-											<?php if($frage['frage_antwort_4'] != ''): ?>
-												<p class="lead">
-													<?php echo $frage['frage_antwort_4']; ?>
-												</p>
-											<?php endif; ?>
-
-											<?php if($frage['frage_antwort_5'] != ''): ?>
-												<p class="lead">
-													<?php echo $frage['frage_antwort_5']; ?>
-												</p>
-											<?php endif; ?>
-
-											<?php if($frage['frage_antwort_6'] != ''): ?>
-												<p class="lead">
-													<?php echo $frage['frage_antwort_6']; ?>
-												</p>
-											<?php endif; ?>
-
-
-
-											<hr class="my-4">
+										<div class="antwort_<?php echo $i; ?>" style="display:none; position:relative; left: -1500px;">
+											<p style="">
+												<?php echo 'antwort_' . $i; ?>
+												<button type="button"
+																class="button_nex_frage_<?php echo $i; ?> btn btn-block btn-dark mb-4">
+																nächste frage
+												</button>
+											</p>
 										</div>
 
-										<div class="form-check">
-											<input 	class="form-check-input radio_antwort_1"
-																type="radio"
-																name="radio_antwort"
-																value="1" >
-											<label 	class="form-check-label" for="radio_antwort_1">
-												Meine Antwort war richtig
-											</label>
-										</div>
-
-										<div class="form-check">
-											<input 	class="form-check-input radio_antwort_2"
-																type="radio"
-																name="radio_antwort"
-																value="2" >
-											<label class="form-check-label" for="radio_antwort_2">
-													Meine Antwort war falsch
-											</label>
-										</div>
-
-									</form>
-								</div>
-
+									</div>
+								<?php endfor; ?>
 						</div>
 					<?php endif; ?>
 
 			<div class="col-md-12 mt-3 mb-5">
-				<a href="/ihkFachTest/<?php echo $cat_id; ?>?cat_id=<?php echo $cat_id; ?>&frage_num=<?php echo $frage_num += 1; ?>" class="btn btn-dark btn-block btn_self_test_weiter mb-5" style="display:none;">Weiter</a>
+				<a href="/ihkFachTest/<?php echo $cat_id; ?>?cat_id=<?php echo $cat_id; ?>&frage_num=<?php echo $frage_num += 1; ?>"
+					class="btn btn-dark btn-block btn_self_test_weiter mb-5"
+					style="display:none;">
+					Weiter
+				</a>
 			</div>
 			<!-- onclick="return false" -->
 
@@ -207,16 +163,68 @@
 
 <script>
 
-	$(".antwort_anzeigen_button").click(function(){
 
-		$(".antwort_anzeigen").css("display", "block");
-		$(".antwort_anzeigen").animate({
-			"left": 0
-		},1000);
+		$(".frage_2").css("display", "none");
+		$(".frage_3").css("display", "none");
 
-		$(this).css("display", "none");
-		$(".btn_self_test_weiter").css("display", "block");
+		var zahl = 1;
+		var fragen_anzahl = $(".self_test_frage").attr("data-fragen-anzahl");
 
-	});
+		$(".button_antwort_1").click(function(){
+			$(this).css("display", "none");
+			$(".antwort_1").css("display", "block");
+			$(".antwort_1").animate({
+				"left": 0
+			},1000);
+		});
+
+		$(".button_nex_frage_1").click(function(){
+			$(this).css("display", "none");
+			$(".frage_2").css("display", "block");
+			$(".frage_2").animate({
+				"left": 0
+			},1000);
+		});
+
+		$(".button_antwort_2").click(function(){
+			$(this).css("display", "none");
+			$(".antwort_2").css("display", "block");
+			$(".antwort_2").animate({
+				"left": 0
+			},1000);
+			zahl++;
+		});
+
+		$(".button_nex_frage_2").click(function(){
+			$(this).css("display", "none");
+			$(".frage_3").css("display", "block");
+			$(".frage_3").animate({
+				"left": 0
+			},1000);
+		});
+
+		$(".button_antwort_3").click(function(){
+			$(this).css("display", "none");
+			$(".antwort_3").css("display", "block");
+			$(".antwort_3").animate({
+				"left": 0
+			},1000);
+			zahl++;
+		});
+
+		$(".button_nex_frage_3").click(function(){
+			$(this).css("display", "none");
+			if(fragen_anzahl == zahl){
+				$(".btn_self_test_weiter").css("display", "block");
+			}
+			$(".frage_4").css("display", "block");
+			$(".frage_4").animate({
+				"left": 0
+			},1000);
+		});
+
+
+
+
 
 </script>

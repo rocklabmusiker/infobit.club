@@ -42,6 +42,11 @@
 		      </li>
 
 					<li class="nav-item px-2">
+		        <a class="nav-link <?php if($_SERVER['REQUEST_URI'] == '/admin/adminSelfTest') echo 'active'; ?>"
+		        href="/admin/adminSelfTest">SelfTest Fragen einlegen</a>
+		      </li>
+
+					<li class="nav-item px-2">
 		        <a class="nav-link <?php if($_SERVER['REQUEST_URI'] == '/admin/adminBenutzer') echo 'active'; ?>"
 		        href="/admin/adminBenutzer">Benutzer</a>
 		      </li>

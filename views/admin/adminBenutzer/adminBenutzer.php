@@ -1,6 +1,14 @@
+
+<?php if($_SESSION['user_status'] != 'admin'){
+  echo '<script> location.replace("/admin/adminFragenEinlegen"); </script>';
+
+}?>
+
 <?php include_once(ROOT . '/views/admin/adminLayouts/adminHeader.php'); ?>
 
 <?php include_once(ROOT . '/views/admin/adminLayouts/adminMenu.php'); ?>
+
+
 
 <!-- Error messages -->
 <?php if(isset($error) && $error == true): ?>

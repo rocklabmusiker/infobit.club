@@ -33,7 +33,7 @@
           <input type="text" name="cat_theme" class="form-control">
         </div>
         <span class="badge badge-warning p-2 mb-4">
-          ihk_wirt_abschluss -> ihk_fach_abschluss -> ihk_zwischen_abschluss -> wbs_zwischen_abschluss
+          ihk_wirt_abschluss -> ihk_zwischen_abschluss -> wbs_zwischen_abschluss
         </span>
         <div class="form-group">
           <input type="submit" name="neue_cat_erstellen" value="Kategorie erstellen" class="btn btn-dark">

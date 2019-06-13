@@ -2,6 +2,7 @@
 
 return [
 	'admin/adminBenutzer' => 'adminBenutzer/index',
+	'admin/adminSelfTest' => 'adminSelfTest/index',
 	'admin/adminLinks' => 'adminLinks/index',
 	'admin/adminFragenEinlegen' => 'adminFragenEinlegen/index',
 	'admin/adminHome' => 'adminHome/index',
