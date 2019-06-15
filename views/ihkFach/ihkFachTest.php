@@ -27,32 +27,40 @@
 
 								<div class="jumbotron frage_1">
 								  <h3 class="display-6">Frage Nr. <?php echo $frage_num + 1; ?></h3>
-								  <p class="lead"><?php echo $frage['titel']; ?></p>
+									<p class="lead font-weight-normal text-danger"> Diese Aufgabe besteht aus <?php echo $frage['fragen_anzahl']; ?> Fragen.</p>
+								  <p class="lead">
+										<img 	src="/template/images/selfTestImages/<?php echo $frage['titel']; ?>"
+												style="max-width: 1000px; width: 100%;" alt="<?php echo $frage['titel']; ?>">
+									</p>
 								  <hr class="my-4">
 								</div>
 
 								<!-- anzahl der unterfragen-->
 
 								<?php for($i = 1; $i <= $frage['fragen_anzahl']; $i++ ): ?>
+									<!-- frage -->
+									<div class="frage <?php if($i == 1) echo "active"; ?> <?php echo $i; ?>">
+										<div class="jumbotron bg-white border border-dark rounded mt-4">
+										<img 	src="/template/images/selfTestImages/<?php echo $frage['frage_bild_'. $i]; ?>"
+													style="max-width: 1000px; width: 100%;" alt="<?php echo $frage['frage_bild_'. $i]; ?>">
 
-									<div class="frage_<?php echo $i; ?>">
-										<?php echo 'frage_' . $i; ?>
-
-										<button type="button"
-														class="button_antwort_<?php echo $i; ?> btn btn-block btn-dark mb-4">
-														antwort<?php echo $i; ?> anzeigen
-										</button>
-
-										<div class="antwort_<?php echo $i; ?>" style="display:none; position:relative; left: -1500px;">
-											<p style="">
-												<?php echo 'antwort_' . $i; ?>
-												<button type="button"
-																class="button_nex_frage_<?php echo $i; ?> btn btn-block btn-dark mb-4">
-																nächste frage
-												</button>
-											</p>
 										</div>
-
+										<button type="button"
+														class="button_antwort btn btn-block btn-dark my-4 <?php echo $i; ?>">
+														Antwort anzeigen
+										</button>
+										<!-- antwort auf die Frage -->
+										<div class="antwort" style="display:none; position:relative; left: -1500px;">
+											<p class="border border-info rounded">
+												<img 	src="/template/images/selfTestImages/<?php echo $frage['frage_antwort_'. $i]; ?>"
+															style="max-width: 1000px; width: 100%;" alt="<?php echo $frage['frage_antwort_'. $i]; ?>">
+											</p>
+											<button type="button"
+															class="button_next_frage btn btn-block btn-dark my-4">
+															Nächste Frage
+											</button>
+										</div>
+										<!-- antwort ende-->
 									</div>
 								<?php endfor; ?>
 						</div>
@@ -164,65 +172,37 @@
 <script>
 
 
-		$(".frage_2").css("display", "none");
-		$(".frage_3").css("display", "none");
+		$(".frage").css("display", "none");
+		$(".active").css("display", "block");
 
-		var zahl = 1;
-		var fragen_anzahl = $(".self_test_frage").attr("data-fragen-anzahl");
+		var frage = null;
+		var nexFrage = null;
 
-		$(".button_antwort_1").click(function(){
+
+		$(".button_antwort").click(function(){
+			frage = this;
+			antwort = $(frage).parent().find(".antwort");
 			$(this).css("display", "none");
-			$(".antwort_1").css("display", "block");
-			$(".antwort_1").animate({
+			antwort.css("display", "block");
+			antwort.animate({
 				"left": 0
 			},1000);
 		});
 
-		$(".button_nex_frage_1").click(function(){
-			$(this).css("display", "none");
-			$(".frage_2").css("display", "block");
-			$(".frage_2").animate({
-				"left": 0
-			},1000);
-		});
 
-		$(".button_antwort_2").click(function(){
-			$(this).css("display", "none");
-			$(".antwort_2").css("display", "block");
-			$(".antwort_2").animate({
-				"left": 0
-			},1000);
-			zahl++;
-		});
+		$(".button_next_frage").click(function(){
 
-		$(".button_nex_frage_2").click(function(){
-			$(this).css("display", "none");
-			$(".frage_3").css("display", "block");
-			$(".frage_3").animate({
-				"left": 0
-			},1000);
-		});
-
-		$(".button_antwort_3").click(function(){
-			$(this).css("display", "none");
-			$(".antwort_3").css("display", "block");
-			$(".antwort_3").animate({
-				"left": 0
-			},1000);
-			zahl++;
-		});
-
-		$(".button_nex_frage_3").click(function(){
-			$(this).css("display", "none");
-			if(fragen_anzahl == zahl){
+			frage = $(frage).parent().next();
+			if(frage.length == 0){
 				$(".btn_self_test_weiter").css("display", "block");
 			}
-			$(".frage_4").css("display", "block");
-			$(".frage_4").animate({
+
+			$(this).css("display", "none");
+			frage.css("display", "block");
+			frage.animate({
 				"left": 0
 			},1000);
 		});
-
 
 
 

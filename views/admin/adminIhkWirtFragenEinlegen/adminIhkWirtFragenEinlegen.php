@@ -18,25 +18,20 @@
 
 
 <div class="container">
-  <div class="jumbotron jumbotron-fluid py-2 mt-4">
-      <h4 class="display-3 text-center" style="font-size: 30px;">Neue Kategorie erstellen</h4>
+  <div class="jumbotron jumbotron-fluid py-2 mt-4 bg-dark text-white">
+      <h4 class="display-3 text-center " style="font-size: 30px; font-weight: 600;">
+        IHK-Wirtschaft
+      </h4>
   </div>
 	<div class="row">
     <div class="col-md-12">
       <form method="post">
         <div class="form-group">
-          <label for="exampleInputEmail1">Kategorie Titel</label>
+          <label for="exampleInputEmail1">Titel</label>
           <input type="text" name="cat_titel" class="form-control" >
         </div>
         <div class="form-group">
-          <label for="cat_theme">Kategorie Theme</label>
-          <input type="text" name="cat_theme" class="form-control">
-        </div>
-        <span class="badge badge-warning p-2 mb-4">
-          ihk_wirt_abschluss -> ihk_zwischen_abschluss -> wbs_zwischen_abschluss
-        </span>
-        <div class="form-group">
-          <input type="submit" name="neue_cat_erstellen" value="Kategorie erstellen" class="btn btn-dark">
+          <input type="submit" name="neue_cat_erstellen" value="Titel einlegen" class="btn btn-dark">
         </div>
       </form>
     </div>
@@ -44,7 +39,9 @@
 
   <div class="jumbotron jumbotron-fluid py-2 mt-4">
     <div class="container">
-      <h4 class="display-3 text-center" style="font-size: 30px;">Frage einlegen</h4>
+      <h5 class="display-2  text-center" style="font-size: 25px; font-weight: 600;">
+            Frage einlegen
+      </h5>
     </div>
   </div>
 
@@ -55,15 +52,15 @@
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="cat_titel">Kategorie Titel</label>
-              <input type="text" class="form-control cat_titel" value="<?php echo $last_cat['cat_titel'];  ?>">
+              <input type="text" class="form-control cat_titel" value="<?php echo $last_cat['cat_titel'];  ?>" readonly>
             </div>
             <div class="form-group col-md-4">
               <label for="cat_theme">Kategorie Theme</label>
-              <input type="text" name="frage_cat_theme" class="form-control cat_theme" value="<?php echo $last_cat['cat_theme']; ?>">
+              <input type="text" name="frage_cat_theme" class="form-control cat_theme" value="<?php echo $last_cat['cat_theme']; ?>" readonly>
             </div>
             <div class="form-group col-md-2">
               <label for="cat_id">Kategorie ID</label>
-              <input type="text" name="frage_cat_id" class="form-control frage_cat_id" value="<?php echo $last_cat['cat_id']; ?>">
+              <input type="text" name="frage_cat_id" class="form-control frage_cat_id" value="<?php echo $last_cat['cat_id']; ?>" readonly>
             </div>
           </div>
         <?php endif; ?>

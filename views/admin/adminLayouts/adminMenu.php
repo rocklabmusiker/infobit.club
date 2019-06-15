@@ -24,26 +24,34 @@
 		    </span>
 		  </button>
 
-
-
 		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 		    <ul class="navbar-nav p-2 mx-auto">
 		      <li class="nav-item px-2">
 		        <a class="nav-link <?php if($_SERVER['REQUEST_URI'] == '/admin/adminHome') echo 'active'; ?>" href="/admin/adminHome">Home</a>
 		      </li>
-		      <li class="nav-item px-2">
-		        <a class="nav-link <?php if($_SERVER['REQUEST_URI'] == '/admin/adminFragenEinlegen') echo 'active'; ?>"
-		        href="/admin/adminFragenEinlegen">Fragen einlegen</a>
-		      </li>
+					<div class="dropdown">
+					  <button class="btn btn-info dropdown-toggle p-1 rounded-0
+										<?php if(	$_SERVER['REQUEST_URI'] == '/admin/adminIhkFragenEinlegen' ||
+															$_SERVER['REQUEST_URI'] == '/admin/adminIhkZwischenFragenEinlegen' ||
+															$_SERVER['REQUEST_URI'] == '/admin/adminWbsZwischenFragenEinlegen' ||
+															$_SERVER['REQUEST_URI'] == '/admin/adminIhkFachTest') echo 'active'; ?>"
+										type="button" id="dropdownMenuButton"
+										data-toggle="dropdown"
+										aria-haspopup="true"
+										aria-expanded="false">
+					    Fragen einlegen
+					  </button>
+					  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+					    <a class="dropdown-item" href="/admin/adminIhkFragenEinlegen">IHK-Wirtschaft</a>
+					    <a class="dropdown-item" href="/admin/adminIhkZwischenFragenEinlegen">IHK-Zwischenprüfung</a>
+					    <a class="dropdown-item" href="/admin/adminWbsZwischenFragenEinlegen">WBS-Zwischenprüfung</a>
+							<a class="dropdown-item" href="/admin/adminIhkFachTest">IHK-Fachqualifikation</a>
+					  </div>
+					</div>
 
 					<li class="nav-item px-2">
 		        <a class="nav-link <?php if($_SERVER['REQUEST_URI'] == '/admin/adminLinks') echo 'active'; ?>"
 		        href="/admin/adminLinks">Links einlegen</a>
-		      </li>
-
-					<li class="nav-item px-2">
-		        <a class="nav-link <?php if($_SERVER['REQUEST_URI'] == '/admin/adminSelfTest') echo 'active'; ?>"
-		        href="/admin/adminSelfTest">SelfTest Fragen einlegen</a>
 		      </li>
 
 					<li class="nav-item px-2">

@@ -194,6 +194,7 @@ html {
 
 
 
+
 /*========= Home =========*/
 
 .fas.fa-user-graduate {
@@ -280,24 +281,28 @@ img.test_img {
 
 
 .ihkWirtTest .jumbotron,
-.ihkZwischenTest .jumbotron {
+.ihkZwischenTest .jumbotron,
+.wbsZwischenTest .jumbotron {
     padding: 2.5rem 2rem;
 }
 
 .ihkWirtTest_ergebnis .ihkWirtTest_titel,
-.ihkZwischenTest_ergebnis .ihkZwischenTest_titel {
+.ihkZwischenTest_ergebnis .ihkZwischenTest_titel,
+.wbsZwischenTest_ergebnis .wbsZwischenTest_titel  {
     box-shadow: 0px 0px 5px rgba(200,200,200,0.5);
     border-radius: 5px;
     padding: 0 0 8px 0;
 }
 
 .ihkWirtTest_ergebnis .ihkWirtTest_card,
-.ihkZwischenTest_ergebnis .ihkZwischenTest_card {
+.ihkZwischenTest_ergebnis .ihkZwischenTest_card,
+.wbsZwischenTest_ergebnis .wbsZwischenTest_card {
 	box-shadow: 0px 0px 10px rgb(50, 50, 50);
 }
 
 .ihkWirtTest_ergebnis .ihkWirtTest_card p,
-.ihkZwischenTest_ergebnis .ihkZwischenTest_card p  {
+.ihkZwischenTest_ergebnis .ihkZwischenTest_card p,
+.wbsZwischenTest_ergebnis .wbsZwischenTest_card p  {
 	font-size: 40px;
 }
 
@@ -305,7 +310,8 @@ img.test_img {
 
 
 .ihkWirtTest_ergebnis .ihkWirtTest_card,
-.ihkZwischenTest_ergebnis .ihkZwischenTest_card {
+.ihkZwischenTest_ergebnis .ihkZwischenTest_card,
+.wbsZwischenTest_ergebnis .wbsZwischenTest_card {
 	max-width: 350px;
 	width: 100%;
 }
@@ -313,7 +319,8 @@ img.test_img {
 
 /*========= Timer =========*/
 .ihkWirtTest_timer,
-.ihkZwischenTest_timer{
+.ihkZwischenTest_timer,
+.wbsZwischenTest_timer{
     float: right !important;
     margin: -17px 0px 0 0px;
     font-size: 20px;
@@ -424,12 +431,30 @@ span.float-right.d-inline-block {
 }
 
 .admin_menu .nav-pills.nav-menu .nav-link:hover {
-	color: #343a40;
+	background-color: #343a40;
+	border-color: #343a40;
+	color: #fff;
+	border-radius: 0;
 }
 
 .admin_menu .nav-pills.nav-menu .nav-link.active:hover {
 	color: #fff;
+
 }
+
+.admin_menu .btn-info:not(:disabled):not(.disabled).active, .btn-info:not(:disabled):not(.disabled):active, .show > .btn-info.dropdown-toggle {
+	background-color: #343a40;
+	border-color: #343a40;
+	color: #fff;
+	border-radius: 0;
+}
+
+.admin_menu .dropdown button:hover {
+	background-color: #343a40;
+	border-color: #343a40;
+	color: #fff
+}
+
 
 .admin_menu .seller-trenner {
 	margin: 30px 0;

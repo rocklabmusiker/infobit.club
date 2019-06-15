@@ -5,19 +5,19 @@ class AdminSelfTestController
 {
 
 
-  public function actionIndex(){
+  public function actionIhkFachFragenEinlegen(){
 
     $error;
     $message_text;
 
-    if(Category::getLastCategory() != ''){
-      $last_cat = Category::getLastCategory();
+    $cat_theme = 'ihk_fach_abschluss';
+
+    if(Category::getLastCategory($cat_theme) != ''){
+      $last_cat = Category::getLastCategory($cat_theme);
     }
 
     if(isset($_POST['neue_cat_erstellen'])){
       $cat_titel = $_POST['cat_titel'];
-      $cat_theme = $_POST['cat_theme'];
-
 
       if(Category::neueCatEinlegen($cat_titel, $cat_theme)){
 
@@ -34,10 +34,17 @@ class AdminSelfTestController
 
     if(isset($_POST['selfTest_frage_speichern'])){
 
-      $titel = $_POST['titel'];
       $cat_id = $_POST['cat_id'];
       $cat_theme = $_POST['cat_theme'];
       $fragen_anzahl = $_POST['fragen_anzahl'];
+
+      if(isset($_FILES['titel']['name']) && $_FILES['titel']['name'] != ''){
+        $titel = pathinfo($_FILES['titel']['name'], PATHINFO_FILENAME);
+        $titel_extension = strtolower(pathinfo($_FILES['titel']['name'], PATHINFO_EXTENSION));
+      } else {
+        $titel = '';
+        $titel_extension = '';
+      }
 
       if(isset($_FILES['frage_bild_1']['name']) && $_FILES['frage_bild_1']['name'] != ''){
         $frage_bild_1 = pathinfo($_FILES['frage_bild_1']['name'], PATHINFO_FILENAME);
@@ -181,8 +188,9 @@ class AdminSelfTestController
 
 
 
+
       $selfTestFrage = SelfTest::selfTestFrageEinsetzen(
-        $titel, $cat_id, $cat_theme, $fragen_anzahl,
+        $titel, $titel_extension,  $cat_id, $cat_theme, $fragen_anzahl,
         $frage_bild_1, $frage_bild_1_extension, $antwort_bild_1, $antwort_bild_1_extension, $frage_punktzahl_1,
         $frage_bild_2, $frage_bild_2_extension, $antwort_bild_2, $antwort_bild_2_extension, $frage_punktzahl_2,
         $frage_bild_3, $frage_bild_3_extension, $antwort_bild_3, $antwort_bild_3_extension, $frage_punktzahl_3,
@@ -205,7 +213,7 @@ class AdminSelfTestController
       }
 
 
-    require_once(ROOT . '/views/admin/adminSelfTest/adminSelfTest.php');
+    require_once(ROOT . '/views/admin/adminIhkFachFragenEinlegen/adminIhkFachFragenEinlegen.php');
     return true;
   }
 }

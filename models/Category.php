@@ -30,10 +30,12 @@ class Category
 		}
 	}
 
-	public static function getLastCategory() {
+
+
+	public static function getLastCategory($cat_theme) {
 
 		$db = Db::getConnection();
-		$sql = "SELECT * FROM category ORDER BY cat_id DESC LIMIT 1";
+		$sql = "SELECT * FROM category WHERE cat_theme = '".$cat_theme."' ORDER BY cat_id DESC LIMIT 1";
 
 		if($result = $db->query($sql)) {
 			$result->execute();

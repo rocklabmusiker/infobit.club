@@ -43,7 +43,7 @@ class SelfTest
   }
 
   public static function selfTestFrageEinsetzen(
-    $titel, $cat_id, $cat_theme, $fragen_anzahl,
+    $titel, $titel_extension, $cat_id, $cat_theme, $fragen_anzahl,
     $frage_bild_1, $frage_bild_1_extension, $antwort_bild_1, $antwort_bild_1_extension, $frage_punktzahl_1,
     $frage_bild_2, $frage_bild_2_extension, $antwort_bild_2, $antwort_bild_2_extension, $frage_punktzahl_2,
     $frage_bild_3, $frage_bild_3_extension, $antwort_bild_3, $antwort_bild_3_extension, $frage_punktzahl_3,
@@ -59,6 +59,26 @@ class SelfTest
 
 
     $upload_folder = "template/images/selfTestImages/" ; //Das Upload-Verzeichnis
+
+    ///////////////// titel ///////////////
+    if($titel != '') {
+      //Pfad zum Upload
+      $new_path = $upload_folder.$titel.'.'.$titel_extension;
+      $bild = $titel.'.'.$titel_extension;
+      //Neuer Dateiname falls die Datei bereits existiert
+      if(file_exists($new_path)) { //Falls Datei existiert, hänge eine Zahl an den Dateinamen
+       $id = 1;
+       do {
+       $new_path = $upload_folder.$titel.'_'.$id.'.'.$titel_extension;
+       $bild = $titel.'_'.$id.'.'.$titel_extension;
+       $id++;
+       } while(file_exists($new_path));
+      }
+      //Alles okay, verschiebe Datei an neuen Pfad
+    	move_uploaded_file($_FILES['titel']['tmp_name'], $new_path);
+
+      $titel = $bild;
+    }
 
 
     ///////////////// frage 1 ///////////////

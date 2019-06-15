@@ -6,6 +6,8 @@ $(".ihkWirtTest .ihkWirtTest_ergebnisse_einsehen_button").on("click", function()
 
       // cat_id
     var cat_id = $(this).attr("data-cat-id");
+    // cat_theme
+    var cat_theme = $(".ihkWirtTest").attr("data-cat-theme");
     // user_id
     var user_id = $(".ihkWirtTest").attr("data-user-id");
     // erreichte_punktzahl
@@ -15,6 +17,8 @@ $(".ihkWirtTest .ihkWirtTest_ergebnisse_einsehen_button").on("click", function()
     var erreichte_note = $(".ihkWirtTest .ihkWirtTest_erreichte_note").attr("data-erreichte-note");
 
 
+
+
     $.ajax({
 
         url: "/views/ihkWirt/ihkWirtTestSaveResultAjax.php",
@@ -22,6 +26,7 @@ $(".ihkWirtTest .ihkWirtTest_ergebnisse_einsehen_button").on("click", function()
         dataType:"text",
         data:{  'user_id': user_id,
                 'cat_id': cat_id,
+                'cat_theme' : cat_theme,
                 'gesamtprozentzahl':gesamtprozentzahl,
                 'erreichte_note': erreichte_note,
                 'vergangene_zeit': vergangene_zeit},
@@ -48,14 +53,14 @@ $(".ihkWirtTest .ihkWirtTest_ergebnisse_einsehen_button").on("click", function()
 
 
             }
-           
+
         }
 
     });
 
 
 
-    
+
 
 
 

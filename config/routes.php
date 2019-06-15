@@ -2,9 +2,11 @@
 
 return [
 	'admin/adminBenutzer' => 'adminBenutzer/index',
-	'admin/adminSelfTest' => 'adminSelfTest/index',
+	'admin/adminIhkFachTest' => 'adminSelfTest/ihkFachFragenEinlegen',
 	'admin/adminLinks' => 'adminLinks/index',
-	'admin/adminFragenEinlegen' => 'adminFragenEinlegen/index',
+	'admin/adminWbsZwischenFragenEinlegen' => 'adminFragenEinlegen/wbsZwischenFragenEinlegen',
+	'admin/adminIhkZwischenFragenEinlegen' => 'adminFragenEinlegen/ihkZwischenFragenEinlegen',
+	'admin/adminIhkFragenEinlegen' => 'adminFragenEinlegen/ihkWirtFragenEinlegen',
 	'admin/adminHome' => 'adminHome/index',
 
 

@@ -1,6 +1,6 @@
 
 
-<?php if(!$_SESSION['user_status'] == 'admin' || !$_SESSION['user_status'] == 'redaktor'){
+<?php if($_SESSION['user_status'] == 'user' ){
 	echo '<script> location.replace("/home"); </script>';
 }
 

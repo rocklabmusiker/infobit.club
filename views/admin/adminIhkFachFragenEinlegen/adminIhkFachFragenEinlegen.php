@@ -19,25 +19,20 @@
 
 
 <div class="container">
-  <div class="jumbotron jumbotron-fluid py-2 mt-4">
-      <h4 class="display-3 text-center" style="font-size: 30px;">Neue Kategorie erstellen</h4>
+  <div class="jumbotron jumbotron-fluid py-2 mt-4 bg-dark text-white">
+      <h4 class="display-3 text-center" style="font-size: 30px; font-weight: 600;">
+        IHK-Fachqualifikation
+      </h4>
   </div>
 	<div class="row">
     <div class="col-md-12">
       <form>
         <div class="form-group">
-          <label for="exampleInputEmail1">Kategorie Titel</label>
+          <label for="exampleInputEmail1">Titel</label>
           <input type="text" name="cat_titel" class="form-control cat_titel" >
         </div>
         <div class="form-group">
-          <label for="cat_theme">Kategorie Theme</label>
-          <input type="text" name="cat_theme" class="form-control cat_theme" >
-        </div>
-        <span class="badge badge-warning p-2 mb-4">
-          ihk_fach_abschluss
-        </span>
-        <div class="form-group">
-          <input type="button" value="Kategorie erstellen" name="neue_cat_erstellen" class="btn btn-dark">
+          <input type="button" value="Titel einlegen" name="neue_cat_erstellen" class="btn btn-dark">
         </div>
       </form>
     </div>
@@ -45,7 +40,7 @@
 
   <div class="jumbotron jumbotron-fluid py-2 mt-4">
     <div class="container">
-      <h4 class="display-3 text-center" style="font-size: 30px;">SelfTest Frage einlegen (ihk_fach_abschluss)</h4>
+      <h4 class="display-3 text-center" style="font-size: 30px;">Frage einlegen</h4>
     </div>
   </div>
 
@@ -56,29 +51,31 @@
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="cat_titel">Kategorie Titel</label>
-              <input type="text" class="form-control cat_titel" value="<?php echo $last_cat['cat_titel'];  ?>">
+              <input type="text" class="form-control cat_titel" value="<?php echo $last_cat['cat_titel'];  ?>" readonly>
             </div>
             <div class="form-group col-md-4">
               <label for="cat_theme">Kategorie Theme</label>
-              <input type="text" name="cat_theme" class="form-control cat_theme" value="<?php echo $last_cat['cat_theme']; ?>">
+              <input type="text" name="cat_theme" class="form-control cat_theme" value="<?php echo $last_cat['cat_theme']; ?>" readonly>
             </div>
             <div class="form-group col-md-2">
               <label for="cat_id">Kategorie ID</label>
-              <input type="text" name="cat_id" class="form-control cat_id" value="<?php echo $last_cat['cat_id']; ?>">
+              <input type="text" name="cat_id" class="form-control cat_id" value="<?php echo $last_cat['cat_id']; ?>" readonly>
             </div>
           </div>
         <?php endif; ?>
         <div class="form-row">
-          <label for="cat_theme">Titel</label>
-          <textarea class="form-control frage_titel" name="titel"></textarea>
-        </div>
-        <div class="form-row mt-3">
-          <div class="form-group col-md-4">
-            <label for="frage_info">Fragen anzahl</label>
-            <input type="text" class="form-control fragen_anzahl" name="fragen_anzahl">
-          </div>
           <div class="form-group col-md-8">
-
+            <label for="titel">Titel</label>
+            <div class="input-group">
+              <div class="custom-file">
+                <input type="file" name="titel" class="custom-file-input titel fileInput" aria-describedby="inputGroupFileAddon04" value="suchen">
+                <label class="custom-file-label" for="titel"></label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-md-4">
+            <label for="frage_info">Anzahl der Fragen</label>
+            <input type="text" class="form-control fragen_anzahl" name="fragen_anzahl">
           </div>
         </div>
         <!-- Frage 1-->
