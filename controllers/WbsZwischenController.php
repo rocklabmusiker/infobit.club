@@ -21,6 +21,7 @@ class WbsZwischenController
 
 			$cat_wbs_zwischen_abschluss = Category::getCategoryDaten($this->wbs_zwischen_abschluss);
 			$frage_num = 0;
+			$back = 0; // zurück button
 		}
 
 		// anzahl der Testdurchläufe
@@ -99,7 +100,6 @@ class WbsZwischenController
 			$gesamtprozentzahl = Fragen::rechnenErgebnissen($cat_id, $session_user_antworten);
 
 
-		// var_dump($gesamtpunktzahl);
 
 		$erreichte_note = 0;
 		// erreichte Note
@@ -124,7 +124,6 @@ class WbsZwischenController
 		}else {
 			$erreichte_note = 6;
 		}
-
 
 
 		require_once(ROOT . '/views/wbsZwischen/wbsZwischenTest.php');

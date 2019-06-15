@@ -12,12 +12,12 @@
 		</div>
 
 	<div class="row">
-		<?php if(isset($cat_ihk_wirt_abschluss)): ?>
-			<?php foreach($cat_ihk_wirt_abschluss as $ihk_wirt_abschluss): ?>
+		<?php if(isset($cat_wbs_zwischen_abschluss)): ?>
+			<?php foreach($cat_wbs_zwischen_abschluss as $value): ?>
 				<div class="col-md-3">
 					<div class="card <?php if($test_durchlauf > 0){echo 'border-success';} else{echo 'border-dark';} ?>  mb-3"
 						style="max-width: 18rem; border: 2px solid;">
-					  <div class="card-header text-center"><?php echo $ihk_wirt_abschluss['cat_titel']; ?></div>
+					  <div class="card-header text-center"><?php echo $value['cat_titel']; ?></div>
 					  <div class="card-body text-dark p-0">
 					  	<table class="table table-bordered text-center">
 								<thead>
@@ -35,7 +35,7 @@
 					  	</table>
 					  </div>
 						<div class="card-body text-dark pt-0">
-					  	<a href="ihkWirtTest/<?php echo $ihk_wirt_abschluss['cat_id']; ?>?cat_id=<?php echo $ihk_wirt_abschluss['cat_id']; ?>&frage_num=<?php echo $frage_num; ?>" class="btn btn-dark btn-block">Zum Test <i class="fal fa-comment-alt-edit"></i></a>
+					  	<a href="wbsZwischenTest/<?php echo $value['cat_id']; ?>?cat_id=<?php echo $value['cat_id']; ?>&frage_num=<?php echo $frage_num; ?>" class="btn btn-dark btn-block">Zum Test <i class="fal fa-comment-alt-edit"></i></a>
 					  </div>
 					</div>
 				</div>

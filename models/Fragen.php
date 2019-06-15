@@ -54,14 +54,12 @@ class Fragen
 			$result->bindParam(':cat_id', $cat_id);
 			$result->execute();
 
-			$punktzahl = 0;
 
+
+			$punktzahl = [];
 			while($row = $result->fetch()) {
 
-				// $session_antworten = $row['session_antworten'];
-
 				$session_antworten = '';
-
 
 				if(isset($session_user_antworten[$row['frage_id']])) {
 
@@ -72,37 +70,29 @@ class Fragen
 					$fragen_antworten = $row['richtige_antwort'];
 					$array_richtige_antworten = explode(',', $fragen_antworten);
 
-					$antwort_richtig = true;
 
-					if(count($array_user_antworten) != count($array_richtige_antworten)){
-						$antwort_richtig = false;
-					}
+					$antwort_richtig = 0;
+					$antwort_gesamt = 0;
+					$summe = 0;
 
 					for ($i=0; $i < count($array_user_antworten); $i++) {
 
-						if(!in_array($array_user_antworten[$i], $array_richtige_antworten)){
+							if(in_array($array_user_antworten[$i], $array_richtige_antworten)){
 
-							$antwort_richtig = false;
-							break;
-
-						}
-
+								$antwort_richtig++;
+							}
+							$antwort_gesamt = count($array_richtige_antworten);
 					}
 
+					$summe = (3.33 / $antwort_gesamt) * $antwort_richtig;
+					array_push($punktzahl, $summe);
+				} // end if
 
 
-					if($antwort_richtig == true){
-						$punktzahl++;
-					}
-
-
-				}
-
-
-			}
+			} // end while
 
 			if($result->rowCount() > 0) {
-				return $punktzahl * 3.33;
+				return round(array_sum($punktzahl),2);
 			} else {
 				return false;
 			}

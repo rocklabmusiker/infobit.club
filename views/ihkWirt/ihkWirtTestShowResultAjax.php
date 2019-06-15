@@ -17,6 +17,7 @@ if(isset($_POST['cat_id'])) {
 		$result->bindParam(':cat_id', $cat_id);
 
 		$result->execute();
+		$frage_num = 0;
 
 		while($row = $result->fetch()){
 			$antwort_1 = '';
@@ -25,6 +26,11 @@ if(isset($_POST['cat_id'])) {
 			$antwort_4 = '';
 			$antwort_5 = '';
 			$antwort_6 = '';
+
+			$summe = 0;
+			$antwort_richtig = 0;
+			$antwort_gesamt = 0;
+			$frage_num += 1;
 
 			$fragen_antworten = $row['richtige_antwort'];
 			$array_richtige_antworten = explode(',', $fragen_antworten);
@@ -55,7 +61,7 @@ if(isset($_POST['cat_id'])) {
 			$frage_bild_check = $row['frage_bild'];
 			$bild = '';
 			if($frage_bild_check != ''){
-				$bild = '<hr class="my-4"><img src="/template/images/testImages/'.$row['frage_bild'] .'" alt="'.$row['frage_bild'] .'">';
+				$bild = '<hr class="my-4"><img src="/template/images/testImages/'.$row['frage_bild'] .'" alt="'.$row['frage_bild'] .'" class="test_img">';
 
 
 			}
@@ -92,22 +98,36 @@ if(isset($_POST['cat_id'])) {
 				}
 
 			}
-			$antwort_richtig_border = '#dc3545';
-			$antwort_richtig_table = 'table-danger';
-			$antwort_prozentzahl = 0;
-			$antwort_prozentzahl_color = '#dc3545';
 
-			if($antwort_1 == $user_antwort_1
-			&& $antwort_2 == $user_antwort_2
-			&& $antwort_3 == $user_antwort_3
-			&& $antwort_4 == $user_antwort_4
-			&& $antwort_5 == $user_antwort_5
-			&& $antwort_6 == $user_antwort_6){
-				$antwort_richtig_border = '#28a745';
-				$antwort_richtig_table = 'table-success';
-				$antwort_prozentzahl = 3.33;
-				$antwort_prozentzahl_color = '#28a745';
-			}
+			// hier werden prozents gerechnet
+
+				for ($i=0; $i < count($array_user_antworten); $i++) {
+	
+						if(in_array($array_user_antworten[$i], $array_richtige_antworten)){
+
+							$antwort_richtig++;
+						}
+						$antwort_gesamt = count($array_richtige_antworten);
+				}
+
+				$summe = (3.33 / $antwort_gesamt) * $antwort_richtig;
+
+				$antwort_prozentzahl = $summe;
+
+				if($antwort_prozentzahl == 3.33) {
+					$antwort_richtig_border = '#28a745';
+					$antwort_richtig_table = 'table-success';
+					$antwort_prozentzahl_color = '#28a745';
+				} else if($antwort_prozentzahl == 0){
+					$antwort_richtig_border = '#dc3545';
+					$antwort_richtig_table = 'table-danger';
+					$antwort_prozentzahl_color = '#dc3545';
+				} else {
+					$antwort_richtig_border = '#ffc107';
+					$antwort_richtig_table = 'table-warning';
+					$antwort_prozentzahl_color = '#ffc107';
+				}
+
 
 
 

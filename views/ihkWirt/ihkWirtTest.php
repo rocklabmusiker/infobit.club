@@ -25,12 +25,12 @@
 				<div class="float-right ihkWirtTest_timer" data-seconds=""></div>
 			</div>
 
-			<div class="row justify-content-center">
+			<div class="row">
 				<?php if(isset($frage)): ?>
 
 					<?php $_SESSION['cat_theme_ihk_wirt'] = $frage['frage_cat_theme']; ?>
 
-						<div class="col-md-8 ihkWirtTest_frage_id" data-frage-id="<?php echo $frage['frage_id']; ?>">
+						<div class="col-md-12 ihkWirtTest_frage_id" data-frage-id="<?php echo $frage['frage_id']; ?>">
 							<!--mehreren Anterten-->
 							<?php if($mehrere_antworten): ?>
 
@@ -212,17 +212,19 @@
 
 						</div>
 				<?php endif; ?>
-
-			<div class="col-md-8 mt-3 mb-5">
-				<button type="button"
-								class="btn btn-danger btn-block ihkWirt_antwort_speichern"
-								data-link="/ihkWirtTest/<?php echo $cat_id; ?>?cat_id=<?php echo $cat_id; ?>&frage_num=<?php echo $frage_num += 1;?>">
-								Antwort speichern
-				</button>
-
 			</div>
-			<!-- onclick="return false" -->
-
+			<div class="row">
+				<div class="col-md-2 mt-5 mb-5">
+					<a 	href="/ihkWirtTest/<?php echo $cat_id; ?>?cat_id=<?php echo $cat_id; ?>&frage_num=<?php if($_GET['frage_num'] == 0 ){ echo  0;} else{echo $_GET['frage_num'] - 1;} ?>"
+						class="btn btn-danger btn-block">Zurück</a>
+				</div>
+				<div class="col-md-6 mt-5 mb-5">
+					<button type="button"
+					class="btn btn-dark btn-block ihkWirt_antwort_speichern"
+					data-link="/ihkWirtTest/<?php echo $cat_id; ?>?cat_id=<?php echo $cat_id; ?>&frage_num=<?php echo $frage_num += 1;?>">
+									Antwort speichern und weiter
+					</button>
+				</div>
 			</div>
 			<?php else: ?><!--keine Fragen mehr -->
 
@@ -304,7 +306,7 @@
 
 								<hr class="my-4">
 								<button class="btn btn-danger btn-lg ihkWirtTest_ergebnisse_einsehen_button" data-cat-id="<?php echo $_GET['cat_id']; ?>">Ergebnisse ansehen und speichern</button>
-								<a href="/home" class="btn btn-light btn-lg ihkWirtTest_test_beenden" style="display: none;">Test beenden</a>
+								<a href="/ihkWirt" class="btn btn-light btn-lg ihkWirtTest_test_beenden" style="display: none;">Test beenden</a>
 							</div>
 					</div>
 					<!--ajax content ergebnisse-->

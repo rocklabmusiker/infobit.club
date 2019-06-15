@@ -1,7 +1,7 @@
 
 /*==============Ergebnisse anzeigen======================*/
 
-$(".wbsZwischen .wbsZwischenTest_ergebnisse_einsehen_button").on("click", function() {
+$(".wbsZwischenTest .wbsZwischenTest_ergebnisse_einsehen_button").on("click", function() {
 
 
       // cat_id
