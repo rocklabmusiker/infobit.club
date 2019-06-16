@@ -37,10 +37,12 @@
         <table class="table">
           <thead class="thead-dark">
             <tr>
-              <th scope="col">User Id</th>
-              <th scope="col">User Vorname</th>
-              <th scope="col">User Nachname</th>
-              <th scope="col">User Email</th>
+              <th scope="col">Id</th>
+              <th scope="col">Vorname</th>
+              <th scope="col">Nachname</th>
+              <th scope="col">Email</th>
+              <th scope="col">Status</th>
+              <th scope="col"></th>
               <th scope="col"></th>
               <th scope="col"></th>
             </tr>
@@ -53,6 +55,7 @@
                   <td><?php echo $user['user_name']; ?></td>
                   <td><?php echo $user['user_lastname']; ?></td>
                   <td><?php echo $user['user_email']; ?></td>
+                  <td><?php echo $user['user_status']; ?></td>
                   <td>
                     <form method="post">
                       <input type="hidden" name="user_id" value="<?php echo $user['user_id']; ?>">
@@ -64,6 +67,22 @@
                     <form method="post">
                       <input type="hidden" name="user_id" value="<?php echo $user['user_id']; ?>">
                       <input type="submit" name="delete_user" value="löschen" class="btn btn-danger">
+                    </form>
+                  </td>
+                  <td>
+                    <form method="post">
+                      <div class="form-row">
+                        <div class="col-md-6 form-group">
+                          <select class="custom-select" name="user_status">
+                            <option value="user">User</option>
+                            <option value="redaktor">Redaktor</option>
+                          </select>
+                        </div>
+                        <div class="col-md-6 form-group">
+                          <input type="hidden" name="user_id" value="<?php echo $user['user_id']; ?>">
+                          <input type="submit" name="change_status" value="ändern" class="btn btn-info">
+                        </div>
+                      </div>
                     </form>
                   </td>
                 </tr>

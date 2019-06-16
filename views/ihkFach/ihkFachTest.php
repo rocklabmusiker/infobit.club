@@ -74,7 +74,7 @@
 												  				type="radio"
 												  				name="radio_antwort"
 												  				value="0" >
-												  <label 	class="form-check-label" for="radio_antwort_1">Alles Falsch</label>
+												  <label 	class="form-check-label" for="radio_antwort_1">Alles falsch</label>
 								        </div>
 												<div class="form-check form-check-inline mb-5">
 													<input 	class="form-check-input radio_antwort"

@@ -107,6 +107,28 @@ class User
 	}
 
 
+	public static function updateUserStatus($user_id, $user_status){
+
+		$db = Db::getConnection();
+
+		$sql = "UPDATE user SET user_status = :user_status WHERE user_id = :user_id";
+
+		if($result = $db->prepare($sql)){
+			$result->bindParam(':user_status', $user_status);
+			$result->bindParam(':user_id', $user_id);
+
+			$result->execute();
+
+			if($result->rowCount() > 0){
+				return true;
+			} else {
+				return false;
+			}
+
+		}
+	}
+
+
 	public static function getNotAllowedUserDaten($user_not_allowed) {
 
 		$user_not_allowed = trim(stripslashes(htmlspecialchars($user_not_allowed)));
