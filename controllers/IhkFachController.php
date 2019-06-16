@@ -23,6 +23,22 @@ class IhkFachController
 			$frage_num = 0;
 		}
 
+		// anzahl der Testdurchläufe
+		$user_id = $_SESSION['user_id'];
+
+		if(UserHistory::getGemachtesTestsAnzahl($this->ihk_fach_abschluss, $user_id)){
+			$test_durchlauf = UserHistory::getGemachtesTestsAnzahl($this->ihk_fach_abschluss, $user_id);
+		} else {
+			$test_durchlauf = 0;
+		}
+
+		// letzte Note bekommen
+		if(UserHistory::getLetzteNote($this->ihk_fach_abschluss, $user_id)){
+			$letzte_note = UserHistory::getLetzteNote($this->ihk_fach_abschluss, $user_id);
+		} else {
+			$letzte_note = '';
+		}
+
 
 		require_once(ROOT . '/views/ihkFach/ihkFach.php');
 		return true;
@@ -54,11 +70,10 @@ class IhkFachController
 
 		// выводим кол-во пунктов
 
-		// $gesamtprozentzahl = Fragen::rechnenErgebnissen($cat_id);
-
-		// на время
-		$gesamtprozentzahl = 0;
-		// var_dump($gesamtpunktzahl);
+		$gesamtprozentzahl = SelfTest::rechnenErgebnissen($_SESSION['session_user_fragen_ihk_fach']);
+		// var_dump($gesamtprozentzahl);
+		// echo '<br>';
+		// var_dump($_SESSION['session_user_fragen_ihk_fach']);
 
 		$erreichte_note = 0;
 		// erreichte Note

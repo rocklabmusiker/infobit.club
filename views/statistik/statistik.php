@@ -24,8 +24,8 @@
 								</thead>
 					  		<tbody>
 									<tr>
-                    <td class="font-weight-bold"> <span class=" text-info border rounded px-3" style="font-size:25px;"><?php  ?></span> Test(s)</td>
-										<td class="font-weight-bold"> <span class=" text-success border rounded px-3" style="font-size:25px;"><?php ?></td>
+                    <td class="font-weight-bold"> <span class=" text-info border rounded px-3" style="font-size:25px;"><?php echo $ihk_fach_tests_insgesamt_gemacht; ?></span> Test(s)</td>
+										<td class="font-weight-bold"> <span class=" text-success border rounded px-3" style="font-size:25px;"><?php echo $ihk_fach_durchschnittsnote; ?></td>
 									</tr>
 					  		</tbody>
 					  	</table>

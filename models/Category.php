@@ -7,7 +7,7 @@ class Category
 	public static function getCategoryDaten($cat_theme) {
 
 		$db = Db::getConnection();
-		$sql = "SELECT * FROM category WHERE cat_theme = :cat_theme";
+		$sql = "SELECT * FROM category WHERE cat_theme = :cat_theme ORDER BY cat_jahr DESC";
 
 		if($result = $db->prepare($sql)) {
 			$result->bindParam(':cat_theme', $cat_theme);
@@ -55,19 +55,21 @@ class Category
 		}
 	}
 
-	public static function neueCatEinlegen($cat_titel, $cat_theme){
+	public static function neueCatEinlegen($cat_titel, $cat_theme, $cat_jahr){
 
 		$db = Db::getConnection();
 
 		$cat_titel = trim(stripcslashes(htmlspecialchars($cat_titel)));
 		$cat_theme = trim(stripcslashes(htmlspecialchars($cat_theme)));
+		$cat_jahr = trim(stripcslashes(htmlspecialchars($cat_jahr)));
 
-		$sql = "INSERT INTO category (cat_titel, cat_theme) VALUES (:cat_titel, :cat_theme)";
+		$sql = "INSERT INTO category (cat_titel, cat_theme, cat_jahr) VALUES (:cat_titel, :cat_theme, :cat_jahr)";
 
 		if($result = $db->prepare($sql)){
 
 			$result->bindParam(':cat_titel', $cat_titel);
 			$result->bindParam(':cat_theme', $cat_theme);
+			$result->bindParam(':cat_jahr', $cat_jahr);
 			$result->execute();
 
 			if($result->rowCount() > 0) {

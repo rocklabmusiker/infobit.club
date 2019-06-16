@@ -7,7 +7,7 @@
 							href="<?php if($_SESSION['user_status'] == 'admin') {
 														echo '/admin/adminHome';
 													} else
-														{ echo '/admin/adminFragenEinlegen';
+														{ echo '/admin/adminIhkFragenEinlegen';
 														} ?>
 									">
 						Admin

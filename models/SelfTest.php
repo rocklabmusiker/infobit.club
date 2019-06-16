@@ -42,6 +42,25 @@ class SelfTest
     }
   }
 
+  public static function rechnenErgebnissen($session_user_antworten) {
+
+        $result = 0;
+
+        for($i = 0; $i < count($session_user_antworten); $i++){
+          $array = explode(',', $session_user_antworten[$i]);
+          $result +=  round(array_sum($array),2);
+        }
+
+        if($result > 0) {
+          return $result;
+        } else {
+          return false;
+        }
+  }
+
+
+
+
   public static function selfTestFrageEinsetzen(
     $titel, $titel_extension, $cat_id, $cat_theme, $fragen_anzahl,
     $frage_bild_1, $frage_bild_1_extension, $antwort_bild_1, $antwort_bild_1_extension, $frage_punktzahl_1,

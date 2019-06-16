@@ -26,13 +26,19 @@
   </div>
 	<div class="row">
     <div class="col-md-12">
-      <form>
-        <div class="form-group">
-          <label for="exampleInputEmail1">Titel</label>
-          <input type="text" name="cat_titel" class="form-control cat_titel" >
+      <form method="post">
+        <div class="form-row">
+          <div class="form-group col-md-10">
+            <label for="exampleInputEmail1">Titel</label>
+            <input type="text" name="cat_titel" class="form-control cat_titel" >
+          </div>
+          <div class="form-group col-md-2">
+            <label for="exampleInputEmail1">Das Jahr</label>
+            <input type="text" name="cat_jahr" class="form-control cat_jahr" >
+          </div>
         </div>
         <div class="form-group">
-          <input type="button" value="Titel einlegen" name="neue_cat_erstellen" class="btn btn-dark">
+          <input type="submit" value="Titel einlegen" name="neue_cat_erstellen" class="btn btn-dark">
         </div>
       </form>
     </div>

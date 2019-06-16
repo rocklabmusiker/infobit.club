@@ -9,7 +9,6 @@ class AdminSelfTestController
 
     $error;
     $message_text;
-
     $cat_theme = 'ihk_fach_abschluss';
 
     if(Category::getLastCategory($cat_theme) != ''){
@@ -18,19 +17,31 @@ class AdminSelfTestController
 
     if(isset($_POST['neue_cat_erstellen'])){
       $cat_titel = $_POST['cat_titel'];
+      $cat_jahr = $_POST['cat_jahr'];
 
-      if(Category::neueCatEinlegen($cat_titel, $cat_theme)){
+      if($cat_titel != '' && $cat_theme != '') {
 
-        $error = false;
-        $message_text = 'Super! Die Kategorie wurde erstellt!';
-        header('Refresh: 2');
+        if(Category::neueCatEinlegen($cat_titel, $cat_theme, $cat_jahr)){
 
-      } else{
+          $error = false;
+          $message_text = 'Super! Die Kategorie wurde erstellt!';
+          header('Refresh: 3');
+
+        } else{
+          $error = true;
+          $message_text = 'Fehler! Die Kategorie wurde nicht erstellt!';
+          header('Refresh: 3');
+        }
+
+
+      } else {
         $error = true;
-        $message_text = 'Fehler! Die Kategorie wurde nicht erstellt!';
-        header('Refresh: 2');
+        $message_text = 'Fehler! Die Felder dürfen nicht leer sein!';
+        header('Refresh: 3');
       }
+
     }
+
 
     if(isset($_POST['selfTest_frage_speichern'])){
 

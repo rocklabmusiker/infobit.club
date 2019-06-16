@@ -1,5 +1,5 @@
 <?php if($_SESSION['user_status'] != 'admin'){
-  echo '<script> location.replace("/admin/adminFragenEinlegen"); </script>';
+  echo '<script> location.replace("/admin/adminIhkFragenEinlegen"); </script>';
 
 }?>
 

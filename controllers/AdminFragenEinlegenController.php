@@ -15,20 +15,31 @@ class AdminFragenEinlegenController
 
     if(isset($_POST['neue_cat_erstellen'])){
       $cat_titel = $_POST['cat_titel'];
-      // $cat_theme = $_POST['cat_theme'];
+      $cat_jahr = $_POST['cat_jahr'];
+      if($cat_titel != '' && $cat_theme != '') {
 
-      if(Category::neueCatEinlegen($cat_titel, $cat_theme)){
+        if(Category::neueCatEinlegen($cat_titel, $cat_theme, $cat_jahr)){
 
-        $error = false;
-        $message_text = 'Super! Die Kategorie wurde erstellt!';
-        header('Refresh: 3');
+          $error = false;
+          $message_text = 'Super! Die Kategorie wurde erstellt!';
+          header('Refresh: 3');
 
-      } else{
+        } else{
+          $error = true;
+          $message_text = 'Fehler! Die Kategorie wurde nicht erstellt!';
+          header('Refresh: 3');
+        }
+
+
+      } else {
         $error = true;
-        $message_text = 'Fehler! Die Kategorie wurde nicht erstellt!';
+        $message_text = 'Fehler! Die Felder dürfen nicht leer sein!';
         header('Refresh: 3');
       }
+
     }
+
+
 
     if(isset($_POST['frage_speichern'])){
       $frage_cat_id = $_POST['frage_cat_id'];
@@ -92,19 +103,28 @@ class AdminFragenEinlegenController
 
     if(isset($_POST['neue_cat_erstellen'])){
       $cat_titel = $_POST['cat_titel'];
-      // $cat_theme = $_POST['cat_theme'];
+      $cat_jahr = $_POST['cat_jahr'];
+      if($cat_titel != '' && $cat_theme != '') {
 
-      if(Category::neueCatEinlegen($cat_titel, $cat_theme)){
+        if(Category::neueCatEinlegen($cat_titel, $cat_theme, $cat_jahr)){
 
-        $error = false;
-        $message_text = 'Super! Die Kategorie wurde erstellt!';
-        header('Refresh: 3');
+          $error = false;
+          $message_text = 'Super! Die Kategorie wurde erstellt!';
+          header('Refresh: 3');
 
-      } else{
+        } else{
+          $error = true;
+          $message_text = 'Fehler! Die Kategorie wurde nicht erstellt!';
+          header('Refresh: 3');
+        }
+
+
+      } else {
         $error = true;
-        $message_text = 'Fehler! Die Kategorie wurde nicht erstellt!';
+        $message_text = 'Fehler! Die Felder dürfen nicht leer sein!';
         header('Refresh: 3');
       }
+
     }
 
     if(isset($_POST['frage_speichern'])){
@@ -169,19 +189,28 @@ class AdminFragenEinlegenController
 
     if(isset($_POST['neue_cat_erstellen'])){
       $cat_titel = $_POST['cat_titel'];
-      // $cat_theme = $_POST['cat_theme'];
+      $cat_jahr = $_POST['cat_jahr'];
+      if($cat_titel != '' && $cat_theme != '') {
 
-      if(Category::neueCatEinlegen($cat_titel, $cat_theme)){
+        if(Category::neueCatEinlegen($cat_titel, $cat_theme, $cat_jahr)){
 
-        $error = false;
-        $message_text = 'Super! Die Kategorie wurde erstellt!';
-        header('Refresh: 3');
+          $error = false;
+          $message_text = 'Super! Die Kategorie wurde erstellt!';
+          header('Refresh: 3');
 
-      } else{
+        } else{
+          $error = true;
+          $message_text = 'Fehler! Die Kategorie wurde nicht erstellt!';
+          header('Refresh: 3');
+        }
+
+
+      } else {
         $error = true;
-        $message_text = 'Fehler! Die Kategorie wurde nicht erstellt!';
+        $message_text = 'Fehler! Die Felder dürfen nicht leer sein!';
         header('Refresh: 3');
       }
+
     }
 
     if(isset($_POST['frage_speichern'])){
