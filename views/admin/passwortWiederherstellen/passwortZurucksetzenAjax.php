@@ -3,9 +3,9 @@
 <?php
 session_start();
 use PHPMailer\PHPMailer\PHPMailer;
-require_once('../db_ajax.php');
-require_once('../PHPMailer/Exception.php');
-require_once('../PHPMailer/PHPMailer.php');
+require_once('../../db_ajax.php');
+require_once('../../PHPMailer/Exception.php');
+require_once('../../PHPMailer/PHPMailer.php');
 
 if(isset($_POST['email'])) {
 
@@ -43,8 +43,8 @@ if(isset($_POST['email'])) {
 					Hi,<br><br>
 					Du hast 10 min. um das Passwort wiederherzustellen, bitte, klicke auf den Link:<br>
 					<a href='
-					https://infobit.club/passwortVergessen/passwortWiederherstellen/0?email=$user_email&token=$user_token
-					'>https://infobit.club/passwortVergessen/passwortWiederherstellen/0?email=$user_email&token=$user_token</a><br><br>
+					https://infobit.club/passwortWiederherstellen/0?email=$user_email&token=$user_token
+					'>https://infobit.club/passwortWiederherstellen/0?email=$user_email&token=$user_token</a><br><br>
 
 					Mit freundlichen Grüßen<br>
 					infobit.club

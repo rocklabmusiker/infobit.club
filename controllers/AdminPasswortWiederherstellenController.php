@@ -3,7 +3,7 @@
 
 
 
-class PasswortWiederherstellenController
+class AdminPasswortWiederherstellenController
 {
 
   public function actionIndex($param = 0){
@@ -35,7 +35,7 @@ class PasswortWiederherstellenController
       exit();
     }
 
-    require_once(ROOT . '/views/passwortVergessen/passwortWiederherstellen.php');
+    require_once(ROOT . '/views/admin/passwortWiederherstellen/passwortWiederherstellen.php');
     return true;
   }
 }

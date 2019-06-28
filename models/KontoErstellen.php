@@ -1,5 +1,5 @@
 
-<?php 
+<?php
 
 
 
@@ -24,7 +24,7 @@ class KontoErstellen
 			$result->bindParam(':user_password_hash', $user_password_hash);
 			$result->execute();
 
-			
+
 
 			if($result->rowCount() > 0) {
 				return true;

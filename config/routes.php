@@ -1,6 +1,10 @@
 <?php
 
 return [
+
+
+	'admin/passwort_vergessen' => 'adminPasswortVergessen/index',
+	'admin/konto_erstellen' => 'adminKontoErstellen/index',
 	'admin/adminBenutzer' => 'adminBenutzer/index',
 	'admin/adminIhkFachTest' => 'adminSelfTest/ihkFachFragenEinlegen',
 	'admin/adminLinks' => 'adminLinks/index',
@@ -35,12 +39,9 @@ return [
 	'home' => 'home/index', // actionIndex in HomeController
 
 	'personalProfil' => 'personalProfil/index',
-
+	'admin/neue_anfrage' => 'neueAnfrage/index',
+	'passwortWiederherstellen/([0-9]+)' => 'adminPasswortWiederherstellen/index/$1',
 	'logout' => 'logout/logout', // actionLogout in LogoutController
-	'passwortVergessen/passwortWiederherstellen/([0-9]+)' => 'passwortWiederherstellen/index/$1',
-	'neue_anfrage' => 'neueAnfrage/index',
-	'passwort_vergessen' => 'passwortVergessen/index',
-	'konto_erstellen' => 'kontoErstellen/index',
 	'' => 'login/index', // actionIndex in LoginController
 
 ];

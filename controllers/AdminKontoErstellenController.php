@@ -2,7 +2,7 @@
 
 
 
-class KontoErstellenController
+class AdminKontoErstellenController
 
 {
 	public function actionIndex(){
@@ -29,14 +29,14 @@ class KontoErstellenController
 
 						$user_name_post = $user_name;
 						$user_email_post = $user_email;
-						$empfaenger = "danielwagnerpost@gmail.com"; // email
-						$betreff = "Anfrage zu dem Zugang zum Learnspace";
-						$from = "Name: " .$user_name_post  . ", Email: " . $user_email_post;
-						$text = "Bitte um den Zugang zum Learnspace 38.1" . "\n" . $from;
+						$empfaenger = $user_email_post; // email
+						$betreff = "Lernportal 38.1";
+						$from = "https://infobit.club";
+						$text = "Hallo $user_name_post. Sie wurden erfolgreich registriert.\n Mit freundlichen Grüßen \n $from";
 						$email_send = mail($empfaenger, $betreff, $text, $from);
 
 						if($email_send){
-							echo '<script> location.replace("neue_anfrage"); </script>';
+							echo '<script> location.replace("/admin/adminHome"); </script>';
 						}
 						// header('Location: neue_anfrage');
 
@@ -56,7 +56,7 @@ class KontoErstellenController
 
 		}
 
-		require_once(ROOT . '/views/kontoErstellen/kontoErstellen.php');
+		require_once(ROOT . '/views/admin/kontoErstellen/kontoErstellen.php');
 		return true;
 	}
 

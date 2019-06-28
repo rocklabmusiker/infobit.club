@@ -49,9 +49,6 @@
 							<input type="button" class="btn btn-info btn-block clear_pass_fields" value="Felder leeren">
 				  	</div>
 					</div>
-					<div class="form-row mt-3">
-						<a href="/" class="text-danger mb-1" style="text-decoration: none;"><i class="fas fa-angle-double-left pr-2 text-danger" style="position: relative; top:2px;"></i>zurück</a>
-					</div>
 				</form>
 			</div>
 			<div class="col-md-4"></div>

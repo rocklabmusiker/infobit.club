@@ -1,16 +1,13 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-	<meta charset="UTF-8">
-	<title>Lernportal für 38.1</title>
-	<link rel="stylesheet" href="/template/css/bootstrap.min.css">
-	<link rel="stylesheet" href="/template/css/bootstrap-grid.min.css">
-    <link rel="stylesheet" href="/template/css/bootstrap-reboot.min.css">
-	<link rel="stylesheet" href="/template/css/main.css">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 
-</head>
-<body>
+<?php if($_SESSION['user_status'] != 'admin'){
+  echo '<script> location.replace("/admin/adminIhkFragenEinlegen"); </script>';
+
+}?>
+
+<?php include_once(ROOT . '/views/admin/adminLayouts/adminHeader.php'); ?>
+
+<?php include_once(ROOT . '/views/admin/adminLayouts/adminMenu.php'); ?>
+
 
 	<!-- Error messages -->
 	<?php if(isset($error) && $error == true): ?>
@@ -57,30 +54,13 @@
 							<input type="button" class="btn btn-info btn-block clear_reg_fields" value="Felder leeren">
 				  	</div>
 					</div>
-					<div class="form-row mt-3">
-						<a href="/" class="text-danger mb-1" style="text-decoration: none;"><i class="fas fa-angle-double-left pr-2 text-danger" style="position: relative; top:2px;"></i>zurück</a>
-					</div>
 				</form>
 			</div>
 			<div class="col-md-4"></div>
 		</div>
 	</div>
 
-	<script src="/template/js/jquery-3.3.1.min.js"></script>
-	<script src="/template/js/bootstrap.min.js"></script>
-
-	<!-- errors messages -->
-	<script>
-		$(".error_true").animate({left: "0"}, 1000);
-		setTimeout(function(){
-			$(".error_true").animate({left: "-1000px"}, 1000);
-		}, 5000);
-
-		$(".error_false").animate({left: "0"}, 1000);
-		setTimeout(function(){
-			$(".error_false").animate({left: "-1000px"}, 1000);
-		}, 5000);
-	</script>
+<?php include_once(ROOT . '/views/admin/adminLayouts/adminFooter.php'); ?>
 
 
 	<!-- überprüfe neue Passworts auf die gleichheit-->
@@ -143,6 +123,3 @@
 	});
 
 </script>
-
-</body>
-</html>

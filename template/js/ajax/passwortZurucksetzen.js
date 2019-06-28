@@ -6,20 +6,20 @@
 
 				if(email.val() != ""){
 					email.css({border: "2px solid #19692c"}); // green
-
+					console.log(email.val());
 					$.ajax({
-							url: 'views/passwortVergessen/passwortZurucksetzenAjax.php',
+							url: '/views/admin/passwortWiederherstellen/passwortZurucksetzenAjax.php',
 							method: 'POST',
-							dataType: 'text',
 							data: {
 								email: email.val()
 							},
 							success: function(data){
+								console.log(data);
 								if(data == 1){
 									$("#response").removeClass('alert-danger');
 									$("#response").html('Bitte überprüfe deine Email-Postfach!').css('display', 'block').addClass('alert-success');
 									setTimeout(function(){
-										location.replace("/")
+										location.replace("/admin/adminHome")
 									},3000);
 
 								} else if(data == 2){

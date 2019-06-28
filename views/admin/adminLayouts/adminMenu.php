@@ -54,10 +54,23 @@
 		        href="/admin/adminLinks">Links einlegen</a>
 		      </li>
 
-					<li class="nav-item px-2">
-		        <a class="nav-link <?php if($_SERVER['REQUEST_URI'] == '/admin/adminBenutzer') echo 'active'; ?>"
-		        href="/admin/adminBenutzer">Benutzer</a>
-		      </li>
+					<div class="dropdown">
+					  <button class="btn btn-info dropdown-toggle p-1 rounded-0
+										<?php if(	$_SERVER['REQUEST_URI'] == '/admin/adminBenutzer' ||
+															$_SERVER['REQUEST_URI'] == '/admin/konto_erstellen' ||
+															$_SERVER['REQUEST_URI'] == '/admin/passwort_vergessen') echo 'active'; ?>"
+										type="button" id="dropdownMenuButton"
+										data-toggle="dropdown"
+										aria-haspopup="true"
+										aria-expanded="false">
+					    Benutzer
+					  </button>
+					  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+							<a class="dropdown-item" href="/admin/adminBenutzer">Benutzer</a>
+					    <a class="dropdown-item" href="/admin/konto_erstellen">Konto Erstellen</a>
+					    <a class="dropdown-item" href="/admin/passwort_vergessen">Passwort Vergessen</a>
+					  </div>
+					</div>
 
 		    </ul>
 		  </div>

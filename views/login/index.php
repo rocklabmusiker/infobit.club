@@ -1,7 +1,7 @@
-<?php 
+<?php
 
 if(isset($_SESSION['userId']) && isset($_SESSION['allowed']) && $_SESSION['allowed'] == 'ja'): echo '<script> location.replace("home"); </script>';
-	
+
 ?>
 
 <?php else:  ?>
@@ -36,7 +36,9 @@ if(isset($_SESSION['userId']) && isset($_SESSION['allowed']) && $_SESSION['allow
 				  </div>
 
 				  <button type="submit" name="submit" class="btn btn-dark btn-lg">Eintreten</button>
-				  <div class="form-row mt-4">
+
+			<!--
+				 <div class="form-row mt-4">
 				  	<div class="form-group col-md-3">
 				  		<a href="konto_erstellen" class="text-dark">
 				  			<i class="fas fa-user-plus text-success pr-1"></i>Konto erstellen
@@ -48,6 +50,8 @@ if(isset($_SESSION['userId']) && isset($_SESSION['allowed']) && $_SESSION['allow
 				  		</a>
 				  	</div>
 				  </div>
+				-->
+
 				</form>
 			</div>
 			<div class="col-md-4"></div>

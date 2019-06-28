@@ -33,7 +33,7 @@
 
 								<div class="jumbotron frage_1">
 								  <h3 class="display-6">Frage Nr. <?php echo $frage_num + 1; ?></h3>
-									<p class="lead font-weight-normal text-danger"> Diese Aufgabe besteht aus <?php echo $frage['fragen_anzahl']; ?> Fragen.</p>
+									<p class="lead font-weight-normal text-danger"> Diese Aufgabe besteht aus <?php echo $frage['fragen_anzahl']; ?> Frage(n).</p>
 								  <p class="lead">
 										<img 	src="/template/images/selfTestImages/<?php echo $frage['titel']; ?>"
 												style="max-width: 1000px; width: 100%;" alt="<?php echo $frage['titel']; ?>">
@@ -80,8 +80,29 @@
 													<input 	class="form-check-input radio_antwort"
 												  				type="radio"
 												  				name="radio_antwort"
+												  				value="<?php echo ($frage['frage_punktzahl_'. $i] * 20) / 100; ?>" >
+												  <label 	class="form-check-label" for="radio_antwort_1">20 +</label>
+								        </div>
+												<div class="form-check form-check-inline mb-5">
+													<input 	class="form-check-input radio_antwort"
+												  				type="radio"
+												  				name="radio_antwort"
+												  				value="<?php echo ($frage['frage_punktzahl_'. $i] * 40) / 100; ?>" >
+												  <label 	class="form-check-label" for="radio_antwort_1">40 +</label>
+								        </div>
+												<div class="form-check form-check-inline mb-5">
+													<input 	class="form-check-input radio_antwort"
+												  				type="radio"
+												  				name="radio_antwort"
 												  				value="<?php echo ($frage['frage_punktzahl_'. $i] * 50) / 100; ?>" >
 												  <label 	class="form-check-label" for="radio_antwort_1">50 +</label>
+								        </div>
+												<div class="form-check form-check-inline mb-5">
+													<input 	class="form-check-input radio_antwort"
+												  				type="radio"
+												  				name="radio_antwort"
+												  				value="<?php echo ($frage['frage_punktzahl_'. $i] * 60) / 100; ?>" >
+												  <label 	class="form-check-label" for="radio_antwort_1">60 +</label>
 								        </div>
 												<div class="form-check form-check-inline mb-5">
 													<input 	class="form-check-input radio_antwort"

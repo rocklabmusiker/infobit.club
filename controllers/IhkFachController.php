@@ -77,7 +77,7 @@ class IhkFachController
 
 		$erreichte_note = 0;
 		// erreichte Note
-		if($gesamtprozentzahl == 100){
+		if($gesamtprozentzahl >= 95){
 			$erreichte_note = 1;
 		} else if($gesamtprozentzahl >= 91 && $gesamtprozentzahl < 100){
 			$erreichte_note = 1.5;
