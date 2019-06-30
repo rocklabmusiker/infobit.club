@@ -24,7 +24,7 @@ class AdminHomeController
       if($userAllowedDone){
 
         // email an den benutzer
-
+        /*
         $empfaenger = $user_email;
         $betreff = "infobit.club-Zulassung";
         $nachricht = "
@@ -40,6 +40,10 @@ class AdminHomeController
           $error = false;
           $message_text = 'Der Benutzer wurde zugelassen!';
         }
+
+        */
+        $error = false;
+        $message_text = 'Der Benutzer wurde zugelassen!';
         header('Refresh: 3');
 
       }else {

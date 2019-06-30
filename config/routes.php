@@ -42,6 +42,7 @@ return [
 	'admin/neue_anfrage' => 'neueAnfrage/index',
 	'passwortWiederherstellen/([0-9]+)' => 'adminPasswortWiederherstellen/index/$1',
 	'logout' => 'logout/logout', // actionLogout in LogoutController
+	'loginAttempts' => 'login/loginAttempts', 
 	'' => 'login/index', // actionIndex in LoginController
 
 ];

@@ -25,32 +25,36 @@ if(isset($_SESSION['userId']) && isset($_SESSION['allowed']) && $_SESSION['allow
 			<div class="col-md-4"></div>
 			<div class="col-md-4">
 				<form method="post" action="">
+					<?php
+						echo '<input type="hidden" name="hidden" value="'.$atmt.'">';
+					?>
 				  <div class="form-group">
 				    <label for="loginEmail">Email-Adresse</label>
-				    <input type="email" name="loginEmail" class="form-control" id="losinEmail"  placeholder="Email-Adresse">
+				    <input 	type="email"
+										name="loginEmail"
+										class="form-control"
+										id="losinEmail"
+										placeholder="Email-Adresse"
+										<?php if($atmt == 4) echo "disabled"; ?>
+										>
 				  </div>
 
 				  <div class="form-group">
 				    <label for="loginPassword">Password</label>
-				    <input type="password" name="loginPassword" class="form-control" id="loginPassword" placeholder="Password">
+				    <input 	type="password"
+										name="loginPassword"
+										class="form-control"
+										id="loginPassword"
+										placeholder="Password"
+										<?php if($atmt == 4) echo "disabled"; ?>
+										>
 				  </div>
 
-				  <button type="submit" name="submit" class="btn btn-dark btn-lg">Eintreten</button>
-
-			<!--
-				 <div class="form-row mt-4">
-				  	<div class="form-group col-md-3">
-				  		<a href="konto_erstellen" class="text-dark">
-				  			<i class="fas fa-user-plus text-success pr-1"></i>Konto erstellen
-				  		</a>
-				  	</div>
-				  	<div class="form-group col-md-4">
-				  		<a href="passwort_vergessen" class="text-dark">
-				  			<i class="fas fa-key text-info pr-1"></i>Passwort vergessen
-				  		</a>
-				  	</div>
-				  </div>
-				-->
+				  <button type="submit"
+									name="submit"
+									class="btn btn-dark btn-lg"
+									<?php if($atmt == 4) echo "disabled"; ?>
+									>Eintreten</button>
 
 				</form>
 			</div>

@@ -204,10 +204,8 @@ class User
 					$row->bindParam(':user_id', $user_id);
 					$row->execute();
 
-					if($row->rowCount() > 0){
-						return true;
-					}
 				}
+				return true;
 
 			}else{
 				return false;
