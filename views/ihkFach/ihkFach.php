@@ -48,7 +48,7 @@
 
 	$(document).ready(function(){
 		var usedTime  = 0;
-		$.cookie('timestamp_timer_ihk_fach_pause', usedTime, { path: '/ihkFachTest/' });
+		$.cookie('timestamp_timer_ihk_fach_pause', usedTime, { path: '/ihkFachTest' });
 	});
 
 </script>

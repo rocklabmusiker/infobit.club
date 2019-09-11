@@ -407,7 +407,7 @@ $(".timer_start").click(function() {
 
 function getEndTime(){
 
-	//usedTime += 0;
+	// usedTime += 0;
 	$.cookie('timestamp_timer_wbs_zwischen_pause');
 
 	var date = new Date();

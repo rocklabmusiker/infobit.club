@@ -51,7 +51,8 @@
 
 	$(document).ready(function(){
 		var usedTime  = 0;
-		$.cookie('timestamp_timer_ihk_zwischen_pause', usedTime, { path: '/ihkZwischenTest/' });
+		$.cookie('timestamp_timer_ihk_zwischen_pause', usedTime, { path: '/ihkZwischenTest' });
+
 	});
 
 </script>

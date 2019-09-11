@@ -49,9 +49,10 @@
 
 <script>
 
+
 	$(document).ready(function(){
 		var usedTime  = 0;
-		$.cookie('timestamp_timer_wbs_zwischen_pause', usedTime, { path: '/wbsZwischenTest/' });
+		$.cookie('timestamp_timer_wbs_zwischen_pause', usedTime, { path: '/wbsZwischenTest' });
 	});
 
 </script>

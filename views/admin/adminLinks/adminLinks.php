@@ -46,7 +46,6 @@
             <select class="custom-select" id="inlineFormCustomSelect2" name="category">
               <option selected>auswählen...</option>
               <option value="documentation">Documentation</option>
-              <option value="buecher">Buecher</option>
               <option value="tutorials">Tutorials</option>
               <option value="frameworks">Frameworks</option>
             </select>

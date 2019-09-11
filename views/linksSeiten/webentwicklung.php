@@ -31,23 +31,6 @@
 			</div>
 		</div>
 		<div class="col-md-12">
-			<div class="card border-dark mb-3">
-			  <div class="card-header font-weight-bold text-white bg-dark">BÜCHER</div>
-			  <div class="card-body text-dark">
-          <?php if(isset($buecher) && $buecher != ''): ?>
-            <?php foreach ($buecher as $value): ?>
-              <h5 class="card-title">
-                <?php echo $value['titel']; ?>
-                <a href="<?php echo $value['link']; ?>" class="text-dark text-decoration-none" target="_blank">
-                  <i class="fas fa-external-link-square-alt text-dark" style="font-size: 20px;"></i>
-                </a>
-              </h5>
-            <?php endforeach; ?>
-          <?php endif; ?>
-			  </div>
-			</div>
-		</div>
-		<div class="col-md-12">
 			<div class="card border-dark mb-3" >
 			  <div class="card-header font-weight-bold text-white bg-dark">TUTORIALS</div>
 			  <div class="card-body text-dark">

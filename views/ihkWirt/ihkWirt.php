@@ -51,7 +51,7 @@
 
 	$(document).ready(function(){
 		var usedTime  = 0;
-		$.cookie('timestamp_timer_ihk_wirt_pause', usedTime, { path: '/ihkWirtTest/' });
+		$.cookie('timestamp_timer_ihk_wirt_pause', usedTime, { path: '/ihkWirtTest' });
 	});
 
 </script>

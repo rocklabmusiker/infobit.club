@@ -330,7 +330,7 @@
 		var timerStop = false;
 		var loopTimer = null;
 
-				// Set a cookie
+		// Set a cookie
 		if(!$.cookie('timestamp_timer_ihk_zwischen')) {
 				var date = new Date();
 				var currentTimestamp = date.getTime();
@@ -403,7 +403,7 @@
 
 		});
 
-		function getEndTime(){
+		function getEndTime() {
 
 			//usedTime += 0;
 			$.cookie('timestamp_timer_ihk_zwischen_pause');
