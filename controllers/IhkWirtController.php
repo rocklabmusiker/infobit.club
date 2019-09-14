@@ -23,22 +23,6 @@ class IhkWirtController
 			$frage_num = 0;
 		}
 
-		// anzahl der Testdurchläufe
-		$user_id = $_SESSION['user_id'];
-
-		if(UserHistory::getGemachtesTestsAnzahl($this->ihk_wirt_abschluss, $user_id)){
-			$test_durchlauf = UserHistory::getGemachtesTestsAnzahl($this->ihk_wirt_abschluss, $user_id);
-		} else {
-			$test_durchlauf = 0;
-		}
-
-		// letzte Note bekommen
-		if(UserHistory::getLetzteNote($this->ihk_wirt_abschluss, $user_id)){
-			$letzte_note = UserHistory::getLetzteNote($this->ihk_wirt_abschluss, $user_id);
-		} else {
-			$letzte_note = '';
-		}
-
 
 		require_once(ROOT . '/views/ihkWirt/ihkWirt.php');
 		return true;

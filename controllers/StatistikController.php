@@ -17,7 +17,7 @@ class StatistikController
       $ihk_wirt_tests_insgesamt_gemacht = UserHistory::getTestsInsgesamt($cat_theme, $user_id);
 
       $notenGesamtSumme_ihk_wirt = UserHistory::getNotenGesamtSumme($cat_theme, $user_id);
-      $ihk_wirt_durchschnittsnote = $notenGesamtSumme_ihk_wirt / $ihk_wirt_tests_insgesamt_gemacht;
+      $ihk_wirt_durchschnittsnote = round($notenGesamtSumme_ihk_wirt / $ihk_wirt_tests_insgesamt_gemacht,1);
 
     } else {
       $ihk_wirt_tests_insgesamt_gemacht = 0;
@@ -32,7 +32,7 @@ class StatistikController
       $wbs_zwischen_tests_insgesamt_gemacht = UserHistory::getTestsInsgesamt($cat_theme, $user_id);
 
       $notenGesamtSumme_wbs_zwischen = UserHistory::getNotenGesamtSumme($cat_theme, $user_id);
-      $wbs_zwischen_durchschnittsnote = $notenGesamtSumme_wbs_zwischen / $wbs_zwischen_tests_insgesamt_gemacht;
+      $wbs_zwischen_durchschnittsnote = round($notenGesamtSumme_wbs_zwischen / $wbs_zwischen_tests_insgesamt_gemacht,1);
 
     } else {
       $wbs_zwischen_tests_insgesamt_gemacht = 0;
@@ -47,7 +47,7 @@ class StatistikController
       $ihk_wirt_tests_insgesamt_gemacht = UserHistory::getTestsInsgesamt($cat_theme, $user_id);
 
       $notenGesamtSumme_ihk_zwischen = UserHistory::getNotenGesamtSumme($cat_theme, $user_id);
-      $ihk_wirt_durchschnittsnote = $notenGesamtSumme_ihk_zwischen / $ihk_wirt_tests_insgesamt_gemacht ;
+      $ihk_wirt_durchschnittsnote = round($notenGesamtSumme_ihk_zwischen / $ihk_wirt_tests_insgesamt_gemacht,1) ;
 
     } else {
       $ihk_zwischen_tests_insgesamt_gemacht = 0;
@@ -62,7 +62,7 @@ class StatistikController
       $ihk_fach_tests_insgesamt_gemacht = UserHistory::getTestsInsgesamt($cat_theme, $user_id);
 
       $notenGesamtSumme_ihk_fach = UserHistory::getNotenGesamtSumme($cat_theme, $user_id);
-      $ihk_fach_durchschnittsnote = $notenGesamtSumme_ihk_fach / $ihk_fach_tests_insgesamt_gemacht ;
+      $ihk_fach_durchschnittsnote = round($notenGesamtSumme_ihk_fach / $ihk_fach_tests_insgesamt_gemacht,1) ;
 
     } else {
       $ihk_fach_tests_insgesamt_gemacht = 0;

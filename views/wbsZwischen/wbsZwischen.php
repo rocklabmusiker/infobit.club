@@ -15,7 +15,7 @@
 		<?php if(isset($cat_wbs_zwischen_abschluss)): ?>
 			<?php foreach($cat_wbs_zwischen_abschluss as $value): ?>
 				<div class="col-md-3">
-					<div class="card <?php if($test_durchlauf > 0){echo 'border-success';} else{echo 'border-dark';} ?>  mb-3"
+					<div class="card <?php if($value['anzahl'] > 0){echo 'border-success';} else{echo 'border-dark';} ?>  mb-3"
 						style="max-width: 18rem; border: 2px solid;">
 					  <div class="card-header text-center"><?php echo $value['cat_titel']; ?></div>
 					  <div class="card-body text-dark p-0">
@@ -23,13 +23,27 @@
 								<thead>
 									<tr>
 						  			<th scope="col">Gemacht</th>
-										<th scope="col">Letzte Note</th>
+										<th scope="col">Beste Note</th>
 						  		</tr>
 								</thead>
 					  		<tbody>
 									<tr>
-										<td><?php echo $test_durchlauf; ?> Mal</td>
-										<td><?php echo $letzte_note; ?></td>
+										<td><?php
+										if($value['anzahl'] != NULL) {
+											echo $value['anzahl'];
+										} else {
+											echo 0;
+										}
+										?> Mal
+									</td>
+
+										<td><?php
+											if($value['note'] != NULL) {
+												echo $value['note'];
+											} else {
+												echo 0;
+											} ?>
+										</td>
 									</tr>
 					  		</tbody>
 					  	</table>

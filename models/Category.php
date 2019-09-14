@@ -7,8 +7,8 @@ class Category
 	public static function getCategoryDaten($cat_theme) {
 
 		$db = Db::getConnection();
-		$sql = "SELECT * FROM category WHERE cat_theme = :cat_theme ORDER BY cat_jahr DESC";
-
+		// $sql = "SELECT * FROM category WHERE cat_theme = :cat_theme ORDER BY cat_jahr DESC";
+		$sql = "SELECT c.*, count(h.cat_id) as anzahl, min(h.erreichte_note) as note FROM category as c LEFT JOIN user_history as h ON c.cat_id = h.cat_id where c.cat_theme = :cat_theme  group by c.cat_titel";
 		if($result = $db->prepare($sql)) {
 			$result->bindParam(':cat_theme', $cat_theme);
 			$result->execute();
@@ -19,6 +19,8 @@ class Category
 				$cat_daten[$i]['cat_id'] = $row['cat_id'];
 				$cat_daten[$i]['cat_titel'] = $row['cat_titel'];
 				$cat_daten[$i]['cat_theme'] = $row['cat_theme'];
+				$cat_daten[$i]['anzahl'] = $row['anzahl'];
+				$cat_daten[$i]['note'] = $row['note'];
 				$i++;
 			}
 

@@ -24,22 +24,6 @@ class WbsZwischenController
 			$back = 0; // zurück button
 		}
 
-		// anzahl der Testdurchläufe
-		$user_id = $_SESSION['user_id'];
-
-		if(UserHistory::getGemachtesTestsAnzahl($this->wbs_zwischen_abschluss, $user_id)){
-			$test_durchlauf = UserHistory::getGemachtesTestsAnzahl($this->wbs_zwischen_abschluss, $user_id);
-		} else {
-			$test_durchlauf = 0;
-		}
-
-		// letzte Note bekommen
-		if(UserHistory::getLetzteNote($this->wbs_zwischen_abschluss, $user_id)){
-			$letzte_note = UserHistory::getLetzteNote($this->wbs_zwischen_abschluss, $user_id);
-		} else {
-			$letzte_note = '';
-		}
-
 
 		require_once(ROOT . '/views/wbsZwischen/wbsZwischen.php');
 		return true;

@@ -14,10 +14,10 @@
 
 	<div class="row">
 		<?php if(isset($cat_ihk_zwischen_abschluss)): ?>
-			<?php foreach($cat_ihk_zwischen_abschluss as $ihk_zwischen_abschluss): ?>
+			<?php foreach($cat_ihk_zwischen_abschluss as $value): ?>
 				<div class="col-md-3">
-					<div class="card border-dark mb-3" style="max-width: 18rem;">
-					  <div class="card-header text-center"><?php echo $ihk_zwischen_abschluss['cat_titel']; ?></div>
+					<div class="card <?php if($value['anzahl'] > 0){echo 'border-success';} else{echo 'border-dark';} ?> mb-3" style="max-width: 18rem;">
+					  <div class="card-header text-center"><?php echo $value['cat_titel']; ?></div>
 					  <div class="card-body text-dark p-0">
 					  	<table class="table table-bordered text-center">
 								<thead>
@@ -28,8 +28,22 @@
 								</thead>
 					  		<tbody>
 									<tr>
-										<td><?php echo $test_durchlauf; ?> Mal</td>
-										<td><?php echo $letzte_note; ?></td>
+										<td><?php
+										if($value['anzahl'] != NULL) {
+											echo $value['anzahl'];
+										} else {
+											echo 0;
+										}
+										?> Mal
+									</td>
+
+										<td><?php
+											if($value['note'] != NULL) {
+												echo $value['note'];
+											} else {
+												echo 0;
+											} ?>
+										</td>
 									</tr>
 					  		</tbody>
 					  	</table>
