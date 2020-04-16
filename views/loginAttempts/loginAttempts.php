@@ -2,6 +2,7 @@
 <html lang="de">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Lernportal für 38.1</title>
 	<link rel="stylesheet" href="/template/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/template/css/bootstrap-grid.min.css">

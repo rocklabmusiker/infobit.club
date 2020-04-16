@@ -5,12 +5,12 @@
 
 
 
-<div class="container">
+<div class="container pb-5">
 		<div class="seller-trenner"></div>
 	<div class="row">
 		<?php //if(): ?>
 				<div class="col-md-6">
-					<div class="card border-dark my-3" >
+					<div class="card border-dark my-3 statistik" >
 					  <div class="card-header text-center bg-dark text-white" style="font-size:20px;">
               IHK-Fachqualifikation
             </div>
@@ -36,7 +36,7 @@
 
     <?php //if(): ?>
 				<div class="col-md-6">
-					<div class="card border-dark my-3" >
+					<div class="card border-dark my-3 statistik" >
 					  <div class="card-header text-center bg-dark text-white" style="font-size:20px;">
               IHK-Wirtschaft
             </div>
@@ -62,7 +62,7 @@
 
     <?php //if(): ?>
 				<div class="col-md-6">
-					<div class="card border-dark my-3" >
+					<div class="card border-dark my-3 statistik" >
 					  <div class="card-header text-center bg-dark text-white" style="font-size:20px;">
               IHK-Zwischenprüfung
             </div>
@@ -88,7 +88,7 @@
 
     <?php //if(): ?>
 				<div class="col-md-6">
-					<div class="card border-dark my-3" >
+					<div class="card border-dark my-3 statistik" >
 					  <div class="card-header text-center bg-dark text-white" style="font-size:20px;">
               WBS-Zwischenprüfung
             </div>

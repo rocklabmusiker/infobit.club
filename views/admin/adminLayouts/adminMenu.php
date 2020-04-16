@@ -1,12 +1,12 @@
 <div class="container-fluid">
 	<div class="row seller-menu-top">
-		<div class="col-md-6">
+		<div class="col-xs-2 col-sm-2 col-md-4 admin">
 			<ul class="nav nav-admin">
 			  <li class="nav-item">
 			    <a class="nav-link" href="/home">Benutzer</a>
 			  </li>
 		</div>
-		<div class="col-md-6">
+		<div class="col-xs-10 col-sm-10 col-md-8 logout">
 			<ul class="nav justify-content-end nav-logout">
 			  <li class="nav-item">
 			    <a class="nav-link" href="/logout">Logout</a>

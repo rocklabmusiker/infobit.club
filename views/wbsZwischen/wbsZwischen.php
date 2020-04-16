@@ -5,7 +5,7 @@
 
 
 
-<div class="container">
+<div class="container pb-5">
 		<div class="seller-trenner py-2">
 			<h5 class="text-center">Jeder Test enthält 30 bis 40 Aufgaben! Bei der IHK sind es immer 30</h5>
 			<h6 class="text-center">Die Prüfungszeit bei IHK beträgt 60 Minuten!</h6>
@@ -16,7 +16,7 @@
 			<?php foreach($cat_wbs_zwischen_abschluss as $value): ?>
 				<div class="col-md-3">
 					<div class="card <?php if($value['anzahl'] > 0){echo 'border-success';} else{echo 'border-dark';} ?>  mb-3"
-						style="max-width: 18rem; border: 2px solid;">
+						style="border: 2px solid;">
 					  <div class="card-header text-center"><?php echo $value['cat_titel']; ?></div>
 					  <div class="card-body text-dark p-0">
 					  	<table class="table table-bordered text-center">

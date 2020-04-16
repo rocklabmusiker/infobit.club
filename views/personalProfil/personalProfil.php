@@ -18,7 +18,7 @@
 
 
 
-<div class="container personalProfil">
+<div class="container personalProfil pb-5">
 
 	<div class="seller-trenner"></div>
 		<div class="col-md-2 personenBild">
@@ -26,14 +26,14 @@
 			  <div class="card-header"><?php if(isset($users_daten)) echo $users_daten['user_name'];?></div>
 			  <div class="card-body text-dark">
 			    <img src="/template/images/<?php if(isset($users_daten)) {echo $users_daten['user_foto'];} if($users_daten['user_foto'] == ''){echo 'fragezeichen.jpg'; } ?>" alt="img">
-			  </div> 
+			  </div>
 			</div>
 		</div>
 	<div class="col-md-10"></div>
 
 
 	<div class="row">
-	  <div class="col-3">
+	  <div class="col-xs-12 col-sm-12 col-md-3">
 	    <div class="nav flex-column nav-pills bg-dark text-white" id="v-pills-tab" role="tablist" aria-orientation="vertical">
 	      <a class="nav-link active" id="v-pills-person-tab" data-toggle="pill" href="#v-pills-person" role="tab" aria-controls="v-pills-person" aria-selected="true">Persönliche Daten</a>
 	      <a class="nav-link" id="v-pills-bild-tab" data-toggle="pill" href="#v-pills-bild" role="tab" aria-controls="v-pills-bild" aria-selected="false">Profilbild</a>
@@ -41,11 +41,11 @@
 	      <a class="nav-link" id="v-pills-password-tab" data-toggle="pill" href="#v-pills-password" role="tab" aria-controls="v-pills-password" aria-selected="false">Passwort ändern</a>
 	    </div>
 	  </div>
-	  <div class="col-9">
+	  <div class="col-xs-12 col-sm-12 col-md-9">
 	    <div class="tab-content" id="v-pills-tabContent">
 
 	      <div class="tab-pane fade show active" id="v-pills-person" role="tabpanel" aria-labelledby="v-pills-person-tab">
-	      	<table class="table table-bordered">
+	      	<table class="table table-bordered table-responsive-sm">
 					  <thead>
 					    <tr>
 					      <th scope="col">Vorname</th>
@@ -58,13 +58,13 @@
 						    <tr>
 						      <td><?php echo $users_daten['user_name']; ?></td>
 						      <td><?php echo $users_daten['user_lastname']; ?></td>
-						      <td><?php echo $users_daten['user_email']; ?></td>
+						      <td style="word-break: break-all;"><?php echo $users_daten['user_email']; ?></td>
 						    </tr>
 					  	<?php endif; ?>
 					  </tbody>
 					</table>
 			  </div>
-				
+
 				<div class="tab-pane fade" id="v-pills-bild" role="tabpanel" aria-labelledby="v-pills-bild-tab">
 					<form action="" method="post" enctype="multipart/form-data">
 						<span class="badge badge-warning p-2 mb-4">
@@ -80,40 +80,40 @@
 						  	<input type="submit" class="btn btn-dark " id="inputGroupFileAddon04"  value="Hochladen">
 						  </div>
 						</div>
-					</form> 
+					</form>
 			  </div>
-	      
+
 	      <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
 
 	      	<form method="post">
-	      		
+
 						<div class="form-row">
 							<span class="col-md-1 text-danger" style="font-size: 25px; text-align: right;">*</span>
 						  <div class="form-group col-md-11">
-						    <input 	type="text" 
-						    				class="form-control" 
+						    <input 	type="text"
+						    				class="form-control"
 						    				name="user_name"
-						    				value="<?php if(isset($users_daten['user_name'])) echo $users_daten['user_name']; ?>" 
+						    				value="<?php if(isset($users_daten['user_name'])) echo $users_daten['user_name']; ?>"
 						    				placeholder="Vorname">
 						  </div>
 						</div>
 						<div class="form-row">
 							<span class="col-md-1 text-danger" style="font-size: 25px; text-align: right;">*</span>
 						  <div class="form-group col-md-11">
-						    <input 	type="text" 
-						    				class="form-control" 
+						    <input 	type="text"
+						    				class="form-control"
 						    				name="user_lastname"
-						    				value="<?php if(isset($users_daten['user_lastname'])) echo $users_daten['user_lastname'];  ?>" 
+						    				value="<?php if(isset($users_daten['user_lastname'])) echo $users_daten['user_lastname'];  ?>"
 						    				placeholder="Nachname">
 						  </div>
 						</div>
 						<div class="form-row">
 							<span class="col-md-1 text-danger" style="font-size: 25px; text-align: right;">*</span>
 							<div class="form-group col-md-9">
-						    <input 	type="email" 
-						    				class="form-control user_email" 
+						    <input 	type="email"
+						    				class="form-control user_email"
 						    				name="user_email"
-						    				value="<?php if(isset($users_daten['user_email'])) echo $users_daten['user_email']; ?>" 
+						    				value="<?php if(isset($users_daten['user_email'])) echo $users_daten['user_email']; ?>"
 						    				placeholder="Email">
 						  </div>
 
@@ -121,7 +121,7 @@
 						  	<input type="submit" name="change_user_daten" class="btn btn-dark btn-block" value="aktualisieren">
 						  </div>
 						</div>
-					  
+
 					</form>
 
 	      </div>
@@ -134,7 +134,7 @@
 	      	<form method="post">
 			  <div class="form-group">
 			    <input type="password" class="form-control password_old" name="password_old" placeholder="Altes Passwort" value="">
-			  </div> 
+			  </div>
 				<div class="form-row">
 			    <div class="form-group col-md-3">
 			      <input type="password" class="form-control password_new_1" name="password_new_1" placeholder="Neues Passwort" value="">
@@ -151,8 +151,8 @@
 			  		</div>
 			  	</div>
 			</form>
-			
-			
+
+
 
 	      </div>
 

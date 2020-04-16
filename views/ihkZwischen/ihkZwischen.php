@@ -4,7 +4,7 @@
 
 
 
-<div class="container">
+<div class="container  pb-5">
 
 	<div class="seller-trenner py-2">
 		<h5 class="text-center">Jeder Test enthält 30 bis 40 Aufgaben! Bei der IHK sind es immer 30</h5>
@@ -16,7 +16,7 @@
 		<?php if(isset($cat_ihk_zwischen_abschluss)): ?>
 			<?php foreach($cat_ihk_zwischen_abschluss as $value): ?>
 				<div class="col-md-3">
-					<div class="card <?php if($value['anzahl'] > 0){echo 'border-success';} else{echo 'border-dark';} ?> mb-3" style="max-width: 18rem;">
+					<div class="card <?php if($value['anzahl'] > 0){echo 'border-success';} else{echo 'border-dark';} ?> mb-3">
 					  <div class="card-header text-center"><?php echo $value['cat_titel']; ?></div>
 					  <div class="card-body text-dark p-0">
 					  	<table class="table table-bordered text-center">
@@ -49,7 +49,7 @@
 					  	</table>
 					  </div>
 						<div class="card-body text-dark pt-0">
-					  	<a href="ihkZwischenTest/<?php echo $ihk_zwischen_abschluss['cat_id']; ?>?cat_id=<?php echo $ihk_zwischen_abschluss['cat_id']; ?>&frage_num=<?php echo $frage_num; ?>" class="btn btn-dark btn-block">Zum Test <i class="fal fa-comment-alt-edit"></i></a>
+					  	<a href="ihkZwischenTest/<?php echo $value['cat_id']; ?>?cat_id=<?php echo $value['cat_id']; ?>&frage_num=<?php echo $frage_num; ?>" class="btn btn-dark btn-block">Zum Test <i class="fal fa-comment-alt-edit"></i></a>
 					  </div>
 					</div>
 				</div>

@@ -5,15 +5,15 @@
 
 
 
-<div class="container">
+<div class="container pb-5">
 
 	<div class="seller-trenner"></div>
 
 	<div class="row">
 		<?php if(isset($cat)): ?>
 			<?php foreach($cat as $value): ?>
-				<div class="col-md-3">
-					<div class="card <?php if($value['anzahl'] > 0){echo 'border-success';} else{echo 'border-dark';} ?> mb-3" style="max-width: 18rem;">
+				<div class="col-xs-12 col-sm-12 col-md-3">
+					<div class="card <?php if($value['anzahl'] > 0){echo 'border-success';} else{echo 'border-dark';} ?> mb-3" >
 					  <div class="card-header"><?php echo $value['cat_titel']; ?></div>
 						<div class="card-body text-dark p-0">
 					  	<table class="table table-bordered text-center">

@@ -1,6 +1,6 @@
 <div class="container-fluid">
 	<div class="row seller-menu-top">
-		<div class="col-md-6">
+		<div class="col-xs-2 col-sm-2 col-md-4 admin">
 			<ul class="nav nav-admin">
 			  <li class="nav-item">
 			    <a 	class="nav-link"
@@ -15,10 +15,10 @@
 
 			  </li>
 		</div>
-		<div class="col-md-6">
+		<div class="col-xs-10 col-sm-10 col-md-8 logout">
 			<ul class="nav justify-content-end nav-logout">
 			  <li class="nav-item">
-			    <a class="nav-link" href="/personalProfil">Ich grüße dich, <?php echo GetName::getNameFromSession($_SESSION['user_id'])['user_name']; ?><i class="fas fa-user-graduate"></i></a>
+			    <a class="nav-link" href="/personalProfil">Hi, <?php echo GetName::getNameFromSession($_SESSION['user_id'])['user_name']; ?><i class="fas fa-user-graduate"></i></a>
 			  </li>
 			  <li class="nav-item">
 			    <a class="nav-link" href="/logout">Logout</a>

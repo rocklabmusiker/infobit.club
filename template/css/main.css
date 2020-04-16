@@ -45,6 +45,15 @@ html {
     z-index: 100;
 }
 
+.card {
+	max-width: 18rem;
+}
+
+@media only screen and (max-width: 480px){
+	.card {
+		max-width: 100%;
+	}
+}
 
 /*========= Errors=========*/
 .error_true {
@@ -113,6 +122,24 @@ html {
 
 
 /*========= header-nav =========*/
+
+@media only screen and (max-width: 480px) {
+
+	.admin {
+		width: 15%;
+	}
+	.logout {
+		width: 85%;
+	}
+	ul.nav.nav-admin {
+		flex-wrap: nowrap;
+	}
+
+	.nav-link {
+    display: block;
+    padding: 0rem 1rem .5rem;
+	}
+}
 
 
 .nav-link {
@@ -197,12 +224,11 @@ html {
 
 /*========= Home =========*/
 
+
 .fas.fa-user-graduate {
     margin-left: 10px;
     transition: all .4s ease;
 }
-
-
 
 .fas.fa-user-graduate:hover {
     color:#dc3545;
@@ -490,4 +516,10 @@ span.float-right.d-inline-block {
 
 .container-nav-menu .navbar-nav .nav-item a {
 	padding: 5px 10px;
+}
+
+/* Statistik */
+
+.card.statistik {
+	max-width: 100%;
 }
